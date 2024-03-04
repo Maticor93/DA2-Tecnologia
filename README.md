@@ -9,7 +9,6 @@
 ## Contacto
 
 - Daniel Acevedo - [daniel18acevedo@gmail.com](mailto:daniel18acevedo@gmail.com)
-- Matias Salles - [matiassalles99@gmail.com](mailto:matiassalles99@gmail.com)
 
 ---
 
