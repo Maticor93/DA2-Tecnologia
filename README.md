@@ -12,7 +12,7 @@ Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología
 Aca van a encontrar tanto materiales de interes para profundizar, como códigos de ejemplo que serán de utilidad para la realización del obligatorio.
 
 ## Temas
-
+- [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
 - [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/web-api)
 - [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/ef-core)
 - [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/dependency-injection)
