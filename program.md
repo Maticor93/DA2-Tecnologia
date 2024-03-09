@@ -2,7 +2,7 @@ Es el punto de entrada de nuestra aplicacion, es donde vamos a configurar un hos
 
 ## Host
 
-Un host es un envoltorio que cubre nuestra aplicacion. Es el responsable de iniciar y gestionar la vida de la aplicacion. El host contiene la configuracion de la aplicacion y un servidor HTTP (en nuestro caso un servidor - [Kestrel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/feature/web-api/kestrel.md)) que esta atento a peticiones HTTP para atender y devolver una respuesta. Tambien es la que configura otros aspectos como logging, inyeccion de dependencia, procesamiento de las requests, etc.
+Un host es un envoltorio que cubre nuestra aplicacion. Es el responsable de iniciar y gestionar la vida de la aplicacion. El host contiene la configuracion de la aplicacion y un servidor HTTP (en nuestro caso un servidor - [Kestrel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/kestrel.md)) que esta atento a peticiones HTTP para atender y devolver una respuesta. Tambien es la que configura otros aspectos como logging, inyeccion de dependencia, procesamiento de las requests, etc.
 
 Asi como configuramos una web application, tambien existen otros tipos de host:
 
@@ -28,7 +28,7 @@ La clase `program` crea la `web application` en tres pasos, **crea**, **configur
 
 La primera linea crea una instancia de tipo `WebApplicationBuilder`. El metodo `CreateBuilder` es un metodo estatico de la clase `WebApplication`, y el resultado es una configuracion por defecto de los siguientes elementos:
 
-- Tipo de servidor HTTP que se va a usar (**[Kestrel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/feature/web-api/kestrel.md)**)
+- Tipo de servidor HTTP que se va a usar (**[Kestrel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/kestrel.md)**)
 
 - Logging
 
