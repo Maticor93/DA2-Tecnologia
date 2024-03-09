@@ -6,6 +6,10 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+var configuration = app.Configuration;
+var key = configuration.GetValue<string>("MyKey");
+Console.WriteLine(key);
+
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
