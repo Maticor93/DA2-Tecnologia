@@ -1,57 +1,83 @@
-# Repositorio de clase
+# Archivos
 
-## Planillas
+- **.gitignore**: Este archivo es necesario y requerido para ignorar aquellos archivos que no se quiere tener un control de version. Esto quiere decir, que ciertos archivos por mas que sean modificados, eliminados o agregados, no se vera ningun cambio efectuado en el historico de cambios de git antes al momento de crear un commit. Para que este archivo tenga efecto, tiene que ser commiteado en un primer commit antes de ponerse a trabajar en el proyecto.
 
-- [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
-- [Grupo obligatorios](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/ERVYsgSzrElNvxnwj0L3ZbkBwP8cQTkOXgUuY6DePBcNHA?e=w7F6Ws)
+- **.editorconfig**: Es un archivo que configura reglas de clean code para c#. En caso de que este archivo genere problemas al momento de compilar, ejecutar o tengan contradicciones, hacer uso del archivo **.editorconfig2** eliminando el 2 y eliminando el **.editorconfig**. Solo debe existir un **.editorconfig**.
 
-## Introducción
+- **Directory.Build.props (opcional)**: Es el lugar para especificar aquellos paquetes que son usados por todos los proyectos locales de la solucion. Es una forma mas rapida de controlar sus versiones y que los paquetes locales se actualicen en simultaneo.
 
-Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
+- **pull_request_template.md**: Es una guia sobre la informacion a incluir en los pull request que se creen.
 
-Aca van a encontrar tanto materiales de interes para profundizar, como códigos de ejemplo que serán de utilidad para la realización del obligatorio.
+- **.github/workflows/build-and-test.yml**: es una configuracion para ejecutar tareas al momento de realizar ciertas acciones en github. Esta configurado para que haga build y corra las pruebas junto con el chequeo de cobertura del codigo, cuando se crea un pull request y cuando se mergea codigo a una rama.
 
-## Temas
-- [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
-- [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/web-api)
-- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/ef-core)
-- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/dependency-injection)
-- [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/unit-testing)
-- [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/filters)
-- [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/reflection)
-- [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/angular)
+- **.github/workflows/code-analysis**: es una configuracion que analisa el codigo en funcion a los parametros del archivo **.editorconfig**.
 
-Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
+# Badges
 
-## Stack tecnologico
+Las badges que se van agregar son indicadores del estado en el que se encuentra nuestro proyecto.
 
-- [.NET Core 8.0](https://dotnet.microsoft.com/download)
-- [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
-- [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
-- [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
-- [Visual Studio](https://visualstudio.microsoft.com/es/vs/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
-- [Postman](https://www.postman.com/)
-- [Angular](https://angular.io/)
-- [Node](https://nodejs.org/es/)
-- [Git](https://git-scm.com/) (si quieren mas info sobre manejo de git pueden leer este [libro](https://sisbibliotecas.ort.edu.uy/cgi-bin/koha/opac-detail.pl?biblionumber=80216))
-- [Github desktop](https://desktop.github.com/)
-- [NVM](https://4geeks.com/how-to/nvm-install-windows)
+```md
+[![Build and Test](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main)](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml)
+```
 
-## Links de extension para VSC
+Se deberan de adecuar las rutas acorde a sus repositorios.
 
-- [C# for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Extensión que facilita el desarrollo en C# con Visual Studio Code.
-- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
-- [NuGet Gallery](https://marketplace.visualstudio.com/items?itemName=patcx.vscode-nuget-gallery) Extension para tener la galeria de librerias en VSC
-- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) Extension que sirve para mostrar y codificar de a pares
-- [C# Estensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) Extension para crear archivos mas facil
+# Configuracion de branches
 
+Se requiere que configuren reglas en las branches principales para evitar conflictos al momento de mergear.
 
-## Aclaracion
+- Ir a Settings (Ultima opcion en la barra de navegacion en github en el repositorio)
+<p align="center">
+<img src="images/image-1.png"/>
+</p>
 
-⚠️ El código que se encuentra está escrito en un ámbito de clase lo cual implica que esta desarrollado de forma practica por tema de tiempos. Todo el codigo no se debe tomar como ejemplo final. Tomar con cuidado, es solo un ejemplo ⚠️
+## General
 
-## Docentes
+- Ir a General
+<p align="center">
+<img src="images/image-10.png"/>
+</p>
 
-- :space_invader: Daniel Acevedo (daniel18acevedo@gmail.com)
+- La branch por defecto debera ser `develop`
+
+<p align="center">
+<img src="images/image-7.png"/>
+</p>
+
+- Configurar la seccion de `Pull Requests` de la siguiente manera
+<p align="center">
+<img src="images/image-8.png"/>
+</p>
+
+## Branches
+
+- Ir a Branches
+<p align="center">
+<img src="images/image-2.png"/>
+</p>
+
+- Crear una nueva regla
+<p align="center">
+<img src="images/image-3.png"/>
+</p>
+
+- En el nombre de la rama poner: `main`
+
+- Seleccionar la opcion `Require a pull request before merging`
+<p align="center">
+<img src="images/image-4.png"/>
+</p>
+
+- Seleccionar `Require status checks to pass before merging` y poner `Build`, `Test` y `Analysis`
+<p align="center">
+<img src="images/image-5.png"/>
+</p>
+
+- Seleccionar `Lock branch`
+<p align="center">
+<img src="images/image-6.png"/>
+</p>
+
+- Para terminar apretar `Create`
+
+- Replicar lo mismo para otra branch llamada `develop`
