@@ -1,3 +1,5 @@
+# Kestrel
+
 Como ya se dijo, ASP.NET Core es un framework que es multi plataforma. Soporta tanto desarrollo como ejecucion en diferentes sistemas operativos como Windows, Linux o MacOS.
 
 **Kestrel** es un web server multiplataforma y liviano para aplicaciones web ASP.NET Core. Este server soporta todas las plataformas que ASP.NET Core soporta.
@@ -43,4 +45,5 @@ Cuando una aplicacion web ASP.NET Core es deployada, **Kestrel** es el primer pu
 - **Manejo de memoria**: El gran rendimiento de performance es en parte gracias a la descarga de grandes objetos para reducir la garbage collection. Sin embargo, esto puede aumentar el consumo de memoria en escenarios especificos si no es manejado de forma correcta.
 
 ## Conclusion
+
 En resumen, **Kestrel** es un buena opcion como servidor web para aplicaciones ASP.NET Core por ser liviano, con alta performance y multiplataforma. Aun asi con sus limitaciones, especificamente como ser un servidor web expuesto directamente, ofrece algunas ventajas significativas, particularmente en velocidad y capacidades multiplataforma. Emparejar **Kestrel** con un reverse proxy puede balancear la performance y seguridad en muchos escenarios de tipo produccion.

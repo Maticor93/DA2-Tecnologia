@@ -1,3 +1,5 @@
+# LaunchSettings.json
+
 Es un archivo de configuracion usado para configurar varios aspectos sobre como nuestra aplicacion deberia ser ejecutada y debugeada durante el desarrollo. Este archivo se puede encontrar en la carpeta `Properties` y es usado principalmente por Visual Studio y .NET CLI.
 
 Las configuraciones que este archivo contiene, seran usadas cuando corramos nuestra web api desde Visual Studio o por comandos usando .NET CLI. El punto mas importante es que este archivo solo es usado de forma local en el desarrollo. Este archivo no es requerido cuando nosotros despleguemos la aplicacion en un servidor de produccion.

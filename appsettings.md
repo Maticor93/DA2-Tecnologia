@@ -1,3 +1,5 @@
+# AppSettings.json
+
 Es un archivo JSON que contiene configuraciones de la aplicacion. En este archivo se pueden guardar configuraciones como connection strings, configuraciones de la aplicacion mismo, logging, y cualquier otra cosa que uno quiera cambiar sin la necesidad de recompilar la aplicacion.
 
 Las configuraciones en este archivo pueden ser leidas en tiempo de ejecucion y sobrescritas por las configuraciones especificas del ambiente en el cual se corre. En un ambiente de desarrollo se usan los valores de `appsettings.Development.json` y en un ambiente de produccion se usarian los valores de `appsettings.Production.json`.
@@ -18,6 +20,7 @@ Esto quiere decir que si todas las fuentes configuran las mismas variables, el u
 Este orden y las fuentes de configuracion pueden ser modificadas en caso que se requiera.
 
 En este archivo podemos encontrar lo siguiente:
+
 ```C#
 {
   "Logging": {
@@ -29,10 +32,10 @@ En este archivo podemos encontrar lo siguiente:
   "AllowedHosts": "*"
 }
 ```
+
 - **Logging**: Define el nivel de logueo para diferentes componentes de la aplicacion
 
 - **AllowedHosts**: Especifica los hosts que la aplicacion va a estar escuchando
-
 
 ## Buenas practicas
 
