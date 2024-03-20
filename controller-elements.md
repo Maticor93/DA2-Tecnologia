@@ -50,4 +50,4 @@ Son los atributos para especificarle al framework donde esta la data.
 - FromBody: la data esta en el body
 
 # Lecturas recomendadas
-- (Model binding)[https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-3.1]
+- [Model binding](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-3.1)
