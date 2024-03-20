@@ -48,3 +48,6 @@ Son los atributos para especificarle al framework donde esta la data.
 - FromRoute: la data esta en el endpoint
 - FromQuery: la data esta en los query params
 - FromBody: la data esta en el body
+
+# Lecturas recomendadas
+- (Model binding)[https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-3.1]
