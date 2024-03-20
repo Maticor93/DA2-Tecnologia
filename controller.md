@@ -19,4 +19,4 @@ Al ser el punto de entrada a nuestra web api, estas clases son utilizadas por .N
 Cuando una request llega a la web api, .NET Core usa la configuracion de enrutamiento para determinar que controller y que funcion deberia de manejar la request. Una vez que el controller y la funcion son identificados, el framework crea una instancia del controller e invoca la funcion apropiada para procesar la request.
 
 - [Elementos de un controller](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller-elements.md)
-- [Buenas practicas.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller-good-practices.md)
+- [Buenas practicas](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller-good-practices.md)
