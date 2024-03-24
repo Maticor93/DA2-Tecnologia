@@ -4,12 +4,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var app = builder.Build();
+var services = builder.Service;
+var configuration = builder.Configuration;
 
-var configuration = app.Configuration;
 var key = configuration.GetValue<string>("MyKey");
 Console.WriteLine(key);
 
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
