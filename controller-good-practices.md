@@ -4,7 +4,7 @@
 El uso del atributo [Route] deberia ser a nivel de clase y sin el uso del placeholder. Cuando se crea un controller se crea de la siguiente manera: [Route("[Controller]")] el cual se deberia de modificar de la siguiente forma [Route("resource")] siendo "resource" el recurso que el controller estara atendiendo. Este resource debe ser completamente en minuscula y en plural.
 
 ## Niveles extra
-Para especificar niveles extra al base, se debera de hacer en los atributos de los verbos http. Por ejemplo: [HttpGet("{id}")] o [HttpGet("users")], el primer ejemplo, indica un nivel adicional dinamico, y el segundo ejemplo, indica un nivel adicional estatico.
+Para especificar niveles extra al base, se debera de hacer en los atributos de los verbos http. Por ejemplo: ``[HttpGet("{id}")]`` o ``[HttpGet("users")]``, el primer ejemplo, indica un nivel adicional dinamico, y el segundo ejemplo, indica un nivel adicional estatico.
 
 ## Controller sealed
 Los controllers especificos de recursos son clases que no se reusan logica, no se deberian de poder heredar entre ellos.
@@ -27,3 +27,12 @@ Los controllers como son un enrutamiento a la logica de negocio correspondiente,
 ## Funciones publicas
 Para que se pueda hacer el enrutamiento de la request http a la funcion correspondiente, estos deben ser publicos para ser invocados.
 
+## DTOs
+
+Los Data Transfer Objects son estructuras definidas utilizadas en el envio de informacion entre capas. Estas estructuras son muy utiles para definir que informacion es requerida a enviar a una capa adyacente. 
+
+Los objetos de estas estructuras se categorizan por ser dummy, ya que lo unico que guardan en su interior es puramente estado y no comportamiento. Dado esta caracteristica, es muy encontrarlos definidos como ``struct`` o ``sealed record class``, dependiendo que se quiera hacer con ellos.
+
+Para una web-api los tipos de los estados de los dtos, deben de ser primitivos para poder tener un control sobre la serializacion a tipos especificos de nuestro dominio. Por ejemplo, si se quiere exponer una fecha, la misma en el dto debera de ser string, y con una logica interna se parseara al tipo de fecha correspondiente teniendo cuenta el formato y el caracter separador.
+
+Una regla importante entre los dtos es intentar de que las dependencias sean con otros dtos, asi la evolucion de las diferentes estructuras manejadas se puede hacer de forma independiente y a su propio ritmo.
