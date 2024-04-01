@@ -9,9 +9,8 @@ ls
 Comandos:
 
 - `ls`: lista elementos en un directorio
-
 <p align="center">
-<img src='./images/image-9.png'>
+<img src='./images/image-16.png'>
 </p>
 
 <p align="center">
@@ -36,6 +35,20 @@ Comandos y parametros:
 
 <p align="center">
 [Creacion proyecto MSTest]
+</p>
+
+- Chequear que se creo el proyecto. En el directorio ejecutar `ls`.
+
+```C#
+ls
+```
+
+<p align="center">
+<img src='./images/image-9.png'>
+</p>
+
+<p align="center">
+[Chequear creacion de proyecto]
 </p>
 
 - Agregar proyecto creado a la solucion
