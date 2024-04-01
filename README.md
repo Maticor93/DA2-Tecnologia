@@ -39,7 +39,6 @@ Se requiere que configuren reglas en las branches principales para evitar confli
 </p>
 
 - La branch por defecto debera ser `develop`
-
 <p align="center">
 <img src="images/image-7.png"/>
 </p>
