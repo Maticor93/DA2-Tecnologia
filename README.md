@@ -17,7 +17,7 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 - [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
 - [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
 - [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/ef-core)
-- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/dependency-injection)
+- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
 - [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/unit-testing)
 - [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/filters)
 - [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/reflection)
