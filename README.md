@@ -201,7 +201,7 @@ Bajo el dominio de una web api, los servicios `scope` seran instanciados por cad
 
 Esto implica que la instancia del servicio C es reusada para todos los servicios que la necesiten. Este ciclo de vida asgura consistencia y evita instancias duplicadas innecesariamente. Esta instancia es disposed por el contenedor de DI cuando la request termino de ejecutarse.
 
-Para registrar un servicio con este ciclo de vida se debera de usar el metodo `AddScope`
+Para registrar un servicio con este ciclo de vida se debera de usar el metodo `AddScoped`
 
 #### Transient
 
@@ -237,13 +237,13 @@ var services = builder.Services;
 
 // Registro de logica de negocio
 services
-  .AddScope<IMovieLogic, MovieLogic>();
+  .AddScoped<IMovieLogic, MovieLogic>();
 
 // Registro de acceso a datos
 services
-  .AddScope<DbContext, VidlyContext>()
-  .AddScope<IMovieRepository, MovieRepository>()
-  .AddScope<IUserRepository, UserRepository>();
+  .AddScoped<DbContext, VidlyContext>()
+  .AddScoped<IMovieRepository, MovieRepository>()
+  .AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -258,3 +258,7 @@ app.Run();
 ```
 
 Dado esta configuracion, el framework sabra como tratar e instanciar nuestros servicios para cuando llegue una request. El contenedor de servicios autogestiona las dependencias sin tener que involucrarse manualmente.
+
+## Referencias
+
+[DI - Dependency injection in .NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-8.0#entity-framework-contexts)
