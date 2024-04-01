@@ -1,59 +1,72 @@
-# Repositorio de clase
+# Pruebas
 
-## Planillas
+Las pruebas son un aspecto fundamental en el desarrollo de software de calidad. En base a un set de pruebas aseguran que el codigo desarrollado funciona como es de esperar y es libre de bugs.
 
-- [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
-- [Grupo obligatorios](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/ERVYsgSzrElNvxnwj0L3ZbkBwP8cQTkOXgUuY6DePBcNHA?e=w7F6Ws)
-- [Seguimiento de clases](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EcJWJ347UEJGr7q9uiV4howBck_KiHapJIAkql-U0chekA?e=6g04md)
+Existen varios tipos de pruebas, cada una con un proposito diferente para validar aspectos especificos del sistema.
 
-## Introducción
+# Pruebas de integracion
 
-Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
+Estas pruebas se concentran en probar la interaccion entre diferentes modulos/capas del sistema. Verifica que modulos individuales funcionen correctamente en grupo. Este tipo de pruebas pueden ser realizadas en diferentes niveles del sistema.
 
-Aca van a encontrar tanto materiales de interes para profundizar, como códigos de ejemplo que serán de utilidad para la realización del obligatorio.
+Las mismas requieren un nivel de configuracion mas grande ya que prueban desde una capa inicio hasta la capa fin del sistema.
 
-## Temas
-- [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
-- [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
-- [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
-- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/ef-core)
-- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
-- [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/unit-testing)
-- [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/filters)
-- [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/reflection)
-- [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/angular)
+Este tipo de pruebas no suelen ser usadas de forma exaustiva ya que el consumo de las mismas es demasiado grande. Se suelen utilizar para probar cosas puntuales.
 
-Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
+# Pruebas unitarias
 
-## Stack tecnologico
+Son el primer nivel de pruebas que involucran probar de forma individual componentes de forma aislada a otros componentes. Estan enfocadas en verificar la correctitud de trozos de codigo chico y aislados. Los desarrolladores usualmente escriben pruebas unitarias en conjunto con el codigo que desarrollan, asegurandose que cada componente se comporta de la manera que espera.
 
-- [.NET Core 8.0](https://dotnet.microsoft.com/download)
-- [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
-- [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
-- [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
-- [Visual Studio](https://visualstudio.microsoft.com/es/vs/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
-- [Postman](https://www.postman.com/)
-- [Angular](https://angular.io/)
-- [Node](https://nodejs.org/es/)
-- [Git](https://git-scm.com/) (si quieren mas info sobre manejo de git pueden leer este [libro](https://sisbibliotecas.ort.edu.uy/cgi-bin/koha/opac-detail.pl?biblionumber=80216))
-- [Github desktop](https://desktop.github.com/)
-- [NVM](https://4geeks.com/how-to/nvm-install-windows)
+Estas pruebas deberan solamente probar codigo que este al alcance del desarrollador y solo un componente a la vez.
 
-## Links de extension para VSC
+Este tipo de pruebas nos ayudaran a probar nuestro codigo sin la necesidad de probar las dependencias al mismo tiempo, esto ayudara a los desarrolladores a encontrar errores ubicados unicamente en la porcion de codigo que se esta probando.
 
-- [C# for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Extensión que facilita el desarrollo en C# con Visual Studio Code.
-- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
-- [NuGet Gallery](https://marketplace.visualstudio.com/items?itemName=patcx.vscode-nuget-gallery) Extension para tener la galeria de librerias en VSC
-- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) Extension que sirve para mostrar y codificar de a pares
-- [C# Estensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) Extension para crear archivos mas facil
+Algunos aspectos fundamentales son:
 
+- Aislamiento: las pruebas deberan de probar componentes de forma aislada a sus dependencias
 
-## Aclaracion
+- Diseñadas en funcion de test cases: estas pruebas giran en torno a casos de prueba, los cuales son escenarios especificos o entradas diseñadas para verificar un comportamiento de una unidad individual bajo diferentes condiciones. Los casos de prueba deben cubrir un set de escenarios grande para asegurar una cobertura completa
 
-⚠️ El código que se encuentra está escrito en un ámbito de clase lo cual implica que esta desarrollado de forma practica por tema de tiempos. Todo el codigo no se debe tomar como ejemplo final. Tomar con cuidado, es solo un ejemplo ⚠️
+- Assertions: las pruebas unitarias incluyen assertions, los cuales son declaraciones que verifican el comportamiento esperado de la prueba unitaria. Estas declaraciones comparan el resultado actual con lo esperado.
 
-## Docentes
+- Mocking y Stubbing: las dependencias externas a la porcion de codigo son remplazadas con objetos mock o stubs para simular el comportamiento. Esto le permite a los desarrolladores controlar el ambiente en el cual la prueba es ejecutada y concentrarse solamente en probar la porcion de codigo.
 
-- :space_invader: Daniel Acevedo (daniel18acevedo@gmail.com)
+- Ejecucion rapida: estas pruebas suelen ser rapidas, permitiendole a los desarrolladores ejecutarlas frecuentemente durante el proceso de desarollo sin ninguna complicacion. Una rapida ejecucion genera un rapido feedback, permitiendole a los desarrolladores identificar y arreglar defectos rapidamente.
+
+- Integracion continua: las pruebas unitarias son escenciales para la integracion y entrega de codigo de forma continua. Estas pruebas son ejecutadas de forma automatica como parte de un proceso que asegura que el codigo compila y esta libre de bugs.
+
+- Seguridad al refactorear: un set bueno de pruebas unitarias, genera una sensacion de seguridad a la hora de refactorear el codigo. Cuando un desarrollador realiza cambios, este puede introducir errores en alguna parte del codigo, la forma de asegurarse de que eso no suceda, es chequeando si alguna prueba unitaria falla despues de realizar los cambios.
+
+## Mocks
+
+Los mocks son objetos que simulan comportamiento de un objeto real de forma controlada. Son usados principalmente en pruebas unitarias para aislar la unidad a probar de sus dependencias. Estos objetos imitan el comportamiento de componentes externos con los que la unidad a probar interactua, por ejemplo: base de datos, servicios en la web u otros servicios o clases en el sistema.
+
+Los mocks nos permiten verificar la interaccion del sistema bajo prueba (SUT - system under test) con sus dependencias.
+
+Algunas caracteristicas de los mocks son:
+
+- Simulacion del comportamiento de un objeto.
+- Aislamiento de codigo de sus dependencias
+- Reduccion de dependencias
+
+Los mocks son un tipo de test doubles, estos son objetos que se utilizan en lugares de dependencias reales durante el testing para aislar una unidad de codigo especifica y controlar el comportamiento de las dependencias. Los test doubles le permiten al desarrollador crear ambientes controlados para las pruebas, asegurandose que las pruebas sean predecibles, repetibles e independientes a factores externos.
+
+Algunos otros test doubles son:
+
+- Dummy: son placeholder usados cuando un parametro es requerido pero su valor es irrelevante a la prueba. Son tipicamente pasados como argumentos pero nunca usados en la prueba en si. Ayudan a satisfacer la firma de un metodo o constructor sin impactar en la logica de la prueba.
+
+- Stub: proven una respuesta a la llamada de metodos durante una prueba. Simulan el comportamiento de objetos reales al retornar valores pre definidos o lanzar excepciones pre definidas. Son utiles para controlar el comportamiento de dependencias y asegurarse resultas consistentes.
+
+- Mock: Son objetos pre programados con expectativas sobre las llamadas que esperan recibir durante la prueba. Le permiten a los desarrolladores especificar las interacciones esperadas entre la unidad que esta bajo prueba con sus dependencias. Pueden verificar los argumentos con los cuales son llamados los metodos, especificar un orden y frecuencia.
+
+- Fake: son simplemente implementaciones de dependencias que proveen una forma alternativa a los objetos reales. Son usados tipicamente en escenarios donde el objeto real no es pracico, como por ejemplo: el uso de base de datos en memoria en lugar de una base de datos en produccion para pruebas. Estos sacrifican similitud por simpleza y velocidad.
+
+- Spy: guardan las interacciones entre la unidad a probar con sus dependencias, permitiendo a los desarrolladores inspeccionar y verificar esas interacciones despues de que la prueba fue ejecutada. Son utiles para monitorear como las pruebas interactuan con sus dependencias sin modificar su comportamiento.
+
+Algunas ventajas de usar los diferentes test doubles son:
+
+- Aislamiento
+- Control
+- Velocidad
+- Flexibilidad
+
+[Creacion de un proyecto de prueba unitaria con MSTest](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/unit-testing/create-unit-test-project.md)
