@@ -10,7 +10,7 @@ builder
         options.SuppressModelStateInvalidFilter = true;
     });
 
-var services = builder.Service;
+var services = builder.Services;
 var configuration = builder.Configuration;
 
 var key = configuration.GetValue<string>("MyKey");

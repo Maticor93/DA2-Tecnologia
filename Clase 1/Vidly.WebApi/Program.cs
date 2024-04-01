@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var services = builder.Service;
+var services = builder.Services;
 var configuration = builder.Configuration;
 
 var key = configuration.GetValue<string>("MyKey");
