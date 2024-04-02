@@ -62,3 +62,29 @@ public sealed class MovieControllerTests
 }
 ```
 
+## TestMethod
+Es el atributo que se le da a un metodo de prueba. Sirve para que el framework identifique las pruebas a ejecutar. La visibilidad de dicha prueba debe de ser `public` y el retorno `void`.
+
+```C#
+[TestClass]
+public sealed class MovieControllerTests
+{
+  // some code
+  [TestMethod]
+  public void MethotToTest_WhenConditionsOfTheTest_ShouldBehaviourExpected()
+  {
+    // Arrange
+    // Act
+    // Assert
+  }
+}
+```
+El nombre de la prueba se divide en tres secciones: `section1_section2_section3`. Las mismas se refieren lo siguiente:
+- `section1`: nombre del metodo del objeto real que se quiere probar.
+- `section2`: condiciones de la prueba, empieza la seccion con la palabra `When` seguido de las condiciones.
+- `section3`: resultados esperados en la prueba, empieza la seccion con la palabra `Should` seguido del resultado.
+
+Por ejemplo 
+- El nombre de una prueba para crear un usuario con informacion correcta seria: `Create_WhenInfoIsCorrect_ShouldReturnNewId`
+- El nombre de una prueba para crear un usuario y el email tiene formato invalido seria: `Create_WhenEmailFormatIsIncorrect_ShouldThrowEmailFormatException`
+
