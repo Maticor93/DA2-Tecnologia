@@ -2,6 +2,12 @@
 
 El framework a utilizar para simular el comportamiento de las dependencias es `Moq`. Este debera de ser agregado a los proyectos de prueba unitaria para adquerir todas las funcionalidades del framework y crear los casos de prueba correspondientes.
 
+`Moq` define diferentes comportamientos que determinan como un objeto `mock` se deberia de comportar cuando sus metodos son invocados. Estos comportamientos le permiten a los desarrolladores especificar respuestas o acciones que el objeto mock deberia de realizar durante la prueba. Estos comportamientos son:
+
+- Strict: haciendo que se lance una excepcion en caso de que la llamada actual no cumpla con la esperada
+
+- Loose: se retornara un valor por defecto del tipo a retornar en caso de no cumplir con lo esperado
+
 Tambien se debera de instalar el paquete `FluentAssertions` el cual es una libreria que provee una sintaxis mas expresiva para escribir `assertions` en las pruebas, haciendo mas leible y facil de entender.
 
 Algunos puntos claves sobre `FluentAssertions`:
