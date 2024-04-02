@@ -19,9 +19,9 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 - [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
 - [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
 - [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
-- [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/filters)
-- [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/reflection)
-- [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/feature/angular)
+- [Filters]()
+- [Reflection]()
+- [Angular]()
 
 Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
 
