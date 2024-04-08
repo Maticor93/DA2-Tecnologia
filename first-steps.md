@@ -2,9 +2,9 @@
 
 Para iniciar con EF Core en nuestra aplicacion, es necesario instalar el paquete `Microsoft.EntityFrameworkCore`.
 
-- [Visual Studio]()
+- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-visual-studio.md)
 
-- [Por comandos]()
+- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-dotnet-cli.md)
 
 ## Crear contexto concreto
 
@@ -95,9 +95,25 @@ Con el contexto hasta ahora es suficiente para crear las migraciones y utilizarl
 
 ## Configuracion del motor de base de datos
 
-Previamente a utilizar el contexto concreto en nuestra aplicacion, debemos de configurarla para que utilice la base de datos en el ambiente que se este ejecutando.
+Previamente a utilizar el contexto concreto en nuestra aplicacion, debemos de configurarlo para que utilice la base de datos del ambiente que se este ejecutando.
 
 La configuracion tomara lugar en el inicio de nuestra aplicacion, bajo el contexto de una web api en .NET 8 es en la clase `Program.cs`.
+
+Como se dijo anteriormente, EF Core es un framework que soporta multiples proveedores de base de datos, alguno de ellos son: SQL Server, SQLite, MySQL, PostgreSQL. Para hacer uso cualquiera de ellos, es necesario instalar el paquete correspondiente en nuestra solucion.
+
+Los paquetes para esos proveedores son los siguients:
+
+- [Microsoft.EntityFramework.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
+- [Microsoft.EntityFramework.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite)
+- [Microsoft.EntityFramework.MySql](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
+- [Microsoft.EntityFramework.PostgreSQL](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
+
+Pueden encontrar mas sobre los diferentes proveedores de base de datos que soporta EF Core [aca](https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli)
+
+A continuacion se detallara como instalar el proveedor sql server, para operar con dicho motor de base de datos con ef core.
+
+- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-visual-studio.md)
+- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-dotnet-cli.md)
 
 ```C#
 var builder = WebApplication.CreateBuilder(args);
@@ -127,8 +143,10 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
 ```
+<p align="center">
+[Configuracion de ef core para usar sql server]
+</p>
 
 En esta configuracion leemos el connection string desde el archivo de configuracion `appsettings.json` segun el ambiente en el que se este ejecutando la aplicacion, y en caso de que no exista se lanza una excepcion causando la interrupcion de la aplicacion.
 
@@ -146,9 +164,9 @@ Para realizar migracines es necesario instalar 3 paquetes.
 
 Instalacion en:
 
-- [Visual Studio]()
+- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-migrations-visual-studio.md)
 
-- [Por comandos]()
+- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-migrations-dotnet-cli.md)
 
 La creacion de las migraciones y ejecucion de las mismas, ocurren por consola:
 
@@ -211,4 +229,5 @@ Comandos:
 - `update`: parametro par actualizar la base
 
 ### 7. Chequear la creacion de la base de datos
+
 Utilizar el cliente a eleccion ([SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) o [Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall)) que interactua con SQL Server, y refrezcar para ver la nueva base de datos.
