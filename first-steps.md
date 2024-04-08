@@ -110,7 +110,7 @@ Los paquetes para esos proveedores son los siguients:
 
 Pueden encontrar mas sobre los diferentes proveedores de base de datos que soporta EF Core [aca](https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli)
 
-A continuacion se detallara como instalar el proveedor sql server, para operar con dicho motor de base de datos con ef core.
+A continuacion se detallara como instalar el proveedor `Microsoft.EntityFramework.SqlServer`, para operar con dicho motor de base de datos con EF Core.
 
 - [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-visual-studio.md)
 - [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-dotnet-cli.md)
@@ -144,6 +144,7 @@ app.MapControllers();
 
 app.Run();
 ```
+
 <p align="center">
 [Configuracion de ef core para usar sql server]
 </p>
