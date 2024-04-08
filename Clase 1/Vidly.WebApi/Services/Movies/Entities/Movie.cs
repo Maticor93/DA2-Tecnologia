@@ -4,9 +4,9 @@
     {
         public string Id { get; init; }
 
-        public string Title { get; init; }
+        public string Title { get; init; } = null!;
 
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         public int Stars { get; init; }
 
@@ -14,12 +14,9 @@
 
         public DateTimeOffset CreatedOn { get; init; }
 
-        public Movie(string title, string description, DateTimeOffset publishedOn)
+        public Movie()
         {
-            this.Id = Guid.NewGuid().ToString();
-            this.Title = title;
-            this.Description = description;
-            this.PublishedOn = publishedOn;
+            Id = Guid.NewGuid().ToString();
             this.CreatedOn = DateTimeOffset.UtcNow;
         }
     }

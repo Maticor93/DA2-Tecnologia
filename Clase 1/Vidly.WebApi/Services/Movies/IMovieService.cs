@@ -5,7 +5,7 @@ namespace Vidly.WebApi.Services.Movies
 {
     public interface IMovieService
     {
-        Movie Add(Movie movie);
+        Movie Add(CreateMovieArgs movie);
 
         Movie GetById(string id);
 

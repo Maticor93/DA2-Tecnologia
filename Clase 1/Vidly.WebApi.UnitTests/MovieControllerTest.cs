@@ -20,6 +20,7 @@ namespace Vidly.WebApi.UnitTests
         }
 
         #region Create
+        
         #region Error
         [TestMethod]
         [ExpectedException(typeof(Exception))]
@@ -56,6 +57,7 @@ namespace Vidly.WebApi.UnitTests
             _controller.Create(request);
         }
         #endregion
+        
         #region Success
         [TestMethod]
         public void Create_WhenRequestHasCorrectInfo_ShouldCreateMovie()
@@ -66,8 +68,13 @@ namespace Vidly.WebApi.UnitTests
                 Description = "description",
                 PublishedOn = "2024-01-01"
             };
-            var expectedMovie = new Movie(request.Title, request.Description,DateTimeOffset.Parse(request.PublishedOn));
-            _movieServiceMock.Setup(m => m.Add(It.IsAny<Movie>())).Returns(expectedMovie);
+            var expectedMovie = new Movie
+            {
+                Title = request.Title,
+                Description = request.Description,
+                PublishedOn = DateTimeOffset.Parse(request.PublishedOn)
+            };
+            _movieServiceMock.Setup(m => m.Add(It.IsAny<CreateMovieArgs>())).Returns(expectedMovie);
             
             var response = _controller.Create(request);
 

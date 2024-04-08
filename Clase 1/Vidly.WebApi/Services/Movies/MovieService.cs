@@ -8,15 +8,22 @@ namespace Vidly.WebApi.Services.Movies
         private static readonly List<Movie> _movies = [];
 
 
-        public Movie Add(Movie movie)
+        public Movie Add(CreateMovieArgs movie)
         {
             var existMovie = _movies.Any(m => m.Title == movie.Title);
             if (existMovie)
                 throw new Exception("Movie duplicated");
 
-            _movies.Add(movie);
+            var movieToSave = new Movie
+            {
+                Title = movie.Title,
+                Description = movie.Description,
+                PublishedOn = movie.PublishedOn,
+            };
 
-            return movie;
+            _movies.Add(movieToSave);
+
+            return movieToSave;
         }
 
         public List<Movie> GetAll(string? title = null, int? minStars = null, string? publishedOn = null)

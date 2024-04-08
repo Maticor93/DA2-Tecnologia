@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using Vidly.WebApi.Services.Movies;
 using Vidly.WebApi.Services.Movies.Entities;
+using Vidly.WebApi.Utility;
 
 namespace Vidly.WebApi.Controllers.Movies
 {
@@ -18,26 +19,20 @@ namespace Vidly.WebApi.Controllers.Movies
         }
 
         [HttpPost]
-        public CreateMovieResponse Create(CreateMovieRequest? newMovie)
+        public CreateMovieResponse Create(CreateMovieRequest? request)
         {
-            if (newMovie == null)
+            if (request == null)
                 ThrowException("InvalidRequest", "Request can not be null");
 
-            if (string.IsNullOrEmpty(newMovie.Title))
-                ThrowException("InvalidRequest", "Title can not be null or empty");
+            if(string.IsNullOrEmpty(request.PublishedOn))
+                ThrowException("InvalidRequest", "PublishedOn can not be null or empty");
 
-            if (string.IsNullOrEmpty(newMovie.Description))
-                ThrowException("InvalidRequest", "Description can not be null or empty");
+            var arguments = new CreateMovieArgs(
+                request.Title ?? string.Empty,
+                request.Description ?? string.Empty,
+                VidlyDateTime.Parse(request.PublishedOn));
 
-            if (newMovie.PublishedOn == null)
-                ThrowException("InvalidRequest", "PublishedOn can not be null");
-
-            var movieToSave = new Movie(
-              newMovie.Title,
-              newMovie.Description,
-              DateTimeOffset.Parse(newMovie.PublishedOn));
-
-            var movieSaved = _movieService.Add(movieToSave);
+            var movieSaved = _movieService.Add(arguments);
 
             return new CreateMovieResponse(movieSaved);
         }
