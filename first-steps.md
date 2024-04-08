@@ -100,8 +100,39 @@ Previamente a utilizar el contexto concreto en nuestra aplicacion, debemos de co
 La configuracion tomara lugar en el inicio de nuestra aplicacion, bajo el contexto de una web api en .NET 8 es en la clase `Program.cs`.
 
 ```C#
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+
+var services = builder.Services;
+var configuration = builder.Configuration;
+
+var vidlyConnectionString = configureation.GetConnectionString("VidlyDb");
+if(string.IsNullOrEmpty(vidlyConnectionString))
+{
+  throw new Exception("Missing VidlyDb connection-string");
+}
+
+services.AddDbContext<VidlyDbContext>(options => options.UseSqlServer(connectionString));
+
+var app = builder.Build();
+// Configure the HTTP request pipeline.
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
 
 ```
+
+En esta configuracion leemos el connection string desde el archivo de configuracion `appsettings.json` segun el ambiente en el que se este ejecutando la aplicacion, y en caso de que no exista se lanza una excepcion causando la interrupcion de la aplicacion.
+
+Posteriormente de configura la inyeccion de `VidlyDbContext` con el uso de SQL Server y usando el connection-string provisto.
 
 ## Primera migracion
 
@@ -180,4 +211,3 @@ Comandos:
 - `update`: parametro par actualizar la base
 
 ### 7. Chequear la creacion de la base de datos
-
