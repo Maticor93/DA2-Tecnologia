@@ -161,8 +161,6 @@ Para realizar migracines es necesario instalar 3 paquetes.
 
 - **Microsoft.EntityFramework.Tools**: permite crear y aplicar migraciones y generar codigo a partir de una base de datos existente.
 
-- **Microsoft.EntityFramework.SqlServer**: paquete para conectarse a una base de datos con motor SQL Server
-
 Instalacion en:
 
 - [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-migrations-visual-studio.md)
