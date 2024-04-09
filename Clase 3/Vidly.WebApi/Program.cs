@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 using Vidly.WebApi.DataAccess.Contexts;
 using Vidly.WebApi.DataAccess.Repositories;
 using Vidly.WebApi.Services.Movies;
@@ -27,7 +28,7 @@ if (string.IsNullOrEmpty(vidlyConnectionString))
 }
 
 services
-    .AddDbContext<DbContext, VidlyContext>(
+    .AddDbContext<DbContext, VidlyDbContext>(
     options => options.UseSqlServer(vidlyConnectionString));
 
 services.AddScoped<IRepository<Movie>, Repository<Movie>>();
@@ -43,3 +44,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+[ExcludeFromCodeCoverage]
+public partial class Program { }

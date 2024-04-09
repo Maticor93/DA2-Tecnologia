@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Moq;
 using Vidly.WebApi.Controllers.Movies;
+using Vidly.WebApi.Controllers.Movies.Models;
 using Vidly.WebApi.Services.Movies;
 using Vidly.WebApi.Services.Movies.Entities;
 

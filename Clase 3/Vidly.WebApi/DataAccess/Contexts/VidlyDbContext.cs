@@ -5,7 +5,7 @@ using Vidly.WebApi.Services.Users.Entities;
 
 namespace Vidly.WebApi.DataAccess.Contexts
 {
-    public sealed class VidlyContext : DbContext
+    public sealed class VidlyDbContext : DbContext
     {
         public DbSet<Movie> Movies { get; set; }
 
@@ -13,7 +13,7 @@ namespace Vidly.WebApi.DataAccess.Contexts
 
         public DbSet<User> Users { get; set; }
 
-        public VidlyContext(DbContextOptions options)
+        public VidlyDbContext(DbContextOptions options)
             : base(options)
         {
         }
