@@ -1,6 +1,6 @@
 ﻿using Vidly.WebApi.Services.Movies.Entities;
 
-namespace Vidly.WebApi.Controllers.Movies
+namespace Vidly.WebApi.Controllers.Movies.Models
 {
     public sealed record class CreateMovieResponse
     {
@@ -8,7 +8,7 @@ namespace Vidly.WebApi.Controllers.Movies
 
         public CreateMovieResponse(Movie movie)
         {
-            this.Id = movie.Id;
+            Id = movie.Id;
         }
     }
 }

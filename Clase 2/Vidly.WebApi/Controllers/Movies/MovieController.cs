@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using System.Linq;
+using Vidly.WebApi.Controllers.Movies.Models;
 using Vidly.WebApi.Services.Movies;
 using Vidly.WebApi.Services.Movies.Entities;
 using Vidly.WebApi.Utility;

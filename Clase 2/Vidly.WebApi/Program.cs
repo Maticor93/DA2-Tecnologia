@@ -23,11 +23,11 @@ var vidlyConnectionString = configuration.GetConnectionString("Vidly");
 
 if (string.IsNullOrEmpty(vidlyConnectionString))
 {
-    throw new Exception("Missing connection string Vidly in appsettings.json");
+    throw new Exception("Missing Vidly connection string");
 }
 
 services
-    .AddDbContext<DbContext, VidlyContext>(
+    .AddDbContext<DbContext, VidlyDbContext>(
     options => options.UseSqlServer(vidlyConnectionString));
 
 services.AddScoped<IRepository<Movie>, Repository<Movie>>();

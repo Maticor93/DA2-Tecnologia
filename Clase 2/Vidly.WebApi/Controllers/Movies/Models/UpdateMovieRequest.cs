@@ -1,4 +1,4 @@
-﻿namespace Vidly.WebApi.Controllers.Movies
+﻿namespace Vidly.WebApi.Controllers.Movies.Models
 {
     public sealed record class UpdateMovieRequest
     {
