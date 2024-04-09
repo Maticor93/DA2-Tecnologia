@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Vidly.WebApi.Controllers.Movies.Entities;
-using Vidly.WebApi.Controllers.Movies.Models;
+using System.Globalization;
+using System.Linq;
+using Vidly.WebApi.Services.Movies;
+using Vidly.WebApi.Services.Movies.Entities;
 using Vidly.WebApi.Utility;
 
 namespace Vidly.WebApi.Controllers.Movies
@@ -9,10 +11,11 @@ namespace Vidly.WebApi.Controllers.Movies
     [Route("movies")]
     public sealed class MovieController : ControllerBase
     {
-        private static readonly List<Movie> _movies = new List<Movie>();
+        private readonly IMovieService _movieService;
 
-        public MovieController()
+        public MovieController(IMovieService movieService)
         {
+            _movieService = movieService;
         }
 
         [HttpPost]
@@ -21,7 +24,7 @@ namespace Vidly.WebApi.Controllers.Movies
             if (request == null)
                 ThrowException("InvalidRequest", "Request can not be null");
 
-            if (string.IsNullOrEmpty(request.PublishedOn))
+            if(string.IsNullOrEmpty(request.PublishedOn))
                 ThrowException("InvalidRequest", "PublishedOn can not be null or empty");
 
             var arguments = new CreateMovieArgs(
@@ -29,27 +32,17 @@ namespace Vidly.WebApi.Controllers.Movies
                 request.Description ?? string.Empty,
                 VidlyDateTime.Parse(request.PublishedOn));
 
-            var movie = new Movie
-            {
-                Title = arguments.Title,
-                Description = arguments.Description,
-                PublishedOn = arguments.PublishedOn,
-            };
+            var movieSaved = _movieService.Add(arguments);
 
-            _movies.Add(movie);
-
-            return new CreateMovieResponse(movie);
+            return new CreateMovieResponse(movieSaved);
         }
 
         [HttpGet]
         public List<MovieBasicInfoResponse> GetAll([FromQuery] MovieFiltersRequest filters)
         {
-            return _movies
-                 .Where(m =>
-                (string.IsNullOrEmpty(filters.Title) || m.Title.Contains(filters.Title)) &&
-                (!filters.MinStars.HasValue || m.Stars >= filters.MinStars) &&
-                (string.IsNullOrEmpty(filters.PublishedOn) || m.PublishedOn == DateTimeOffset.Parse(filters.PublishedOn)))
-                 .Select(m => new MovieBasicInfoResponse(m))
+           return _movieService
+                .GetAll(filters.Title, filters.MinStars, filters.PublishedOn)
+                .Select(m => new MovieBasicInfoResponse(m))
                 .ToList();
         }
 
@@ -60,10 +53,7 @@ namespace Vidly.WebApi.Controllers.Movies
             if (!isValidId)
                 ThrowException("InvalidArgument", "The provided id is not a valid guid");
 
-            var movie = _movies.FirstOrDefault(m => m.Id == id);
-
-            if (movie == null)
-                throw new Exception("Movie dosen't exist");
+            var movie = _movieService.GetById(id);
 
             return new MovieDetailInfoResponse(movie);
         }
@@ -75,12 +65,7 @@ namespace Vidly.WebApi.Controllers.Movies
             if (!isValidId)
                 ThrowException("InvalidArgument", "The provided id is not a valid guid");
 
-            var movie = _movies.FirstOrDefault(m => m.Id == id);
-
-            if (movie == null)
-                throw new Exception("Movie dosen't exist");
-
-            _movies.Remove(movie);
+            _movieService.DeleteById(id);
         }
 
         [HttpPut("{id}")]
@@ -93,13 +78,7 @@ namespace Vidly.WebApi.Controllers.Movies
             if (!isValidId)
                 ThrowException("InvalidArgument", "The provided id is not a valid guid");
 
-            var movie = _movies.FirstOrDefault(m => m.Id == id);
-
-            if (movie == null)
-                throw new Exception("Movie dosen't exist");
-
-            if (!string.IsNullOrEmpty(updatesOfMovie.Description))
-                movie.Description = updatesOfMovie.Description;
+            _movieService.UpdateById(id, updatesOfMovie.Description);
         }
 
         private static void ThrowException(string code, string description) => throw new Exception($"Code:{code}, Description: {description}");

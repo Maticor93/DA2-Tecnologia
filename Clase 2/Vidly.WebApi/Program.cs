@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Vidly.WebApi.Services.Movies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder
     });
 
 var services = builder.Services;
+
+services.AddScoped<IMovieService, MovieService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

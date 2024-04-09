@@ -1,20 +1,22 @@
 using FluentAssertions;
 using Moq;
 using Vidly.WebApi.Controllers.Movies;
-using Vidly.WebApi.Controllers.Movies.Entities;
-using Vidly.WebApi.Controllers.Movies.Models;
+using Vidly.WebApi.Services.Movies;
+using Vidly.WebApi.Services.Movies.Entities;
 
 namespace Vidly.WebApi.UnitTests
 {
     [TestClass]
     public sealed class MovieControllerTest
     {
+        private Mock<IMovieService> _movieServiceMock;
         private MovieController _controller;
 
         [TestInitialize]
         public void Initialize()
         {
-            _controller = new MovieController();
+            _movieServiceMock = new Mock<IMovieService>();
+            _controller = new MovieController(_movieServiceMock.Object);
         }
 
         #region Create
@@ -28,7 +30,7 @@ namespace Vidly.WebApi.UnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(Exception))]
         public void Create_WhenRequestHasTitleNull_ShouldThrowException()
         {
             var request = new CreateMovieRequest 
@@ -42,7 +44,7 @@ namespace Vidly.WebApi.UnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(Exception))]
         public void Create_WhenRequestHasTitleEmpty_ShouldThrowException()
         {
             var request = new CreateMovieRequest
@@ -66,12 +68,18 @@ namespace Vidly.WebApi.UnitTests
                 Description = "description",
                 PublishedOn = "2024-01-01"
             };
+            var expectedMovie = new Movie
+            {
+                Title = request.Title,
+                Description = request.Description,
+                PublishedOn = DateTimeOffset.Parse(request.PublishedOn)
+            };
+            _movieServiceMock.Setup(m => m.Add(It.IsAny<CreateMovieArgs>())).Returns(expectedMovie);
             
             var response = _controller.Create(request);
 
             response.Should().NotBeNull();
-            response.Id.Should().NotBeNull();
-            response.Id.Should().NotBeEmpty();
+            response.Id.Should().Be(expectedMovie.Id);
         }
         #endregion
         #endregion
