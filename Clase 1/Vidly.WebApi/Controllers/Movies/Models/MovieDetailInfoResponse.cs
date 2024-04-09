@@ -1,6 +1,6 @@
 ﻿using Vidly.WebApi.Services.Movies.Entities;
 
-namespace Vidly.WebApi.Controllers.Movies
+namespace Vidly.WebApi.Controllers.Movies.Models
 {
     public sealed record class MovieDetailInfoResponse
     {
@@ -10,7 +10,7 @@ namespace Vidly.WebApi.Controllers.Movies
 
         public string Description { get; init; }
 
-        public int Stars {  get; init; }
+        public int Stars { get; init; }
 
         public DateTimeOffset PublishedOn { get; init; }
 
@@ -18,12 +18,12 @@ namespace Vidly.WebApi.Controllers.Movies
 
         public MovieDetailInfoResponse(Movie movie)
         {
-            this.Id = movie.Id;
-            this.Title = movie.Title;
-            this.Description = movie.Description;
-            this.Stars = movie.Stars;
-            this.PublishedOn = movie.PublishedOn;
-            this.CreatedOn = movie.CreatedOn;
+            Id = movie.Id;
+            Title = movie.Title;
+            Description = movie.Description;
+            Stars = movie.Stars;
+            PublishedOn = movie.PublishedOn;
+            CreatedOn = movie.CreatedOn;
         }
     }
 }

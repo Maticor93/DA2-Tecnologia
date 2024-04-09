@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Vidly.WebApi.DataAccess.Contexts;
 using Vidly.WebApi.Services.Movies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,15 @@ builder
     });
 
 var services = builder.Services;
+var configuration = builder.Configuration;
+
+var vidlyConnectionString = configuration.GetConnectionString("Vidly");
+if (string.IsNullOrEmpty(vidlyConnectionString))
+{
+    throw new Exception("Missing Vidly connection string");
+}
+
+services.AddDbContext<DbContext, VidlyDbContext>(options => options.UseSqlServer(vidlyConnectionString));
 
 services.AddScoped<IMovieService, MovieService>();
 

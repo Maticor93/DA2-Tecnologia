@@ -7,7 +7,6 @@ namespace Vidly.WebApi.Services.Movies
     {
         private static readonly List<Movie> _movies = [];
 
-
         public Movie Add(CreateMovieArgs movie)
         {
             var existMovie = _movies.Any(m => m.Title == movie.Title);

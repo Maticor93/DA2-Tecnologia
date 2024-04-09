@@ -103,14 +103,14 @@ Como se dijo anteriormente, EF Core es un framework que soporta multiples provee
 
 Los paquetes para esos proveedores son los siguients:
 
-- [Microsoft.EntityFramework.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
-- [Microsoft.EntityFramework.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite)
-- [Microsoft.EntityFramework.MySql](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
-- [Microsoft.EntityFramework.PostgreSQL](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
+- [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
+- [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite)
+- [Microsoft.EntityFrameworkCore.MySql](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
+- [Microsoft.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
 
 Pueden encontrar mas sobre los diferentes proveedores de base de datos que soporta EF Core [aca](https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli)
 
-A continuacion se detallara como instalar el proveedor `Microsoft.EntityFramework.SqlServer`, para operar con dicho motor de base de datos con EF Core.
+A continuacion se detallara como instalar el proveedor `Microsoft.EntityFrameworkCore.SqlServer`, para operar con dicho motor de base de datos con EF Core.
 
 - [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-visual-studio.md)
 - [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-dotnet-cli.md)
@@ -125,13 +125,13 @@ builder.Services.AddControllers();
 var services = builder.Services;
 var configuration = builder.Configuration;
 
-var vidlyConnectionString = configureation.GetConnectionString("VidlyDb");
+var vidlyConnectionString = configureation.GetConnectionString("Vidly");
 if(string.IsNullOrEmpty(vidlyConnectionString))
 {
-  throw new Exception("Missing VidlyDb connection-string");
+  throw new Exception("Missing Vidly connection string");
 }
 
-services.AddDbContext<VidlyDbContext>(options => options.UseSqlServer(connectionString));
+services.AddDbContext<DbContext, VidlyDbContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -155,11 +155,11 @@ Posteriormente de configura la inyeccion de `VidlyDbContext` con el uso de SQL S
 
 ## Primera migracion
 
-Para realizar migracines es necesario instalar 3 paquetes.
+Para realizar migracines es necesario instalar 2 paquetes.
 
-- **Microsoft.EntityFramework.Design**: sirve para que EF Core logre interpretar las entidades y pueda realizar un modelado de tablas
+- **Microsoft.EntityFrameworkCore.Design**: sirve para que EF Core logre interpretar las entidades y pueda realizar un modelado de tablas
 
-- **Microsoft.EntityFramework.Tools**: permite crear y aplicar migraciones y generar codigo a partir de una base de datos existente.
+- **Microsoft.EntityFrameworkCore.Tools**: permite crear y aplicar migraciones y generar codigo a partir de una base de datos existente.
 
 Instalacion en:
 
