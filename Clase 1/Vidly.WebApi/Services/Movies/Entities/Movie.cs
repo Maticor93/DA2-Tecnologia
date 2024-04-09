@@ -1,4 +1,6 @@
-﻿namespace Vidly.WebApi.Services.Movies.Entities
+﻿using Vidly.WebApi.Services.Users.Entities;
+
+namespace Vidly.WebApi.Services.Movies.Entities
 {
     public sealed record class Movie
     {
@@ -14,10 +16,16 @@
 
         public DateTimeOffset CreatedOn { get; init; }
 
+        public List<User> Users { get; init; }
+
+        public List<string> Platforms { get; init; }
+
         public Movie()
         {
             Id = Guid.NewGuid().ToString();
-            this.CreatedOn = DateTimeOffset.UtcNow;
+            CreatedOn = DateTimeOffset.UtcNow;
+            Users = new List<User>();
+            Platforms = new List<string>();
         }
     }
 }
