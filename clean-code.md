@@ -35,3 +35,135 @@ La idea principal es evitar muchos ifs anidados los culaes abren siempre caminos
 <p align="center">
 [Merge condiciones de ifs]
 </p>
+
+## 3. Usar nameof para convertir enum a string
+
+La palabra clave `nameof` introducido en C# 6.0, es usado para obtener el nombre de una variable, tipo como string en tiempo de compilacion. Es util para evitar strings magicos en el codigo y mantener el codigo mas refactor-friendly.
+
+`nameof` es la forma preferible para convertir un enum a string. Esto es porque `nameof` es evaluado en tiempo de compilacion y va a inyectar un string que nunca va a cambiar, mientras que el metodo `ToString` es evaluado en tiempo de ejecucion. Esto significa que `nameof` es mas eficiente y puede mejorar la performance del codigo.
+
+<p align="center">
+<img src="./images/image-3.png">
+<p>
+
+<p align="center">
+[Nameof en vez de ToString]
+</p>
+
+## 4. Mapear una Request a una entidad
+
+Es logico pensar que la request deberia de contener un metodo para pasarse a si mismo a otra estructura si pensamos en principios como encapsulamiento y SRP.
+
+Algunos ventajas son:
+
+- El mapeo de Request a otra entidad esta encapsulado
+- Los controllers son mas limpios porque el mapeo esta en otro lado
+
+Solo se tiene que hacer la llamada al metodo y se obtendra una entidad relevante.
+
+```C#
+public sealed record class CreateMovieRequest
+{
+  public string? Title  { get; init; }
+
+  public string? Description { get; init; }
+
+  public CreateMovieArgs Map()
+  {
+    return new CreateMovieArgs(
+      Title,
+      Description
+    )
+  }
+}
+```
+
+```C#
+[HttpPost]
+public void Create(CreateMovieRequest request)
+{
+  var args = request.Map();
+}
+```
+
+## 5. Evitar muchos argumentos en un metodo
+
+Es una buena practica limitar el numero de argumentos en una funcion a dos. Si una funcion requiere mas de dos argumentos significa que esa funcion esta haciendo mucho mas de lo esperado y deberia de ser refactoriado.
+
+Podemos refactorear la funcion usando un **struct** o un **record** para encapsular los parametros relacionados en vez de pasarlos de forma individual.
+
+Las ventajas de esta practica son:
+
+- Se mejora la lectura del codigo
+- Es mas facil de mantener
+- Simplifica las pruebas
+- El codigo es mas flexible
+
+Evitar muchos argumentos en una funcion es una practica importante para escribir codigo limpio y mantenible. Al usar objetos que encapsulan la data, podemos simplificar la firma de la funcion y hacer que el codigo sea mas leible y facil de testear.
+
+<p align="center">
+<img src="./images/image-4.png">
+<p>
+
+<p align="center">
+[Agrupacion muchos argumentos]
+</p>
+
+## 6. Clausulas Guard
+
+Una clausula guard prevee la completitud de una funcion al chequear valores invalidos.
+
+Las clausulas guard mejoran la lectura y mantenibilidad del codigo. Nos permiten manejar las excepciones de forma mas segmantica.
+
+Tambien ayudan a implementar la metodologia Fail-fast.
+
+Una ventaja de estas clausulas es que minimizan codigo anidado y lo hace mas detallado.
+
+Algunos buenos casos donde usarlo son:
+
+- Validaciones de entrada
+- Comprobacion de condiciones
+- Comprobacion de null
+
+<p align="center">
+<img src="./images/image-5.png">
+<p>
+
+<p align="center">
+[Guard clause]
+</p>
+
+## 7. MinBy y MaxBy
+
+Antes de .NET 6 para obtener el minimo o el maximo, se tenia que hacer en dos pasos, ordenar la coleccion de forma ascendente o descendente y obtener el primer elemento.
+
+Pero en .NET 6 se tiene las funciones linq MinBy y MaxBy.
+
+<p align="center">
+<img src="./images/image-6.png">
+<p>
+
+<p align="center">
+[MinBy MaxBy]
+</p>
+
+## 7. LINQ en vertical no en horizontal
+
+Escribir la concatenacion de funciones LINQ se deben de escribir de forma vertial para mejorar la lectura y hacer mas facil el entendimiento de los mismos.
+
+Concatenar las funciones LINQ de forma horizontal dificulta en la lectura, la extension y mantenibilidad.
+
+<p align="center">
+<img src="./images/image-7.png">
+<p>
+
+<p align="center">
+[Concatenacion de forma horizontal]
+</p>
+<p align="center">
+<img src="./images/image-6.png">
+<p>
+
+<p align="center">
+[Concatenacion de forma vertical]
+</p>
