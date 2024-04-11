@@ -13,6 +13,7 @@ Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología
 Aca van a encontrar tanto materiales de interes para profundizar, como códigos de ejemplo que serán de utilidad para la realización del obligatorio.
 
 ## Temas
+- [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
 - [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
 - [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
 - [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
