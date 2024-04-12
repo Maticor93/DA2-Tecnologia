@@ -196,7 +196,7 @@ Por convencion en C# los nombres de los proyectos tienen que seguir `PascalCase`
 
 Por ejemplo, si se esta trabajando en una solucion llamada `Vidly` y se tiene el proyecto para la web api, el mismo se llamaria: `Vidly.WebApi`, siendo la primera parte el contexto y la segunda el tipo de proyecto que es.
 
-## 12. Hacer uso de linq para mapear
+## 12. Hacer uso de LINQ para mapear
 LINQ (Language Integrated Query) proporciona una sintaxis uniforme para consultar y manipular colecciones de datos. Si uno desea convertir una coleccion de datos a otra coleccion de datos, la forma mas practica es utilizando la funcion `Select` de LINQ.
 
 ```C#
