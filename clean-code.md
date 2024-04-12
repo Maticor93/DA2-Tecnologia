@@ -167,3 +167,54 @@ Concatenar las funciones LINQ de forma horizontal dificulta en la lectura, la ex
 <p align="center">
 [Concatenacion de forma vertical]
 </p>
+
+## 8. Convencion de nombres de properties
+A continuacion se muestra cual es la convencion en C# para nombrar properties segun la visibilidad de las mismas:
+- Properties `public` tienen que seguir `PascalCase` -> `public string Name { get; set; }`
+- Properties `private` y `protected` tienen que seguir `_camelCase` -> `private string _name { get; set; }`
+
+## 9. Convencion de nombre de argumentos de una funcion
+Por convencion en C# los argumentos tienen que seguir `camelCase`
+```C#
+public void MyFunction(string myArgument)
+{
+  // some logic
+}
+```
+
+## 10. Convencion de nombre de clase
+Por convencion en C# los nombres de las clases tienen que seguir `PascalCase`
+```C#
+public class MyClass
+{
+  // some code of class
+}
+```
+
+## 11. Convencion de nombre de proyectos
+Por convencion en C# los nombres de los proyectos tienen que seguir `PascalCase`. Es buena practica tambien poner como subfijo al nombre del proyecto el contexto/negocio en el cual esta situado. Esto ayuda a los desarrolladores entender la responsabilidad de dicho paquete dentro de la solucion.
+
+Por ejemplo, si se esta trabajando en una solucion llamada `Vidly` y se tiene el proyecto para la web api, el mismo se llamaria: `Vidly.WebApi`, siendo la primera parte el contexto y la segunda el tipo de proyecto que es.
+
+## 12. Hacer uso de linq para mapear
+LINQ (Language Integrated Query) proporciona una sintaxis uniforme para consultar y manipular colecciones de datos. Si uno desea convertir una coleccion de datos a otra coleccion de datos, la forma mas practica es utilizando la funcion `Select` de LINQ.
+
+```C#
+// FORMA INCORRECTA
+var responses = new List<Response>();
+foreach(var entity in entities){
+  var response = new Response(entity);
+  responses.Add(response);
+}
+```
+<p align="center">
+  [Iteracion manual]
+</p>
+
+```C#
+// FORMA CORRECTA
+entities.Select(e => new Response(e));
+```
+<p align="center">
+  [Iteracion con LINQ]
+</p>
