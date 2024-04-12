@@ -6,14 +6,14 @@ namespace Vidly.WebApi.Utility
     {
         public static DateTimeOffset Parse(string date)
         {
-            var existParsed = DateTimeOffset.TryParseExact(
+            var isParsed = DateTimeOffset.TryParseExact(
                 date,
                 "yyyy-MM-dd",
                 CultureInfo.InvariantCulture,
                 DateTimeStyles.None,
                 out DateTimeOffset dateParsed);
 
-            if (existParsed)
+            if (!isParsed)
             {
                 throw new ArgumentException("Invalid published on");
             }

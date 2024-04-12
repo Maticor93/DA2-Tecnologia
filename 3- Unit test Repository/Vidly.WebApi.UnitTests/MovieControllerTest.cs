@@ -31,7 +31,7 @@ namespace Vidly.WebApi.UnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Create_WhenRequestHasTitleNull_ShouldThrowException()
         {
             var request = new CreateMovieRequest 
@@ -45,7 +45,7 @@ namespace Vidly.WebApi.UnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Create_WhenRequestHasTitleEmpty_ShouldThrowException()
         {
             var request = new CreateMovieRequest
