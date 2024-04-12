@@ -18,7 +18,6 @@ namespace Vidly.WebApi.UnitTests
         }
 
         #region Create
-        
         #region Error
         [TestMethod]
         [ExpectedException(typeof(Exception))]

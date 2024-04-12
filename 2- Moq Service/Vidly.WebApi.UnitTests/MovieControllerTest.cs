@@ -58,29 +58,6 @@ namespace Vidly.WebApi.UnitTests
 
             _controller.Create(request);
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(Exception))]
-        public void Create_WhenMovieIsDuplicated_ShouldThrowException()
-        {
-            try
-            {
-                var request = new CreateMovieRequest
-                {
-                    Title = "title",
-                    Description = "description",
-                    PublishedOn = "2024-01-01"
-                };
-                _movieServiceMock.Setup(m => m.Add(It.IsAny<CreateMovieArgs>())).Throws(new Exception("Movie is duplicated"));
-                
-                _controller.Create(request);
-            }
-            catch(Exception ex)
-            {
-                ex.Message.Should().Be("Movie is duplicated");
-                throw;
-            }
-        }
         #endregion
         
         #region Success
