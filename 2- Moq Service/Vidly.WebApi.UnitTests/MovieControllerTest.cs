@@ -65,16 +65,15 @@ namespace Vidly.WebApi.UnitTests
         {
             try
             {
+                var request = new CreateMovieRequest
+                {
+                    Title = "title",
+                    Description = "description",
+                    PublishedOn = "2024-01-01"
+                };
+                _movieServiceMock.Setup(m => m.Add(It.IsAny<CreateMovieArgs>())).Throws(new Exception("Movie is duplicated"));
                 
-            var request = new CreateMovieRequest
-            {
-                Title = "title",
-                Description = "description",
-                PublishedOn = "2024-01-01"
-            };
-            _movieServiceMock.Setup(m => m.Add(It.IsAny<CreateMovieArgs>())).Throws(new Exception("Movie is duplicated"));
-            
-            _controller.Create(request);
+                _controller.Create(request);
             }
             catch(Exception ex)
             {
