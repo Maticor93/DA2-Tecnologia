@@ -2,6 +2,7 @@
 using Vidly.WebApi.Controllers.Movies.Entities;
 using Vidly.WebApi.Controllers.Movies.Models;
 using Vidly.WebApi.Filters;
+using Vidly.WebApi.Services.Sessions.Entities;
 
 namespace Vidly.WebApi.Controllers.Movies
 {
@@ -20,6 +21,10 @@ namespace Vidly.WebApi.Controllers.Movies
         public CreateMovieResponse Create([FromBody]CreateMovieRequest? newMovie)
         {
             var userLogged = base.GetUserLogged();
+
+            var hasNotPermission = userLogged.Role.HasPermission(PermissionKey.CreateMovie);
+            if (hasNotPermission)
+                ThrowException("Forbidden", $"Missing permission {PermissionKey.CreateMovie}");
 
             if (newMovie == null)
                 ThrowException("InvalidRequest", "Request can not be null");
