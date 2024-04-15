@@ -7,7 +7,7 @@ Al ser los primeros filtros que son ejecutados, las excepciones que son arrojada
 Para implementar un filtro custom de este tipo es necesario implementar la interfaz: `IAuthorizationFilter`.
 
 ```C#
-public sealed class CustomFilterAttribute : Attribute, IAuthorizationFilter
+public sealed class AuthorizationFilterAttribute : Attribute, IAuthorizationFilter
 
 public void OnAuthorization(AuthorizationFilterContext context)
 {
@@ -15,6 +15,24 @@ public void OnAuthorization(AuthorizationFilterContext context)
 }
 ```
 
+El siguiente codigo mustra como usarlo a nivel de clase o a nivel de metodo.
+
+```C#
+[ApiController]
+[Route('endpoints')]
+[AuthorizationFilter]
+public sealed class CustomController : ControllerBase
+{
+  [HttpGet]
+  [AuthorizationFilter]
+  public void MyAction()
+  {
+    // some code
+  }
+}
+```
+
 ## Material de lectura
 
 [Authorization](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/introduction?view=aspnetcore-8.0)
+

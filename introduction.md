@@ -117,7 +117,7 @@ public class ControllerFiltersController : Controller
 El filtro `SampleActionFilter` es un filtro a nivel de controller y tiene el menor valor de `Order` posible
 
 ```C#
-builder.Services.AddControllersWithViews(options =>
+builder.Services.AddControllers(options =>
 {
     options.Filters.Add<GlobalSampleActionFilter>(int.MaxValue);
 });
