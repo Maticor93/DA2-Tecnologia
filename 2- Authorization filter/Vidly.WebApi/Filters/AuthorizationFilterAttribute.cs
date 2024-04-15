@@ -7,9 +7,9 @@ namespace Vidly.WebApi.Filters
 {
     public sealed class AuthorizationFilterAttribute : AuthenticationFilterAttribute
     {
-        private readonly string _permission;
+        private readonly string? _permission;
 
-        public AuthorizationFilterAttribute(string permission)
+        public AuthorizationFilterAttribute(string? permission = null)
         {
             _permission = permission;
         }
@@ -31,7 +31,7 @@ namespace Vidly.WebApi.Filters
                 context.Result = new ObjectResult(new
                 {
                     InnerCode = "Forbidden",
-                    Message = $"Missing permission {_permission}"
+                    Message = $"Missing permission {permission}"
                 })
                 {
                     StatusCode = (int)HttpStatusCode.Forbidden
@@ -41,7 +41,7 @@ namespace Vidly.WebApi.Filters
 
         private PermissionKey BuildPermission(AuthorizationFilterContext context)
         {
-            return new PermissionKey(_permission);
+            return new PermissionKey(_permission ?? $"{context.RouteData.Values["action"].ToString().ToLower()}-{context.RouteData.Values["controller"].ToString().ToLower()}");
         }
     }
 }

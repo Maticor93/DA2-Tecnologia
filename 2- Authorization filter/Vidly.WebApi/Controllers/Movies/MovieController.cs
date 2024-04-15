@@ -17,11 +17,9 @@ namespace Vidly.WebApi.Controllers.Movies
         }
 
         [HttpPost]
-        [AuthorizationFilter("create-movie")]
+        [AuthorizationFilter]
         public CreateMovieResponse Create([FromBody] CreateMovieRequest? newMovie)
         {
-            var userLogged = base.GetUserLogged();
-
             if (newMovie == null)
                 ThrowException("InvalidRequest", "Request can not be null");
 
