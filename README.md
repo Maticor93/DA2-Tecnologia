@@ -20,7 +20,7 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 - [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
 - [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
 - [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
-- [Filters]()
+- [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
 - [Reflection]()
 - [Angular]()
 
