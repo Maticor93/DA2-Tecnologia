@@ -16,7 +16,7 @@ namespace Vidly.WebApi.UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            _repositoryMock = new Mock<IRepository<Movie>>();
+            _repositoryMock = new Mock<IRepository<Movie>>(MockBehavior.Strict);
             this._service = new MovieService(_repositoryMock.Object);
         }
 
@@ -33,7 +33,8 @@ namespace Vidly.WebApi.UnitTests
                     "valid description",
                     DateTimeOffset.UtcNow.AddMonths(-1));
                 _repositoryMock.Setup(r => r.Exist(It.IsAny<Expression<Func<Movie, bool>>>())).Returns(true);
-
+                
+                _repositoryMock.VerifyAll();
                 _service.Add(args);
             }
             catch (Exception ex)
@@ -45,6 +46,24 @@ namespace Vidly.WebApi.UnitTests
         #endregion
 
         #region Success
+        [TestMethod]
+        public void Create_WhenInfoIsSuccess_ShouldReturnMovieCreated()
+        {
+            var args = new CreateMovieArgs(
+                    "valid",
+                    "valid description",
+                    DateTimeOffset.UtcNow.AddMonths(-1));
+            _repositoryMock.Setup(r => r.Exist(It.IsAny<Expression<Func<Movie, bool>>>())).Returns(false);
+            _repositoryMock.Setup(r => r.Add(It.IsAny<Movie>()));
+
+            var movieCreated = _service.Add(args);
+
+            _repositoryMock.VerifyAll();
+            movieCreated.Should().NotBeNull();
+            movieCreated.Title.Should().Be(args.Title);
+            movieCreated.Description.Should().Be(args.Description);
+            movieCreated.PublishedOn.Should().Be(args.PublishedOn);
+        }
         #endregion
         #endregion
     }

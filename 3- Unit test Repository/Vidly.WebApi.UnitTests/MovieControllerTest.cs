@@ -16,7 +16,7 @@ namespace Vidly.WebApi.UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            _movieServiceMock = new Mock<IMovieService>();
+            _movieServiceMock = new Mock<IMovieService>(MockBehavior.Strict);
             _controller = new MovieController(_movieServiceMock.Object);
         }
 
@@ -79,6 +79,7 @@ namespace Vidly.WebApi.UnitTests
             
             var response = _controller.Create(request);
 
+            _movieServiceMock.VerifyAll();
             response.Should().NotBeNull();
             response.Id.Should().Be(expectedMovie.Id);
         }
