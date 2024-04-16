@@ -199,7 +199,7 @@ ls
 ### 4. Crear primera migracion
 
 ```
-dotnet ef migrations add InitialCreation
+dotnet ef migrations add InitialCreation --verbose
 ```
 
 Comandos:
@@ -214,18 +214,23 @@ Comandos:
 
 - `InitialCreation`: nombre de la migracion
 
+- `verbose`: para que se imprima a detalle lo que se esta ejecutando y los errores
+
 ### 5. Chequear que se creo la migracion
 
 ### 6. Ejecutar migracion
 
 ```
-dotnet ef database update
+dotnet ef database update --verbose
 ```
 
 Comandos:
 
 - `database`: parametro para operar con la base
+
 - `update`: parametro par actualizar la base
+
+- `verbose`: para que se imprima a detalle lo que se esta ejecutando y los errores
 
 ### 7. Chequear la creacion de la base de datos
 
