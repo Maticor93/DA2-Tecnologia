@@ -18,17 +18,15 @@ namespace Vidly.WebApi.Controllers.Movies
         }
 
         [HttpPost]
-        public void Create([FromBody]CreateMovieRequest? newMovie)
+        public void Create([FromBody] CreateMovieRequest? newMovie)
         {
             var userLogged = base.GetUserLogged();
 
             var isNotAllowed = !userLogged.Role.HasPermission(PermissionKey.CreateMovie);
 
-            if(isNotAllowed)
-            {
-              throw new Exception($"Code: Forbidden, Message: Missing permission {PermissionKey.CreateMovie}");
-            }
-            
+            if (isNotAllowed)
+                throw new Exception($"Code: Forbidden, Message: Missing permission {PermissionKey.CreateMovie}");
+
             // rest of code
         }
     }
