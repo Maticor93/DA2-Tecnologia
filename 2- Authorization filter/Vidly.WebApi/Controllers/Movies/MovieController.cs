@@ -20,7 +20,15 @@ namespace Vidly.WebApi.Controllers.Movies
         [AuthorizationFilter]
         public void Create([FromBody] CreateMovieRequest? newMovie)
         {
-          // rest of code
+            // rest of code
+        }
+
+        [HttpGet]
+        public List<MovieBasicInfoResponse> GetAll()
+        {
+            // rest of code
+
+            return new List<MovieBasicInfoResponse>();
         }
     }
 }
