@@ -97,6 +97,8 @@ Con el cliente a eleccion para conectarse a SQL Server, se debera de proveer la 
 
 **Con Management Server:**
 
+### 1. Conectarse al contenedor
+
 <p align="center">
 <img src="./images/image-33.png"/>
 </p>
@@ -108,6 +110,16 @@ Con el cliente a eleccion para conectarse a SQL Server, se debera de proveer la 
 ```
 Sustituir los valores de Server name, Login y Password, por los provistos en el paso: 5. Crear un container
 ```
+
+### 2. Conexion establecida
+
+<p align="center">
+<img src="./images/image-34.png"/>
+</p>
+
+<p align="center">
+[Conexion establecida]
+</p>
 
 **Con Azure Data Studio:**
 
@@ -121,7 +133,7 @@ Sustituir los valores de Server name, Login y Password, por los provistos en el 
 [Crear nueva conexion]
 </p>
 
-### 2. Conectarse
+### 2. Conectarse al contenedor
 
 <p align="center">
 <img src="./images/image-31.png"/>
@@ -135,7 +147,7 @@ Sustituir los valores de Server name, Login y Password, por los provistos en el 
 Sustituir los campos, server, user name y password por las creadas en el paso: 5. Crear un container
 ```
 
-### 3. Verificar conexion
+### 3. Conexion establecida
 
 <p align="center">
 <img src="./images/image-32.png"/>
