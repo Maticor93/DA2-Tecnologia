@@ -85,7 +85,7 @@ namespace Vidly.WebApi.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Email", "FirstName", "FullName", "LastName", "Password" },
-                values: new object[] { "11aae4ac-1579-4db2-b041-6cbbcb650b49", "admin@gmail.com", "Admin", "Admin Admin", "Admin", "123456" });
+                values: new object[] { "b5aab209-d750-4da7-bc5f-f6d732d97383", "admin@gmail.com", "Admin", "Admin Admin", "Admin", "123456" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserMovie_UserId",

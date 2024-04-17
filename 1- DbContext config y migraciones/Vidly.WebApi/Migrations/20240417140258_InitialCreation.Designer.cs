@@ -12,7 +12,7 @@ using Vidly.WebApi.DataAccess.Contexts;
 namespace Vidly.WebApi.Migrations
 {
     [DbContext(typeof(VidlyDbContext))]
-    [Migration("20240412181120_InitialCreation")]
+    [Migration("20240417140258_InitialCreation")]
     partial class InitialCreation
     {
         /// <inheritdoc />
@@ -125,7 +125,7 @@ namespace Vidly.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "11aae4ac-1579-4db2-b041-6cbbcb650b49",
+                            Id = "b5aab209-d750-4da7-bc5f-f6d732d97383",
                             Email = "admin@gmail.com",
                             FirstName = "Admin",
                             FullName = "Admin Admin",

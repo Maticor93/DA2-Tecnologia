@@ -149,9 +149,33 @@ app.Run();
 [Configuracion de ef core para usar sql server]
 </p>
 
-En esta configuracion leemos el connection string desde el archivo de configuracion `appsettings.json` segun el ambiente en el que se este ejecutando la aplicacion, y en caso de que no exista se lanza una excepcion causando la interrupcion de la aplicacion.
+En esta configuracion leemos el `connection-string` segun el ambiente en el cual se ejecute la web api. En caso de que no se encuentre un valor configurado, se lanza una excepcion causando la interrupcion de la web api. Para evitar conflictos los archivos de configuracion deben encontrarse de la siguiente manera:
 
-Posteriormente de configura la inyeccion de `VidlyDbContext` con el uso de SQL Server y usando el connection-string provisto.
+```JSON
+{
+  "ConnectionStrings":{
+    "Vidly": ""
+  }
+}
+```
+
+<p align="center">
+[appsettings.json, no debe estar ignorado por GitHub]
+</p>
+
+```JSON
+{
+  "ConnectionStrings":{
+    "Vidly": "test"
+  }
+}
+```
+
+<p align="center">
+[appsettings.Development.json, debe de ser ignorado por GitHub]
+</p>
+
+Posteriormente se configura la inyeccion de `VidlyDbContext` con el uso de SQL Server y usando el `connection-string` provisto.
 
 ## Primera migracion
 
@@ -179,7 +203,7 @@ Comandos:
 
 - `ls`: lista eleemntos en un directorio
 
-### 2. Pararse en el proyecto donde se van a guardar las migraciones
+### 2. Pararse en el proyecto donde se encuentra el contexto
 
 ```
 cd Vidly.WebApi
@@ -197,6 +221,8 @@ ls
 ```
 
 ### 4. Crear primera migracion
+
+Para las migraciones no es necesario tener un valor valido para el `connection-string`, pero si es necesario que tenga un valor.
 
 ```
 dotnet ef migrations add InitialCreation --verbose
@@ -216,9 +242,75 @@ Comandos:
 
 - `verbose`: para que se imprima a detalle lo que se esta ejecutando y los errores
 
+#### 4.1 Contexto en otro proyecto
+
+En caso de que el contexto se encuentre en otro proyecto distinto al proyecto donde se configura el contexto, en este caso en `Vidly.WebApi`, el comando a ejecutar es el siguiente:
+
+```
+dotnet ef migrations add InitialCreation --verbose --startup-project ../<<directorio del proyecto de web api>>
+```
+
+Comando extra:
+
+- `--startup-project`: indicacion del proyecto donde se encuentra la configuracion del contexto para usar en tiempo de diseño.
+
 ### 5. Chequear que se creo la migracion
 
+<p align="center">
+<img src="./images/image-23.png"/>
+</p>
+
+<p align="center">
+[Resultado de creacion exitoso]
+</p>
+
+<p align="center">
+<img src="./images/image-24.png"/>
+</p>
+
+<p align="center">
+[Carpeta de migraciones con las clases]
+</p>
+
+Se debio de crear una carpeta `Migrations` en el directorio donde se ejecuto el comando de migracion.
+
+Pueden encontrar mas informacion sobre las clases que se crearon [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/migration-result.md).
+
 ### 6. Ejecutar migracion
+
+Para este paso es necesario que el `connection-string` dentro del archivo de configuracion del ambiente `appsettings.Development.json` tenga un valor valido para entablar una conexion con SQL Server.
+
+Para windows:
+
+```JSON
+{
+  "ConnectionStrings":{
+    "Vidly": "Server=localhost;Database=Vidly; Integrated Security=True;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True"
+  }
+}
+```
+
+Pueden descargar SQL Server en Windows [aca](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+Para MacOS:
+
+```JSON
+{
+  "ConnectionStrings":{
+    "Vidly": "Server=localhost, 1433; Database=Vidly; User ID=<<su usuario>>; Password=<<su password>>; Integrated Security=True; Trusted_Connection=True;"
+  }
+}
+```
+
+Pueden seguir la siguiente [guia](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/sql-with-docker.md) para tener SQL Server con Docker. Esta forma de trabajar con SQL Server es un requerimiento para MacOS y opcional para Windows.
+
+Sustituir:
+
+- `<<su usuario>>`: por el usuario que crearon ustedes en SQL Server
+
+- `<<su password>>`: por la contraseña de ese usuairo en SQL Server
+
+Ejecucion:
 
 ```
 dotnet ef database update --verbose
@@ -232,6 +324,28 @@ Comandos:
 
 - `verbose`: para que se imprima a detalle lo que se esta ejecutando y los errores
 
+En caso de que las migraciones se encuentren en otro proyecto distinto al proyecto donde se configura el contexto, en este caso en `Vidly.WebApi`, el comadno a ejecutar es el siguiente:
+
+```
+dotnet ef database update --verbose --startup-project ../<<directorio del proyecto de web api>>
+```
+
+<p align="center">
+<img src="./images/image-25.png">
+</p>
+
+<p align="center">
+[Resultado en consola de ejecutar la migracion]
+</p>
+
 ### 7. Chequear la creacion de la base de datos
 
 Utilizar el cliente a eleccion ([SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) o [Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall)) que interactua con SQL Server, y refrezcar para ver la nueva base de datos.
+
+<p align="center">
+<img src="./images/image-26.png">
+</p>
+
+<p align="center">
+[Base de datos en Management Studio]
+</p>
