@@ -297,7 +297,7 @@ Para MacOS:
 ```JSON
 {
   "ConnectionStrings":{
-    "Vidly": "Server=localhost, 1433; Database=Vidly; User ID=<<su usuario>>; Password=<<su password>>; Integrated Security=True; Trusted_Connection=True;"
+    "Vidly": "Server=localhost, <<su puerto>>; Database=Vidly; User ID=<<su usuario>>; Password=<<su password>>; Integrated Security=True; Trusted_Connection=True;"
   }
 }
 ```
@@ -309,6 +309,8 @@ Sustituir:
 - `<<su usuario>>`: por el usuario que crearon ustedes en SQL Server
 
 - `<<su password>>`: por la contraseña de ese usuairo en SQL Server
+
+- `<<su puerto>>`: por el puerto indicado en la creacion del container
 
 Ejecucion:
 
