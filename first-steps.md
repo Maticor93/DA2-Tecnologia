@@ -179,7 +179,7 @@ Posteriormente se configura la inyeccion de `VidlyDbContext` con el uso de SQL S
 
 ## Primera migracion
 
-Para realizar migracines es necesario instalar 2 paquetes.
+Para realizar migracines es necesario instalar el paquete:
 
 - **Microsoft.EntityFrameworkCore.Design**: sirve para que EF Core logre interpretar las entidades y pueda realizar un modelado de tablas
 
