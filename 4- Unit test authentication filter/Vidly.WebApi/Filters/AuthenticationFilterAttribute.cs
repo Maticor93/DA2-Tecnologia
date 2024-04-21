@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
+using Vidly.WebApi.Services.Sessions;
+using Vidly.WebApi.Services.Sessions.Entities;
 
 namespace Vidly.WebApi.Filters
 {
