@@ -66,7 +66,7 @@ Comandos
 [Chequear Microsoft.EntityFrameworkCore.Design]
 </p>
 
-## Microsoft.EntityFrameworkCore.Tools
+<!-- ## Microsoft.EntityFrameworkCore.Tools
 
 - Agregar referencia a `Microsoft.EntityFrameworkCore.Tools`
 
@@ -95,4 +95,4 @@ Comandos
 
 <p align="center">
 [Chequear Microsoft.EntityFrameworkCore.Tools]
-</p>
+</p> -->

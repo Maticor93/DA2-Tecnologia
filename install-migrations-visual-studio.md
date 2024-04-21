@@ -39,7 +39,7 @@
 [Chequear instalacion]
 </p>
 
-## Microsoft.EntityFramework.Tools
+<!-- ## Microsoft.EntityFramework.Tools
 
 - Click derecho en el proyecto `Vidly.WebApi` -> `Manage NuGet Packages`
 <p align="center">
@@ -76,4 +76,4 @@
 
 <p align="center">
 [Chequear instalacion]
-</p>
+</p> -->

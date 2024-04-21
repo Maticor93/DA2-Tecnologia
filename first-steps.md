@@ -183,7 +183,7 @@ Para realizar migracines es necesario instalar 2 paquetes.
 
 - **Microsoft.EntityFrameworkCore.Design**: sirve para que EF Core logre interpretar las entidades y pueda realizar un modelado de tablas
 
-- **Microsoft.EntityFrameworkCore.Tools**: permite crear y aplicar migraciones y generar codigo a partir de una base de datos existente.
+<!-- - **Microsoft.EntityFrameworkCore.Tools**: permite crear y aplicar migraciones y generar codigo a partir de una base de datos existente. -->
 
 Instalacion en:
 
@@ -203,7 +203,13 @@ Comandos:
 
 - `ls`: lista eleemntos en un directorio
 
-### 2. Pararse en el proyecto donde se encuentra el contexto
+### 2. Instalar tools
+
+```
+dotnet tool install --global dotnet-ef
+```
+
+### 3. Pararse en el proyecto donde se encuentra el contexto
 
 ```
 cd Vidly.WebApi
@@ -214,13 +220,13 @@ Comandos:
 - `cd`: entrar a un directorio
 - `Vidly.WebApi`: directorio al cual quiero acceder
 
-### 3. Chequeo que estoy dentro de `Vidly.WebApi`
+### 4. Chequeo que estoy dentro de `Vidly.WebApi`
 
 ```
 ls
 ```
 
-### 4. Crear primera migracion
+### 5. Crear primera migracion
 
 Para las migraciones no es necesario tener un valor valido para el `connection-string`, pero si es necesario que tenga un valor.
 
@@ -242,7 +248,7 @@ Comandos:
 
 - `verbose`: para que se imprima a detalle lo que se esta ejecutando y los errores
 
-#### 4.1 Contexto en otro proyecto
+#### 5.1 Contexto en otro proyecto
 
 En caso de que el contexto se encuentre en otro proyecto distinto al proyecto donde se configura el contexto, en este caso en `Vidly.WebApi`, el comando a ejecutar es el siguiente:
 
@@ -254,7 +260,7 @@ Comando extra:
 
 - `--startup-project`: indicacion del proyecto donde se encuentra la configuracion del contexto para usar en tiempo de diseño.
 
-### 5. Chequear que se creo la migracion
+### 6. Chequear que se creo la migracion
 
 <p align="center">
 <img src="./images/image-23.png"/>
@@ -276,7 +282,7 @@ Se debio de crear una carpeta `Migrations` en el directorio donde se ejecuto el 
 
 Pueden encontrar mas informacion sobre las clases que se crearon [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/migration-result.md).
 
-### 6. Ejecutar migracion
+### 7. Ejecutar migracion
 
 Para este paso es necesario que el `connection-string` dentro del archivo de configuracion del ambiente `appsettings.Development.json` tenga un valor valido para entablar una conexion con SQL Server.
 
@@ -340,7 +346,7 @@ dotnet ef database update --verbose --startup-project ../<<directorio del proyec
 [Resultado en consola de ejecutar la migracion]
 </p>
 
-### 7. Chequear la creacion de la base de datos
+### 8. Chequear la creacion de la base de datos
 
 Utilizar el cliente a eleccion ([SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) o [Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall)) que interactua con SQL Server, y refrezcar para ver la nueva base de datos.
 
@@ -354,6 +360,10 @@ Utilizar el cliente a eleccion ([SQL Server Management Studio (SSMS)](https://le
 
 ## Material de lectura
 
+[Iniciar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+
 [Gestionar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/managing?tabs=dotnet-core-cli)
 
 [Como indicar la configuracion del contexto para la migracion](https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli)
+
+[Entity Framework Core tools](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
