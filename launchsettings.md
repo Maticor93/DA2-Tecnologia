@@ -73,6 +73,27 @@ Este archivo es usado principalmente en un ambiente de desarrollo para configura
 
 - **Configurar varios perfiles**: Permite la configuracion de varios perfiles de ejecucion para diferentes escenarios. La flexibilidad permite cambiar los contextos y probar la aplicacion en diferentes ambientes rapidamente.
 
-- **Customizacion de la url**: Para propositos de desarrollo, uno podria querer correr la aplicacion en un puerto especifico o con cierto hostname. 
+- **Customizacion de la url**: Para propositos de desarrollo, uno podria querer correr la aplicacion en un puerto especifico o con cierto hostname.
 
+## Limpieza del archivo
 
+Si solo se requiere un solo perfil y el servidor `Kestrel` el archivo quedaria:
+
+```JSON
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Vidly.WebApi": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "health",
+      "applicationUrl": "https://localhost:7087;http://localhost:5116",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+```
