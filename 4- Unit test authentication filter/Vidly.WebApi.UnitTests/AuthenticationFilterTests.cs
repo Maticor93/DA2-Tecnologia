@@ -20,6 +20,11 @@ namespace Vidly.WebApi.UnitTests
         private AuthorizationFilterContext _context;
         private AuthenticationFilterAttribute _attribute;
 
+        public AuthenticationFilterTests()
+        {
+            _attribute = new AuthenticationFilterAttribute();
+        }
+
         [TestInitialize]
         public void Initialize()
         {
@@ -33,7 +38,6 @@ namespace Vidly.WebApi.UnitTests
             ),
                 new List<IFilterMetadata>()
             );
-            _attribute = new AuthenticationFilterAttribute();
         }
 
         #region Error
@@ -46,6 +50,7 @@ namespace Vidly.WebApi.UnitTests
 
             var response = _context.Result;
 
+            _httpContextMock.VerifyAll();
             response.Should().NotBeNull();
             var concreteResponse = response as ObjectResult;
             concreteResponse.Should().NotBeNull();
@@ -66,7 +71,8 @@ namespace Vidly.WebApi.UnitTests
             _attribute.OnAuthorization(_context);
 
             var response = _context.Result;
-
+            
+            _httpContextMock.VerifyAll();
             response.Should().NotBeNull();
             var concreteResponse = response as ObjectResult;
             concreteResponse.Should().NotBeNull();

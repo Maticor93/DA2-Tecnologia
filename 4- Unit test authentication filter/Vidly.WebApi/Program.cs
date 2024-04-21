@@ -1,5 +1,3 @@
-using Vidly.WebApi.Services.Sessions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,8 +12,6 @@ builder
 
 var services = builder.Services;
 var configuration = builder.Configuration;
-
-services.AddScoped<ISessionService, SessionService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
