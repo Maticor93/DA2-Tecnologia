@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Moq;
-using System.Net.Http;
-using System;
 using Vidly.WebApi.Filters;
 using FluentAssertions;
 using System.Net;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Primitives;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Mvc.Abstractions;
 
 namespace Vidly.WebApi.UnitTests
 {
@@ -28,8 +28,8 @@ namespace Vidly.WebApi.UnitTests
             _context = new AuthorizationFilterContext(
                 new ActionContext(
                     _httpContextMock.Object,
-                    new Microsoft.AspNetCore.Routing.RouteData(),
-                    new Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor()
+                    new RouteData(),
+                    new ActionDescriptor()
             ),
                 new List<IFilterMetadata>()
             );
