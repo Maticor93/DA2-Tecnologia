@@ -9,3 +9,5 @@
 - [Pruebas unitarias para repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/unit-testing/config-unit-test-project.md)
 
 - [Elementos de una clase de pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/unit-testing/elements-unit-test.md)
+
+- [Pruebas de integracion](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/unit-testing/config-unit-test-project.md)
