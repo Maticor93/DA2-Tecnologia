@@ -218,3 +218,52 @@ entities.ConvertAll(e => new Response(e));
 <p align="center">
   [Iteracion con LINQ]
 </p>
+
+## 12. De string a DateTimeOffset
+Cuando se desea convertir un string a un tipo de fecha (DateTimeOffset, DateTime, DateOnly, TimeOnly) es buena practica configurar el parseo indicando como debe ser el formato de esa fecha en string, la cultura a tener en cuenta, entre otros parametros. Es importante especificar estas configuraciones ya que por defecto los metodos `Parse` o `TryParse` configuraran estos aspectos tomando los valores del sistema operativo, lo cual puede causar comportamientos inesperados.
+
+Por ejemplo si nuestra maquina usa el formato `dd-MM-yyyy`, tomara este formato como defecto para realizar la conversion. El codigo en esa maquina funcionara correctamente, pero solo funciona en ese ambiente, si ejecutamos el codigo en otra maquina donde el formato de la fecha es `MM-dd-yyyy` el codigo se comportara de forma diferente causando inconsistencias.
+
+```C#
+using System;
+
+public DateTime Parse(string possibleDate)
+{
+  var isNotParsed = !DateTime.TryParse(possibleDate, out DateTime dateParsed);
+
+  if(isNotParsed)
+  {
+    throw new ArgumentException("Parameter possibleDate is not a valid date");
+  }
+
+  return dateParsed;
+}
+```
+<p align="center">
+  [Evitar]
+</p>
+
+```C#
+using System;
+using System.Globalization;
+
+public DateTime Parse(string possibleDate)
+{
+  var isNotParsed = !DateTime.TryParseExact(
+    possibleDate,
+    "dd-MM-yyyy",
+    CultureInfo.InvariantCulture,
+    DateTimeStyles.None,
+    out DateTime dateParsed);
+
+  if(isNotParsed)
+  {
+    throw new ArgumentException("Parameter possibleDate is not a valid date");
+  }
+
+  return dateParsed;
+}
+```
+<p align="center">
+  [Implementar]
+</p>
