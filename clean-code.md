@@ -267,3 +267,44 @@ public DateTime Parse(string possibleDate)
 <p align="center">
   [Implementar]
 </p>
+
+## 13. No ser fuertemente tipado con string ('Stringly' typed)
+
+Ser fuertemente tipado significa aplicar reglas de tipo mas estrictas para garantizar que los tipos de datos sean correctos y coherentes en toda la aplicacion.
+
+El uso de enums en vez de strings es una practica comun para promoveer un codigo en C# fuertemente tipado.
+
+Dado que:
+1. Mejora la claridad y seguridad del codigo
+2. Hay un chequeo en tiempo de compilacion
+3. Nos ayuda IntelliSense y completitud automatica
+4. Performance
+5. Mas facil de mantener
+
+Asi como se puede usar enums, se pueden usar clases staticas propias para preservar el valor en string si se desea.
+
+```C#
+public void DontDoThis(string employeeType)
+{
+  if(employeeType == "administrator")
+  {
+    // do something
+  }
+}
+```
+<p align="center">
+  [Codigo stingly typed]
+</p>
+
+```C#
+public void DoThis(Employee employee)
+{
+  if(employee.Type == Type.Administrator)
+  {
+    // do something
+  }
+}
+```
+<p align="center">
+  [Codigo strongly typed]
+</p>
