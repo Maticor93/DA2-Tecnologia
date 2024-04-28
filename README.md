@@ -12,6 +12,6 @@
 
 - [Controller.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
 
-- [DTOs.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
+- [DTOs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
 
 - [REST](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/rest.md)
