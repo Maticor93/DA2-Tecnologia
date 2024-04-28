@@ -14,6 +14,8 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 
 ## Temas
 - [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
+- [Creacion PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
+- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
 - [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
 - [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
