@@ -15,16 +15,16 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 ## Temas
 - [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
 - [Creacion PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
-- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
 - [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
 - [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
-- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
-- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
+- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
+- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
+- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
 - [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
-- [Reflection]()
-- [Angular]()
+- [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/reflection)
+- [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular)
 
 Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
 
@@ -43,14 +43,18 @@ Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** d
 - [Git](https://git-scm.com/) (si quieren mas info sobre manejo de git pueden leer este [libro](https://sisbibliotecas.ort.edu.uy/cgi-bin/koha/opac-detail.pl?biblionumber=80216))
 - [Github desktop](https://desktop.github.com/)
 - [NVM](https://4geeks.com/how-to/nvm-install-windows)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ## Links de extension para VSC
 
+### C# - .NET Core
 - [C# for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Extensión que facilita el desarrollo en C# con Visual Studio Code.
-- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
 - [NuGet Gallery](https://marketplace.visualstudio.com/items?itemName=patcx.vscode-nuget-gallery) Extension para tener la galeria de librerias en VSC
 - [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) Extension que sirve para mostrar y codificar de a pares
 - [C# Estensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) Extension para crear archivos mas facil
+
+### Angular
+- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
 
 
 ## Aclaracion
