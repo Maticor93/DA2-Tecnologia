@@ -305,12 +305,11 @@ Para MacOS:
   "ConnectionStrings":{
     "Vidly": "Server=localhost, <<su puerto>>; Database=Vidly; User ID=<<su usuario>>; Password=<<su password>>; Integrated Security=True; Trusted_Connection=True;"
   }
-TrustServerCertificate=true;
 }
 ```
-<p align="center>
+<p align="center">
   [Opcion 1]
-  </p>
+</p>
   
 ```JSON
 {
@@ -319,9 +318,9 @@ TrustServerCertificate=true;
   }
 }
 ```
-<p align="center>
-  [Opcion 1]
-  </p>
+<p align="center">
+  [Opcion 2]
+</p>
 
 Pueden seguir la siguiente [guia](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/sql-with-docker.md) para tener SQL Server con Docker. Esta forma de trabajar con SQL Server es un requerimiento para MacOS y opcional para Windows.
 
