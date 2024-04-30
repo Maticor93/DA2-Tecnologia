@@ -9,10 +9,6 @@ namespace Vidly.WebApi.Controllers.Movies
     {
         private static readonly List<Movie> _movies = [];
 
-        public MovieController()
-        {
-        }
-
         [HttpPost]
         public CreateMovieResponse Create(CreateMovieRequest? newMovie)
         {
