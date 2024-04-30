@@ -6,13 +6,9 @@ namespace Vidly.WebApi.Controllers.Movies
 {
     [ApiController]
     [Route("movies")]
-    public sealed class MovieController : VidlyControllerBase
+    public sealed class MovieController() : VidlyControllerBase
     {
         private static readonly List<Movie> _movies = [];
-
-        public MovieController()
-        {
-        }
 
         [HttpPost]
         public CreateMovieResponse Create([FromBody]CreateMovieRequest? newMovie, [FromHeader] string? authorization)
