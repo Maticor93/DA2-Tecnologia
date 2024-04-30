@@ -4,13 +4,9 @@ namespace Vidly.WebApi.Controllers.Movies
 {
     [ApiController]
     [Route("movies")]
-    public sealed class MovieController : ControllerBase
+    public sealed class MovieController() : ControllerBase
     {
         private readonly List<Movie> _movies = [];
-
-        public MovieController()
-        {
-        }
 
         [HttpPost]
         public CreateMovieResponse Create(CreateMovieRequest? newMovie)
