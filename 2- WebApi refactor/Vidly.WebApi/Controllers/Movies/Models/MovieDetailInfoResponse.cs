@@ -12,8 +12,8 @@ namespace Vidly.WebApi.Controllers.Movies.Models
 
         public int Stars { get; init; } = movie.Stars;
 
-        public DateTimeOffset PublishedOn { get; init; } = movie.PublishedOn;
+        public string PublishedOn { get; init; } = movie.PublishedOn.ToString();
 
-        public DateTimeOffset CreatedOn { get; init; } = movie.CreatedOn;
+        public string CreatedOn { get; init; } = movie.CreatedOn.ToString();
     }
 }

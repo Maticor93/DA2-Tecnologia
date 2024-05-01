@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Globalization;
+using Vidly.WebApi.Controllers.Movies.Entities;
+using Vidly.WebApi.Controllers.Movies.Models;
 
 namespace Vidly.WebApi.Controllers.Movies
 {
@@ -10,28 +11,38 @@ namespace Vidly.WebApi.Controllers.Movies
         private static readonly List<Movie> _movies = [];
 
         [HttpPost]
-        public CreateMovieResponse Create(CreateMovieRequest? newMovie)
+        public CreateMovieResponse Create(CreateMovieRequest? request)
         {
-            if (newMovie == null)
-                ThrowException("InvalidRequest", "Request can not be null");
+            if (request == null)
+            {
+                throw new Exception("Request can not be null");
+            }
 
-            if (string.IsNullOrEmpty(newMovie.Title))
-                ThrowException("InvalidRequest", "Title can not be null or empty");
+            if (string.IsNullOrEmpty(request.Title))
+            {
+                throw new Exception("Title can not be null or empty");
+            }
 
-            if (string.IsNullOrEmpty(newMovie.Description))
-                ThrowException("InvalidRequest", "Description can not be null or empty");
+            if (string.IsNullOrEmpty(request.Description))
+            {
+                throw new Exception("Description can not be null or empty");
+            }
 
-            if (newMovie.PublishedOn == null)
-                ThrowException("InvalidRequest", "PublishedOn can not be null");
+            if (request.PublishedOn == null)
+            {
+                throw new Exception("PublishedOn can not be null");
+            }
 
-            var existMovie = _movies.Any(m => m.Title == newMovie.Title);
+            var existMovie = _movies.Any(m => m.Title == request.Title);
             if (existMovie)
-                ThrowException("DuplicatedResource", $"Movie with prop: Title and value: {newMovie.Title} exist");
+            {
+                throw new Exception($"Movie with prop: Title and value: {request.Title} exist");
+            }
 
             var movieToSave = new Movie(
-              newMovie.Title,
-              newMovie.Description,
-              DateTimeOffset.Parse(newMovie.PublishedOn));
+              request.Title,
+              request.Description,
+              DateTimeOffset.Parse(request.PublishedOn));
 
             _movies.Add(movieToSave);
 
@@ -55,13 +66,16 @@ namespace Vidly.WebApi.Controllers.Movies
         {
             var isValidId = Guid.TryParse(id, out var movieId);
             if (!isValidId)
-                ThrowException("InvalidArgument", "The provided id is not a valid guid");
+            {
+                throw new Exception("The provided id is not a valid guid");
+            }
 
-            var movie = _movies.FirstOrDefault(m => m.Id == id);
+            var movie = _movies.Find(m => m.Id == id);
 
             if (movie == null)
-                ThrowException("ResourceNotFound", $"Movie with id: {id} does not exist");
-
+            {
+                throw new Exception($"Movie with id: {id} does not exist");
+            }
             return new MovieDetailInfoResponse(movie);
         }
 
@@ -70,35 +84,45 @@ namespace Vidly.WebApi.Controllers.Movies
         {
             var isValidId = Guid.TryParse(id, out var movieId);
             if (!isValidId)
-                ThrowException("InvalidArgument", "The provided id is not a valid guid");
+            {
+                throw new Exception("The provided id is not a valid guid");
+            }
 
-            var movie = _movies.FirstOrDefault(m => m.Id == id);
+            var movie = _movies.Find(m => m.Id == id);
 
             if (movie == null)
-                ThrowException("ResourceNotFound", $"Movie with id: {id} does not exist");
+            {
+                throw new Exception($"Movie with id: {id} does not exist");
+            }
 
             _movies.Remove(movie);
         }
 
         [HttpPut("{id}")]
-        public void UpdateById(string id, UpdateMovieRequest? updatesOfMovie)
+        public void UpdateById(string id, UpdateMovieRequest? request)
         {
-            if (updatesOfMovie == null)
-                ThrowException("InvalidRequest", "The request can not be null");
+            if (request == null)
+            {
+                throw new Exception("The request can not be null");
+            }
 
             var isValidId = Guid.TryParse(id, out var movieId);
             if (!isValidId)
-                ThrowException("InvalidArgument", "The provided id is not a valid guid");
+            {
+                throw new Exception("The provided id is not a valid guid");
+            }
 
-            var movie = _movies.FirstOrDefault(m => m.Id == id);
+            var movie = _movies.Find(m => m.Id == id);
 
             if (movie == null)
-                ThrowException("ResourceNotFound", $"Movie with id: {id} does not exist");
+            {
+                throw new Exception($"Movie with id: {id} does not exist");
+            }
 
-            if (!string.IsNullOrEmpty(updatesOfMovie.Description))
-                movie.Description = updatesOfMovie.Description;
+            if (!string.IsNullOrEmpty(request.Description))
+            {
+                movie.Description = request.Description;
+            }
         }
-
-        private static void ThrowException(string code, string description) => throw new Exception($"Code:{code}, Description: {description}");
     }
 }
