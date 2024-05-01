@@ -6,11 +6,11 @@
 
 - [Program.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/program.md)
 
-- [Appsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/appsettings.md)
+- [appsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/appsettings.md)
 
-- [Launchsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/launchsettings.md)
+- [launchsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/launchsettings.md)
 
-- [Controller.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
+- [Controllers](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
 
 - [DTOs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
 
