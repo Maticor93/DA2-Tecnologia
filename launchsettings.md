@@ -81,7 +81,6 @@ Si solo se requiere un solo perfil y el servidor `Kestrel` el archivo quedaria:
 
 ```JSON
 {
-  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "Vidly.WebApi": {
       "commandName": "Project",
