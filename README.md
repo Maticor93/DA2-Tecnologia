@@ -1,62 +1,42 @@
-# Repositorio de clase
+# Reflection
 
-## Planillas
+Reflection es la habilidad de un lenguaje de inspeccionar e invocar dinamicamente a clases, metodos, atributos, etc. en tiempo de ejecucion.
 
-- [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
-- [Grupo obligatorios](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/ERVYsgSzrElNvxnwj0L3ZbkBwP8cQTkOXgUuY6DePBcNHA?e=w7F6Ws)
-- [Seguimiento de clases](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EcJWJ347UEJGr7q9uiV4howBck_KiHapJIAkql-U0chekA?e=6g04md)
+Para .Net, es la habilidad de un programa poder autoexaminarse con el objetivo de encontrar ensamblados (.dll), modulos, o informacion de tipos en tiempo de ejecucion. A nivel de codigo vamos a tener clases y objetos que nos van a permitir referenciar a ensablados, y a los tipos que se encuentren contenidos.
 
-## Introducción
+Se dice que un programa se refleja a si mismi (de ahi el termino reflection), a partir de extraer metadata de sus assemblies y de usar esa metadata para ciertos fines. Ya sea para informarle al usuario o para modificar su comportamiento.
 
-Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
+El uso de reflection, obtenemos informacion detallada de un objeto, sus metodos, e incluso crear objetos e invocar sus metodos en tiempo de ejecucion, sin haber tenido que realizar una referencia al ensamblado que contiene la clase y a su namespace.
 
-Aca van a encontrar tanto materiales de interes para profundizar, como códigos de ejemplo que serán de utilidad para la realización del obligatorio.
+Especificamente lo que nos permite usar Reflection es el namespace `System.Reflection`, que contiene clases e interfaces que nos permiten manejar todo lo mencionado anteriormente: ensamblados, tipos, metodos, estado, crear objetos, invocar metodos, etc.
 
-## Temas
-- [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
-- [Creacion PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
-- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
-- [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
-- [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
-- [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
-- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
-- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
-- [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
-- [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
-- [Reflection]()
-- [Angular]()
+## Estructura de un assembly/ensamblado
 
-Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
+Un ensamblado es el resultado de compilar el programa, generalmente lo podremos ver como un .dll. Es la unidad minima en .NET.
 
-## Stack tecnologico
+Los assemblies contienen paquetes, los paquetes contienen tipos y los tipos contienen estados. Reflection provee clases para encapsular estos elementos.
 
-- [.NET Core 8.0](https://dotnet.microsoft.com/download)
-- [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
-- [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
-- [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
-- [Visual Studio](https://visualstudio.microsoft.com/es/vs/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
-- [Postman](https://www.postman.com/)
-- [Angular](https://angular.io/)
-- [Node](https://nodejs.org/es/)
-- [Git](https://git-scm.com/) (si quieren mas info sobre manejo de git pueden leer este [libro](https://sisbibliotecas.ort.edu.uy/cgi-bin/koha/opac-detail.pl?biblionumber=80216))
-- [Github desktop](https://desktop.github.com/)
-- [NVM](https://4geeks.com/how-to/nvm-install-windows)
+Como se dijo, es posible utilizar reflection para crear dinamicamente instancias de un tipo, obtener el tipo de un objeto existente e invocarle metodos y acceder a sus atributos de manera dinamica.
 
-## Links de extension para VSC
+<p align="center">
+<img src="./images/image-9.png"/>
+[Estructuracion de un assembly]
+</p>
 
-- [C# for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Extensión que facilita el desarrollo en C# con Visual Studio Code.
-- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
-- [NuGet Gallery](https://marketplace.visualstudio.com/items?itemName=patcx.vscode-nuget-gallery) Extension para tener la galeria de librerias en VSC
-- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) Extension que sirve para mostrar y codificar de a pares
-- [C# Estensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) Extension para crear archivos mas facil
+Algunas ventajas:
 
+- Desacoplamiento a tipos externos
+- Inspeccion de tipos de forma dinamica
+- Uso de tipos o metodos menos fuertemente tipados
 
-## Aclaracion
+Algunas desventajas:
 
-⚠️ El código que se encuentra está escrito en un ámbito de clase lo cual implica que esta desarrollado de forma practica por tema de tiempos. Todo el codigo no se debe tomar como ejemplo final. Tomar con cuidado, es solo un ejemplo ⚠️
+- Performance overhead: las operaciones de reflection son generalmente lentas en comparacion con operaciones realizadas directamente sobre tipos conocidos en tiempo de compilacion. Esto es porque reflection involucra el descubrimiento de tipos en tiempo de ejecucion y la inspeccion de metadata, que puede inferir en performance overhead, especificamente en aplicaciones performance-sensitive como aplicaciones de salud o economicas.
 
-## Docentes
+- Complejidad agregada: el codigo de reflection puede ser dificil de mantener, debugguear y mantener. Todas las tareas de reflection no son tan transparentes.
 
-- :space_invader: Daniel Acevedo (daniel18acevedo@gmail.com)
+- Falta de seguridad por compilacion: dado que reflection puede pasar chequeos en tiempo de compilacion, los errores relacionados a mismatches o falta de miembros ocurriran en tiempo de ejecucion causando excepciones no esperadas.
+
+- Riesgos de seguridad: el uso de assemblies por reflection proponen una vulnerabilidad ya que estos assemblies pueden inspeccionar nuestra aplicacion.
+
+En resumen, a pesar de las desventajas, reflection sigue siendo una herramienta poderosa, particularmente en escenarios donde la flexibilidad que trae en tiempo de ejecucion y el dinamismo sobre comportamientos es escencial. Sin embargo, es importante usar reflection de forma cautelosa y considerar caminos alternativos para mitigar posibles problemas.
