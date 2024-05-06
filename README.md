@@ -19,7 +19,7 @@ Los assemblies contienen paquetes, los paquetes contienen tipos y los tipos cont
 Como se dijo, es posible utilizar reflection para crear dinamicamente instancias de un tipo, obtener el tipo de un objeto existente e invocarle metodos y acceder a sus atributos de manera dinamica.
 
 <p align="center">
-[Estructuracion de un assembly]
+  <img src="./images/image-9.png"/>
 </p>
 <p align="center">
 [Estructuracion de un assembly]
