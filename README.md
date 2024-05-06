@@ -27,7 +27,6 @@ Algunas ventajas:
 
 - Desacoplamiento a tipos externos
 - Inspeccion de tipos de forma dinamica
-- Uso de tipos o metodos menos fuertemente tipados
 
 Algunas desventajas:
 
