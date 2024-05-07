@@ -3,7 +3,7 @@ using Vidly.WebApi.Controllers.Movies.Entities;
 
 namespace Vidly.WebApi.Controllers.Movies.Models
 {
-    public sealed record class MovieBasicInfoResponse
+    public readonly struct MovieBasicInfoResponse
     {
         public string Id { get; init; }
 

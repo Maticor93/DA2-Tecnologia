@@ -9,34 +9,24 @@ namespace Vidly.WebApi.UnitTests
     [TestClass]
     public class RepositoryTest
     {
-        private readonly DbConnection _connection;
-        private readonly DbContext _dbContext;
+        private readonly DbContext _context;
         private readonly Repository<EntityTest> _repository;
 
         public RepositoryTest()
         {
-            _connection = new SqliteConnection("Filename=:memory:");
-            var options = new DbContextOptionsBuilder<TestDbContext>()
-                .UseSqlite(_connection)
-                .Options;
-            _dbContext = new TestDbContext(options);
-            _repository = new Repository<EntityTest>(_dbContext);
-        }
+            _context = DbContextBuilder.BuildTestDbContext();
 
-        [TestInitialize]
-        public void Initialize()
-        {
-            _connection.Open();
-            _dbContext.Database.EnsureCreated();
+            _repository = new Repository<EntityTest>(_context);
         }
 
         [TestCleanup]
         public void Cleanup()
         {
-            _dbContext.Database.EnsureDeleted();
+            _context.Database.EnsureDeleted();
         }
 
         #region Add
+        #region Success
         [TestMethod]
         public void Add_WhenInfoIsProvided_ShouldAddedToDatabase()
         {
@@ -44,35 +34,52 @@ namespace Vidly.WebApi.UnitTests
 
             _repository.Add(entity);
 
-            var entitiesSaved = _dbContext.Set<EntityTest>().ToList();
+            using var otherContext = DbContextBuilder.BuildTestDbContext();
+
+            var entitiesSaved = otherContext.EntitiesTest.ToList();
+
             entitiesSaved.Count.Should().Be(1);
+
             var entitySaved = entitiesSaved[0];
             entitySaved.Id.Should().Be(entity.Id);
             entitySaved.Name.Should().Be(entity.Name);
         }
         #endregion
+        #endregion
+
+        #region GetAll
+        [TestMethod]
+        public void GetAll_WhenExistOnlyOne_ShouldReturnOne()
+        {
+            var expectedEntity = new EntityTest
+            {
+                Name = "dummy"
+            };
+            using var context = DbContextBuilder.BuildTestDbContext();
+            context.Add(expectedEntity);
+            context.SaveChanges();
+
+            var entitiesSaved = _repository.GetAll();
+
+            entitiesSaved.Count.Should().Be(1);
+
+            var entitySaved = entitiesSaved[0];
+            entitySaved.Id.Should().Be(expectedEntity.Id);
+            entitySaved.Name.Should().Be(expectedEntity.Name);
+        }
+        #endregion
     }
 
-    internal sealed class TestDbContext : DbContext
+    internal sealed class TestDbContext(DbContextOptions options) : DbContext(options)
     {
         public DbSet<EntityTest> EntitiesTest { get; set; }
-
-        public TestDbContext(DbContextOptions options)
-            : base(options) 
-        {
-        }
     }
 
-    internal sealed record class EntityTest
+    internal sealed record class EntityTest()
     {
-        public string Id { get; init; } = null!;
+        public string Id { get; init; } = Guid.NewGuid().ToString();
 
         public string Name { get; init; } = null!;
-
-        public EntityTest()
-        {
-            Id = Guid.NewGuid().ToString();
-        }
 
         public EntityTest(string name)
             : this()
