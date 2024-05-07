@@ -7,12 +7,13 @@ namespace Vidly.WebApi.Services.Movies
     {
         private static readonly List<Movie> _movies = [];
 
-
         public Movie Add(Movie movie)
         {
             var existMovie = _movies.Any(m => m.Title == movie.Title);
             if (existMovie)
+            {
                 throw new Exception("Movie duplicated");
+            }
 
             _movies.Add(movie);
 
@@ -34,7 +35,9 @@ namespace Vidly.WebApi.Services.Movies
             var movie = _movies.FirstOrDefault(m => m.Id == id);
 
             if (movie == null)
+            {
                 throw new Exception("Movie dosen't exist");
+            }
 
             return movie;
         }
@@ -51,7 +54,9 @@ namespace Vidly.WebApi.Services.Movies
             var movieSaved = GetById(id);
 
             if (!string.IsNullOrEmpty(description))
+            {
                 movieSaved.Description = description;
+            }
         }
     }
 }

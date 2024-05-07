@@ -2,13 +2,16 @@
 
 namespace Vidly.WebApi.Controllers.Movies
 {
-    public sealed record class CreateMovieResponse
+    public readonly struct MovieBasicInfoResponse
     {
         public string Id { get; init; }
 
-        public CreateMovieResponse(Movie movie)
+        public string Title { get; init; }
+
+        public MovieBasicInfoResponse(Movie movie)
         {
             this.Id = movie.Id;
+            this.Title = movie.Title;
         }
     }
 }

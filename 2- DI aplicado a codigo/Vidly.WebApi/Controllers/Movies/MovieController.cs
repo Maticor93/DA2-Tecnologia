@@ -8,29 +8,30 @@ namespace Vidly.WebApi.Controllers.Movies
 {
     [ApiController]
     [Route("movies")]
-    public sealed class MovieController : ControllerBase
+    public sealed class MovieController(IMovieService _movieService) : ControllerBase
     {
-        private readonly IMovieService _movieService;
-
-        public MovieController(IMovieService movieService)
-        {
-            _movieService = movieService;
-        }
-
         [HttpPost]
         public CreateMovieResponse Create(CreateMovieRequest? newMovie)
         {
             if (newMovie == null)
-                ThrowException("InvalidRequest", "Request can not be null");
+            {
+                throw new Exception("Request can not be null");
+            }
 
             if (string.IsNullOrEmpty(newMovie.Title))
-                ThrowException("InvalidRequest", "Title can not be null or empty");
+            {
+                throw new Exception("Title can not be null or empty");
+            }
 
             if (string.IsNullOrEmpty(newMovie.Description))
-                ThrowException("InvalidRequest", "Description can not be null or empty");
+            {
+                throw new Exception("Description can not be null or empty");
+            }
 
             if (newMovie.PublishedOn == null)
-                ThrowException("InvalidRequest", "PublishedOn can not be null");
+            {
+                throw new Exception("PublishedOn can not be null");
+            }
 
             var movieToSave = new Movie(
               newMovie.Title,
@@ -56,7 +57,9 @@ namespace Vidly.WebApi.Controllers.Movies
         {
             var isValidId = Guid.TryParse(id, out var movieId);
             if (!isValidId)
-                ThrowException("InvalidArgument", "The provided id is not a valid guid");
+            {
+                throw new Exception("The provided id is not a valid guid");
+            }
 
             var movie = _movieService.GetById(id);
 
@@ -68,7 +71,9 @@ namespace Vidly.WebApi.Controllers.Movies
         {
             var isValidId = Guid.TryParse(id, out var movieId);
             if (!isValidId)
-                ThrowException("InvalidArgument", "The provided id is not a valid guid");
+            {
+                throw new Exception("The provided id is not a valid guid");
+            }
 
             _movieService.DeleteById(id);
         }
@@ -77,15 +82,17 @@ namespace Vidly.WebApi.Controllers.Movies
         public void UpdateById(string id, UpdateMovieRequest? updatesOfMovie)
         {
             if (updatesOfMovie == null)
-                ThrowException("InvalidRequest", "The request can not be null");
+            {
+                throw new Exception("The request can not be null");
+            }
 
             var isValidId = Guid.TryParse(id, out var movieId);
             if (!isValidId)
-                ThrowException("InvalidArgument", "The provided id is not a valid guid");
+            {
+                throw new Exception("The provided id is not a valid guid");
+            }
 
             _movieService.UpdateById(id, updatesOfMovie.Description);
         }
-
-        private static void ThrowException(string code, string description) => throw new Exception($"Code:{code}, Description: {description}");
     }
 }
