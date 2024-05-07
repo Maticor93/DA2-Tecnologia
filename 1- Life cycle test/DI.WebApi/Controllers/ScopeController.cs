@@ -5,18 +5,10 @@ namespace DI.WebApi.Controllers
 {
     [ApiController]
     [Route("scopes")]
-    public class ScopeController : ControllerBase
+    public class ScopeController(
+        IScopeService _scopeService1,
+        IScopeService _scopeService2) : ControllerBase
     {
-        private readonly IScopeService _scopeService1;
-
-        private readonly IScopeService _scopeService2;
-
-        public ScopeController(IScopeService scopeService1, IScopeService scopeService2)
-        {
-            _scopeService1 = scopeService1;
-            _scopeService2 = scopeService2;
-        }
-
         [HttpGet]
         public List<Guid> GetAll()
         {

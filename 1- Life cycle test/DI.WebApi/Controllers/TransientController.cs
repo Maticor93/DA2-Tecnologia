@@ -5,18 +5,11 @@ namespace DI.WebApi.Controllers
 {
     [ApiController]
     [Route("transients")]
-    public class TransientController : ControllerBase
+    public class TransientController(
+        ITransientService _transientService1,
+        ITransientService _transientService2
+    ) : ControllerBase
     {
-        private readonly ITransientService _transientService1;
-
-        private readonly ITransientService _transientService2;
-
-        public TransientController(ITransientService transientService1, ITransientService transientService2)
-        {
-            _transientService1 = transientService1;
-            _transientService2 = transientService2;
-        }
-
         [HttpGet]
         public List<Guid> GetAll()
         {
