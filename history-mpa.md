@@ -28,3 +28,19 @@ Para mejorar la experiencia de usuario, los desarrolladores empezaron a utilizar
 
 Por mucho tiempo la creacion de las paginas web haciendo uso esta arquitectura fue efectiva, pero eventualmente decallo con la aparicion de las SPAs (Single Page Application) la cual ofrece una experiencia mas fluida y un comportamiento mas como una aplicacion al cargar un unico archivo HTML y dinamicamente actualizarle el contenido a traves de JavaScript sin la necesidad de recargar la pagina completamente.
 
+## Caracteristicas
+
+- Recarga de paginas completas: tradicionalmente las aplicaciones web requerian que la pagina entera se refrezcara para cada nueva request o evento ocurrido. Esto resultaba que cada interaccion entre la pagina y el usuario resultaba en una request HTTP al servidor solicitando la pagina con los cambios pertinentes.
+
+- Renderizacion del lado del servidor (SSR): el armado del contenido ocurria del lado del servidor, el servidor era capaz de generar el HTML dinamicamente al procesar templates e integrar la data desde la logica interna del servidor con la base de datos.
+
+- Comunicacion sincronica: las interacciones con el usuario que requerian data del servidor, el navegador tenia que esperar a que el servidor respondiera antes de continuar.
+
+- Experiencia fragmentada: dado la naturaleza del refrezco completo de las paginas, la experiencia de usuario se veia afectada por un delay notable y unos efectos visuales de refrezco de toda la pagina
+
+## Tecnolgoias usadas
+
+- HTML/CSS
+- JavaScript
+- Lenguajes del lado del servidor: PHP, ASP.NET, Java, Python y Ruby eran muy populares para generar contenido dinamico en el servidor
+- Base de datos: relacionales como MySQL, PostgreSQL y SQL Server eran los mas comunes para almacenar y gestionar la data
