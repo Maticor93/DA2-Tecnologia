@@ -13,22 +13,34 @@ Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología
 Aca van a encontrar tanto materiales de interes para profundizar, como códigos de ejemplo que serán de utilidad para la realización del obligatorio.
 
 ## Temas
-- [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
-- [Creacion PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
-- [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
+
+### Configuracion
+
 - [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
+- [Creacion PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
+
+### Ayuda
+
+- [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
+- [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
+
+### Primera parte: .NET Core WebApi
+
 - [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
-- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
+- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
 - [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
 - [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
 - [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/reflection)
+
+### Segunda parte: SPAs y Angular
+
 - [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular)
 
 Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
 
-## Stack tecnologico
+### Stack tecnologico
 
 - [.NET Core 8.0](https://dotnet.microsoft.com/download)
 - [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
@@ -48,14 +60,15 @@ Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** d
 ## Links de extension para VSC
 
 ### C# - .NET Core
+
 - [C# for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Extensión que facilita el desarrollo en C# con Visual Studio Code.
 - [NuGet Gallery](https://marketplace.visualstudio.com/items?itemName=patcx.vscode-nuget-gallery) Extension para tener la galeria de librerias en VSC
 - [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) Extension que sirve para mostrar y codificar de a pares
 - [C# Estensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) Extension para crear archivos mas facil
 
 ### Angular
-- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
 
+- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
 
 ## Aclaracion
 
