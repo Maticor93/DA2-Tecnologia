@@ -25,3 +25,18 @@ Angular fue creado por Google para resolver problemas de escalabilidad de Google
 La mantenibilidad es otro aspecto importante para los desarrolladores. Angular dirige la mantenibilidad de dos formas. Primero, los desarrolladores de Angular usan TypeScript, lo que les permite encontrar bugs y errores mas facilmente en el proceso. TypeScript tambien permite a los desarrolladores que son nuevos en el codigo base ponerse al dia mas rapidamente. El equipo de Angular crearn Angular con TypeScript por estas razones. Finalmente, Angular se enfoca en la testeabilidad. La inyeccion de dependencia es un aspecto fundamental en Angular que hace mas facil la creacion de tests.
 
 ### Confiable
+El equipo de Angular esta comprometido en evolucionar Angular de forma planeada y segura, con una planificacion de lanzamientos publicos que le permite a las empresas comprender y visualizar los proximos cambios en la plataforma.
+
+Como Angular es un producto de Google, es capaz de hacer uso de la infraestructura de testing de Google. Eso quiere decir, que cada cambio introducido a Angular, es es validado por cada proyecto de Angular en Google. Esto significa que antes de cualquier version publica, el framework esta siendo usado en cientos de proyectos, esto genera que no se introduzcan cambios que puedan romper otros proyectos.
+
+### Es familiar
+La mayoria de los desarrolladores que usan Angular es porque vienen desde los inicios con AngularJS o porque usan lenguajes o tecnologias como Java o ASP.NET Core.
+
+Los desarrolladores que vienen de AngularJS, ya estan mas familiarizados con la declaracion de los templates, la inyeccion de dependencia, pipes, servicios, y muchos otros conceptos. Para estos desarrolladores existe una sensacion de familiaridad que los hace desarrollar aplicaciones web mucho mas rapido con Angular.
+
+Los otros desarrolladores que vienen de otras tecnologias como Java y/o ASP.NET Core, tambien podran encontrar una sensacion de familiaridad ya que se encuentran nuevamente con una tecnologia fuertemenete tipada y la arquitectura de la aplicacion es bastante similar. Las aplicaciones de Angular estan divididas en modulos y componentes, y los desarrolladores tienen la habilidad de importar y exportar subpartes de estos modulos a medida que lo van necesitando. Esto es un modelo bastante familiar y tambien ayuda a los desarrolladores avanzar mas rapidamente y a su vez ayuda en el diseño de la arquitectura de forma exitosa.
+
+### Fuerte ecosistema
+Existen miles de herramientas reusables, librerias, y ejemplos de codigos en internet para Angular y AngularJS, y una gran cantidad de estas herramientas fueron actualizadas para funcionar con Angular, o estan en proceso de ser actualizadas. Los desarrolladores de VMWare, Teradata, ag-Grid, NativeScript, y otros soportan 100% a Angular.
+
+El ecosistema de Angular tambien incluye la capacitacion de empresas como Oasis Digital, Thinkster, Galvanize, y Thoughtram. 
