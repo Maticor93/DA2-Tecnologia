@@ -6,16 +6,6 @@ Previamente a la creacion de una aplicacion de Angular, necesitamos tener el amb
 
 Una vez que tengamos el ambiente listo procederemos a crear una aplicacion de angular. Para ello seguir los siguientes pasos:
 
-Si tenemos descargado una aplicacion de Angular, lo unico que hay que hacer es instalar las dependencias del mismo de la siguiente manera, nos situamos en el directorio de la aplicacion y ejectuamos:
-
-```CMD
-npm install
-```
-
-Esto instalara todas las dependencias de la aplicacion Angular y podremos verificar que todo esta funcionando ejecutando el ultimo paso de la guia de `Creacion del proyecto`.
-
-En caso de no contar con una aplicacion de Angular ya descargada, seguir los siguientes pasos para la creacion de una.
-
 ## 1. Creacion del proyecto
 
 Abrir una terminal en el directorio del repositorio del obligatorio y ejectuar el siguiente comando:
