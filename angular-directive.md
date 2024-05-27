@@ -34,3 +34,16 @@ Angular incluye directivas pre definidas que cambian:
 
 - La estructura del layout, como `ngSwitch` y
 - Aspectos de los elementos y componentes del DOM, como `ngStyle` y `ngClass`
+
+## Lecturas recomendadas
+
+- [Introduccion a directivas](https://v17.angular.io/guide/architecture-components#directives)
+
+- [Directivas de Angular](https://v17.angular.io/guide/built-in-directives)
+
+- [Directivas atributo](https://v17.angular.io/guide/attribute-directives)
+
+- [Directivas estructurales](https://v17.angular.io/guide/structural-directives)
+
+- [Composicion de una directiva](https://v17.angular.io/guide/directive-composition-api)
+

@@ -22,3 +22,7 @@ Se pueden encadenar varios pipes, enviando el output de un pipe como input al pi
 <!-- shortTime format: output '9:43 AM'-->
 <p>The time is {{today | date:'shortTime'}}</p>
 ```
+
+## Lecturas recomendadas
+
+- [Comprendiendo pipes](https://v17.angular.io/guide/pipes-overview)

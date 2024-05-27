@@ -42,9 +42,14 @@ Los modulos de angular son diferentes a los modulos definidos en JavaScript (ES2
 En JavaScript cada archivo es un modulo y todos los objetos definidos en el archivo pertenece a ese modulo. El modulo declara algunos objetos public al usar la palabra reservada `export`. Una vez marcado aquellos elementos como publicos, otros modulos de JavaScript pueden usar la palabra clave `import` para importar dichos elementos publicos de un modulo en particular.
 
 Por ejemplo:
+
 ```TypeScript
 import { NgModule } from '@angular/core';
 import { UserModule } from 'userModule-location';
 ```
 
 Aca se puede observar como se importan los elementos exportados `NgModule` y `UserModule` de sus modulos.
+
+## Lecturas recomendadas
+
+- [Modularidad](https://v17.angular.io/guide/ngmodules)
