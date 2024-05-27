@@ -14,25 +14,7 @@ Si esta carpeta es eliminada, la misma se debera de generar nuevamente previamen
 
 ## 2. src
 
-En esta carpeta encontraremos todo el codigo fuente de la aplicacion, es donde trabajaremos en la creacion de nuevos componentes y el mantenimiento de los existentes.
-
-Dentro de esta podremos encontrar lo siguiente:
-
-### 2.1. app
-
-Una carpeta `app` que es la que guardara todo nuestro codigo relacionado a `modulos` y `componentes` de nuestro negocio.
-
-### 2.2. assets
-
-Una carpeta que guarda todo recurso estatico utilizado en la aplicacion. Pueden ser imagenes u otros archivos necesarios para operar.
-
-### 2.3. environments
-
-Esta carpeta define las diferentes configuraciones de ambientes disponibles en los cuales ejecutar la aplicacion. Es un buen lugar para configurar que servidor api web se estara consumiendo la data. Dicho valor varia para cada ambiente.
-
-### 2.4. index.html
-
-Este template HTML es la raiz de la aplicacion, desde aca comienzan todas las inclusiones y llamadas. Sera el unico HTML generado cuando se compile al estar trabajando con una SPA.
+En esta carpeta encontraremos todo el codigo fuente de la aplicacion, es donde trabajaremos en la creacion de nuevos componentes y el mantenimiento de los existentes. Se puede encontrar mas informacion sobre esta carpeta [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/src.md).
 
 ### main.ts
 
