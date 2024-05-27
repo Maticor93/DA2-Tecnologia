@@ -9,3 +9,7 @@
 - [Elementos de una aplicacion Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/angular-app-elements.md)
 
   - [src](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/src.md)
+
+## Ejercicio
+
+Descargar el proyecto creado y ejectuarlo. Una vez que este funcionando actualizar el template HTML del componente raiz para ver reflejado los cambios.

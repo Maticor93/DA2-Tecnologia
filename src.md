@@ -20,3 +20,8 @@ Esta carpeta define las diferentes configuraciones de ambientes disponibles en l
 
 Este template HTML es la raiz de la aplicacion, desde aca comienzan todas las inclusiones y llamadas. Sera el unico HTML generado cuando se compile al estar trabajando con una SPA.
 
+## Organizacion de una aplicacion
+
+La organizacion de la aplicacion que debemos respetar es la siguiente:
+
+src
