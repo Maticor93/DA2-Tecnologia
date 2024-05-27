@@ -50,5 +50,8 @@ Data binding juega un rol importante en la comunicacion entre el template y su c
 [Esquema de componentes anidados]
 </p>
 
+## Lecturas recomendadas
 
+-[Como diseñar event binding](https://v17.angular.io/guide/event-binding-concepts)
 
+-[Variables del template](https://v17.angular.io/guide/template-reference-variables)

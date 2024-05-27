@@ -11,3 +11,5 @@
 4. [Pipe](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-pipe.md)
 
 5. [Servicios](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-service.md)
+
+6. [Ruteo y navegacion](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-routing-navigation.md)

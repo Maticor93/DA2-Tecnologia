@@ -54,6 +54,9 @@ Los parametros mas importantes son:
 | selector    | Un tag que le indica a Angular de crear e insertar una instancia del componente donde sea que encuentre dicho tag en un template HTML. Por ejemplo, si una vista HTML contiene <app-move-feed/>, entonces Angular insertara una instancia de la vista del componente MovieFeedComponent en ese tag |
 | templateUrl | La ruta relativa del template HTML del componente. Alternativamente, se podria desarrollar el template HTML como valor de la property `template`. Este template HTML define la vista host del componente                                                                                           |
 | styleUrls   | Un array de string donde se pone la referencia relativa a todos los archivos de estilado que se quieren aplicar al template HTML                                                                                                                                                                   |
+| standalone  | true cuando es un componente auto descriptivo, un componente standalone. false o no seteado como es el caso, cuando el componente tiene que estar declarado en un ngModule                                                                                                                         |
+| imports     | Un array de componentes, directivas, y paquetes que el template hace referencia. Es escencial para componentes standalone                                                                                                                                                                          |
+| providers   | Una lista de los proveedores de servicios que el componente necesita. Esto le indica a Angular como proveer una instancia del servicio que el constructor del componente utiliza                                                                                                                   |
 
 ## Template HTML
 

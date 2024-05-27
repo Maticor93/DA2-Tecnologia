@@ -1,8 +1,8 @@
 # Servicios
 
-Los servicios son una amplia categoria que engloban cualquier valor, funcion, o funcionalidad que la aplicacion necesita. Un servicio es una clase bien definida con un proposito. Deberia de hacer una unica cosa y bien.
+Cuando uno desarrolla alguna parte del sistem, como un modulo o una clase, por lo general necesita alguna funcionalidad declarada en otra clase. Por ejemplo, se podria necesitar un servicio HTTP para realizar requests a un servidor. La inyeccion de dependencia, o DI, es un patron de diseño y un mecanismo para crear y entregar alguna parte de la aplicacion a otra parte de la aplicacion que la necesita. Angular soporta este patron de diseño y se puede utilizar para aumentar la flexibilidad y modularizacion.
 
-Angular distingue los componentes de los servicios para aumentar la modularidad y reusabilidad.
+En Angular, las dependencias tipicamente son servicios y los servicios son una amplia categoria que engloban cualquier valor, funcion, o funcionalidad que la aplicacion necesita. Un servicio es una clase bien definida con un proposito que deberia de hacer una unica cosa y bien.
 
 Idealmente, el trabajo de un componente es brindar unicamente experiencia de usuario. Un componente deberia de tener properties y metodos para el data binding para mediar entre la vista y la logica de la aplicacion. La vista es el template renderizado y la logica de la aplicacion es lo hace la nocion de modelo.
 
@@ -53,10 +53,14 @@ Es necesario agregar el decorador `@Inyectable()` en la clase del servicio para 
 
 ```TypeScript
 @Injectable({providedIn: 'root'})
-export class MOvieService {
+export class MovieService {
 ```
 
-Reglas
+Angular para inyectar dichos servicios, hace uso de un [injector](https://v17.angular.io/guide/glossary#injector) (creado automaticamente durante el proceso de bootstrap) el que instancia las dependencias necesitadas el cual utiliza la configuracion del proveedor del servicio.
+
+Existen dos roles fundamentales, los que consumen dependencias y los que proveen dependencias.
+
+Reglas para usar DI
 
 - Algo inyectable tiene que ser registrado por un inyector antes de ser creado y usado
 
@@ -65,3 +69,57 @@ Reglas
 - No es necesario preocuparnos de crear inyectores. Por atras Angular crea un application-wide root inyector por nosotros durante el proceso de bootstrap. Crea inyectores hijos adicionales de ser necesario.
 
 Como nota, una dependencia inyectable no necesariamente tiene porque ser una clase - puede ser una funcion o un valor tambien.
+
+Cuando Angular crea una instancia de la clase del componente, determina que servicios u otras dependencias el componente necesita al ver los tipos de los parametros del constructor. Por ejemplo, el constructor de `MovieFeedComponent` necesita `MovieService`.
+
+```TypeScript
+constructor(private service: MovieService) { }
+```
+
+Cuando Angular descubre que el componente depende de un servicio, primero chequea si el injector tiene una instancia del servicio existente. Si no existe una instancia del servicio solicitado, el injector crea una usando el proveedor registrado y agrega la instancia al injector antes de retornarle la instancia a Angular.
+
+Cuando todos los servicios solicitados fueron resueltos y retornados, Angular puede llamar al constructor de la clase del componente con esos servicios como argumentos.
+
+El proceso de la inyeccion del servicio `MovieService` luce algo similar a esto.
+
+<p align="center">
+<img src="./images/image-12.png">
+</p>
+<p align="center">
+[Proceso de inyeccion de dependencia]
+</p>
+
+## Provedor de servicios
+
+Se debe de registrar al menos un provedor de cualquier servicio que se quiera usar. El proveedor puede ser parte de la propia metadata del servicio, haciendo ese servicio disponible en cualquier lugar, o se puede registrar proveedores con componentes especificos.
+
+Los proveedores se registran en la metadata del servicio (en el decorador @Injectable()) o en la metadata de @Componente().
+
+- Por defecto, el comando Angular CLI `ng generate service` registra un proveedor en el inyector raiz para el servicio al incluir la metadata del proveedor en @Injectable().
+
+```TypeScript
+@Injectable({providedIn: 'root'})
+export class MovieService {
+```
+
+Cuando se provee el servicio al nivel de la raiz, Angular crea una sola instancia compartida de `MovieService` y la inyecta en cualquier clase que la pida. Registrar el proveedor en la metadata de @Injectable() tambien le permite a Angular optimizar la aplicacion al remover el servicio de la aplicacion compilada si no se usa, es un proceso llamado tree-shaking.
+
+- Cuando se registra el proveedor a nivel del componente, se obtiene una nueva instancia del servicio cada vez que existe una nueva instancia del componente. A nivel del componente, registrar el proveedor del servicio en la property `providers` de la metadata del decorador @Component()
+
+```TypeScript
+@Component({
+  selector:    'app-movie-feed',
+  templateUrl: './movie-feed.component.html',
+  imports:     [ NgFor, NgIf, HeroDetailComponent ],
+  providers:  [ MovieService ]
+})
+```
+
+## Lecturas recomendadas
+
+- [Introduccion a servicios](https://v17.angular.io/guide/architecture-services)
+
+- [DI en Angular](https://v17.angular.io/guide/dependency-injection-overview)
+
+- [Entendiendo DI](https://v17.angular.io/guide/dependency-injection)
+
