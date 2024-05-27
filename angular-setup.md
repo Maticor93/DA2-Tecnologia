@@ -10,8 +10,13 @@ La version a utilizar debe ser la `20.13.1`, en caso de no tener esta version, s
 
 ## Descargar Node.js
 
-Para descargar Node.js nos dirijimos a la pagina de [Node.js](https://nodejs.org/en/download/package-manager) y seleccionamos la version anteriormente dicha y la procedemos a descargar con `fnm` en caso de estar trabajando con Windows o con `nvm` en caso de estar con macOS.
+## Con nvm en windows
+En caso de querer tener mas de una version de Node, debemos de descargar un manejador de versiones de node, para windows podemos descargar [nvm](https://4geeks.com/how-to/nvm-install-windows) el cual nos permitira tener mas de una version de node en el sistema operativo e ir intercalandolo.
 
+## Con fnm en windows o nvm en macOS
+Tambien podemos seguir los pasos de [Node.js](https://nodejs.org/en/download/package-manager) y seleccionamos la version anteriormente dicha y la procedemos a descargar con `fnm` en caso de estar trabajando con Windows o con `nvm` en caso de estar con macOS.
+
+## Un instalador de una version especifica
 Tambien podemos descargar una version de Node.js desde un [installer](https://nodejs.org/en/download/prebuilt-installer).
 
 Una vez terminada la instalacion ejectuar nuevamente:
