@@ -6,45 +6,42 @@ En ella podemos encontrar:
 
 ## 1. app
 
-Una carpeta `app` que es la que guardara todo nuestro codigo relacionado a `modulos` y `componentes` de nuestro negocio.
+Una carpeta `app` que es la que guardara todo nuestro codigo relacionado a `modulos` y `componentes` de nuestro negocio. Podran encontrar mas informacion [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/app.md)
 
-## 2. assets
-
-Una carpeta que guarda todo recurso estatico utilizado en la aplicacion. Pueden ser imagenes u otros archivos necesarios para operar.
-
-## 3. environments
-
-Esta carpeta define las diferentes configuraciones de ambientes disponibles en los cuales ejecutar la aplicacion. Es un buen lugar para configurar que servidor api web se estara consumiendo la data. Dicho valor varia para cada ambiente.
-
-## 4. index.html
+## 2. index.html
 
 Este template HTML es la raiz de la aplicacion, desde aca comienzan todas las inclusiones y llamadas. Sera el unico HTML generado cuando se compile al estar trabajando con una SPA.
+
+## 3. main.ts
+
+Archivo que inicia el proceso de bootstrap
+
+## 4. styles.css
+
+Archivo de estilado para estilos globales a la aplicaicon. Cualquier estilo definido aca sera accesible en cualquier parte de la aplicacion.
 
 ## Organizacion de una aplicacion
 
 La organizacion de la aplicacion que debemos respetar es la siguiente:
 
 ```
-src
-|── app
-|   |── app.module.ts
-|   |── app.component.ts
-|   |── app-routing.module.ts
-|   |── app.component.html
-|── backend
-|   |── services
-|   |   |── models
-|   |── repositories
-|── business-components
-|── components
-|── assets
-|── environments
-|   |── environment.prod.ts
-|   |── environment.ts
-|── favicon.ico
-|── index.html
-|── main.ts
-|──polyfills.ts
-|──styles.css
+|
+|── src
+|   |── app
+|   |   |── app.module.ts
+|   |   |── app.component.ts
+|   |   |── app-routing.module.ts
+|   |   |── app.component.html
+|   |── backend
+|   |   |── services
+|   |   |   |── models
+|   |   |── repositories
+|   |── business-components
+|   |── components
+|   |── index.html
+|   |── main.ts
+|   |──styles.css
+|── public
+|   |── favicon.ico
 
 ```

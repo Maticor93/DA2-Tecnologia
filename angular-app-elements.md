@@ -16,26 +16,22 @@ Si esta carpeta es eliminada, la misma se debera de generar nuevamente previamen
 
 En esta carpeta encontraremos todo el codigo fuente de la aplicacion, es donde trabajaremos en la creacion de nuevos componentes y el mantenimiento de los existentes. Se puede encontrar mas informacion sobre esta carpeta [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/src.md).
 
-### main.ts
-
-Archivo que inicia el proceso de bootstrap
-
-### styles.css
-
-Archivo de estilado para estilos globales a la aplicaicon. Cualquier estilo definido aca sera accesible en cualquier parte de la aplicacion.
-
-## 3. .browserslistrc
-
-Archivo que lista los navegadores que pueden soportar la aplicacion Angular. Es usado en tiempo de compilacion para ajustar el codigo a ser soportado por los navegadores listados.
-
-## 4. angular.json
+## 3. angular.json
 
 Es un archivo de configuracion de Angular que indica elementos de buildeo, arquitectura, ambientes, etc.
 
-## 5. package-lock.json
+## 4. package-lock.json
 
 Es un archivo que provee informacion de las versiones y dependencias de los paquetes instalados que se encuentran en `node_modules`
 
-## 6. package.json
+## 5. package.json
 
 Es un archivo donde se listan todas las dependencias que la aplicacion tiene, la misma tambien define los comandos disponibles para ejecutar sobre la aplicacion.
+
+## 6. public
+
+Una carpeta que guarda todo recurso estatico utilizado en la aplicacion. Pueden ser imagenes u otros archivos necesarios para operar.
+
+## Proyectos sin uso de minimal
+
+En caso de crear el proyecto sin la flag `minimal` se crearan archivos con la extension `spec`, los cuales son para realizar pruebas. Como no es necesario realizar pruebas pueden ignorar dichos archivos o eliminarlos.
