@@ -24,4 +24,27 @@ Este template HTML es la raiz de la aplicacion, desde aca comienzan todas las in
 
 La organizacion de la aplicacion que debemos respetar es la siguiente:
 
+```
 src
+|── app
+|   |── app.module.ts
+|   |── app.component.ts
+|   |── app-routing.module.ts
+|   |── app.component.html
+|── backend
+|   |── services
+|   |   |── models
+|   |── repositories
+|── business-components
+|── components
+|── assets
+|── environments
+|   |── environment.prod.ts
+|   |── environment.ts
+|── favicon.ico
+|── index.html
+|── main.ts
+|──polyfills.ts
+|──styles.css
+
+```
