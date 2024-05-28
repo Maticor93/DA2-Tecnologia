@@ -1,3 +1,5 @@
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component)
+
 # Componentes
 
 Los componentes controlan una porcion de la pantalla denominada vista. Consiste en una clase de TypeScript, un template HTML, y un estilado en CSS. La clase de TypeScript define la interaccion del codigo HTML con la estructura DOM, mientras que el codigo de estilado define la apariencia.
