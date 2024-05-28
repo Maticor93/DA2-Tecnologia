@@ -10,6 +10,14 @@
 
   - [src](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/src.md)
 
+  - [app](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/app.md)
+
+- [Codigo creado sin flags](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-create-project/1-%20Angular%20application/MyFirstAngularApp)
+
+- [Codigo creado con flags](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-create-project/1-%20Angular%20application/MyMinimalRoutingNoStandalonApp)
+
+- [Refactor de codigo](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-create-project/1-%20Angular%20application/Refactor)
+
 ## Ejercicio
 
 Descargar el proyecto creado y ejectuarlo. Una vez que este funcionando actualizar el template HTML del componente raiz para ver reflejado los cambios.
