@@ -2,6 +2,7 @@
 [Bb]in/
 [Oo]bj/
 .env
+.angular
 # mstest test results
 TestResults
 *.nupkg
