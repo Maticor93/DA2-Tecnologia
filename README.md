@@ -6,4 +6,6 @@
 
 - [Creacion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-module/creation.md)
 
-- [Creacion de componentes pagina](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/creation.md)
+## Siguientes pasos
+
+- [Creacion de componentes pagina](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/creation-page.md)
