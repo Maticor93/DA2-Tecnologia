@@ -8,4 +8,4 @@
 
 ## Siguientes pasos
 
-- [Creacion de componentes pagina](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/creation-page.md)
+- [Componentes](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/component.md)
