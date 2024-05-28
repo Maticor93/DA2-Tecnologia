@@ -20,4 +20,4 @@
 
 ## Ejercicio
 
-Descargar el proyecto creado y ejectuarlo. Una vez que este funcionando actualizar el template HTML del componente raiz para ver reflejado los cambios.
+Descargar el proyecto `Refactor` y ejectuarlo. Una vez que este funcionando actualizar el template HTML del componente raiz para ver reflejado los cambios.
