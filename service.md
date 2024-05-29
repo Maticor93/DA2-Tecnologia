@@ -30,7 +30,7 @@ export class MovieService {
     private backend: BackendService,
     private logger: Logger) { }
 
-  getHeroes() {
+  getAll() {
     this.backend.getAll('movies').then( (movies: Movie[]) => {
       this.logger.log(`Fetched ${movies.length} movies.`);
       this.movies.push(...movies); // fill cache
