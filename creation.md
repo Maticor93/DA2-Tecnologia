@@ -72,6 +72,30 @@ Este componente definira los siguientes parametros para ser configurado y utiliz
 - `title`: un titulo a desplegar
 - `onClick`: un comportamiento que se ejcutara cuando se haga click
 
+Teniendo la logica del componente `button.component`:
+
+```TypeScript
+@Component({
+  selector: 'app-button',
+  standalone: true,
+  imports: [],
+  templateUrl: './button.component.html',
+  styles: ``,
+})
+export class ButtonComponent {
+  @Input() title: string = 'Button';
+  @Input() onClick!: () => void;
+}
+```
+
+Y usado en `app.component` asi:
+
+```HTML
+<app-button title="Guardar" [onClick]="onClick" />
+```
+
+Donde se le pasa un valor estatico a la property `title`, estatico porque no se lee el valor de una variable del estado del componente `app.component`, y se le pasa la funcion `onClick` definida en `app.component` a la property `onClick` del component `button.component`.
+
 ## Creacion del componente input y dropdown
 
 Repetir los pasos de la creacion del componente.
@@ -94,9 +118,44 @@ Repetir los pasos de la creacion del componente.
 
 Este componente definira los siguientes parametros para ser configurado y utilizado:
 
-- `placeholder`: un placeholder en caso de querer mostrar uno
 - `label`: una lable en caso de querer mostrar uno
+- `placeholder`: un placeholder en caso de querer mostrar uno
+- `type`: tipo del input
 - `value`: el valor del input
+
+Teniendo la logica del componente `input.component`:
+
+```TypeScript
+@Component({
+  selector: 'app-input',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './input.component.html',
+  styles: ``,
+})
+export class InputComponent {
+  @Input() label: string | null = null;
+  @Input() placeholder = '';
+  @Input() type: 'text' | 'number' = 'text';
+  @Input() value = '';
+
+  @Output() valueChange = new EventEmitter<string>();
+
+  public onValueChange(event: any): void {
+    this.valueChange.emit(event.target.value);
+  }
+}
+```
+
+Y usado en `app.component` asi:
+
+```HTML
+<app-input
+  type="text"
+  placeholder="example of input"
+  label="example of label"
+  [(value)]="input" />
+```
 
 ### Dropdown
 
@@ -116,13 +175,52 @@ Este componente definira los siguientes parametros para ser configurado y utiliz
 
 Este componente definira los siguientes parametros para ser configurado y utilizado:
 
-- `elements`: un array de elementos de una estructura determinada a desplegar
-- `value`: el valor del elemento seleccionado
+- `options`: un array de elementos de una estructura determinada a desplegar
 - `label`: una lable en caso de querer mostrar uno
 - `placeholder`: un placeholder en caso de querer mostrar uno
-- `onChange`: un comportamiento que se ejecuta cuando se cambia el elemento seleccionado
+- `emptyMessage`: un mensaje para indicar que no hay elementos
+- `value`: el valor del elemento seleccionado
 
-### Creacion del componente movie-type-dropdown
+Teniendo la logica del componente `dropdown-component`:
+
+```TypeScript
+export class DropdownComponent implements OnInit {
+  @Input() options!: Array<DropdownOption>;
+  @Input() label = '';
+  @Input() placeholder = '';
+  @Input() emptyMessage = 'No options found';
+  @Input() value: string | null = null;
+
+  @Output() valueChange = new EventEmitter<string>();
+
+  public ngOnInit(): void {
+    if (!this.options || this.options.length === 0) {
+      return;
+    }
+
+    if (!this.value && !this.placeholder) {
+      this.onChange({ target: { value: this.options[0].value } });
+    }
+  }
+
+  public onChange(event: any) {
+    const newOption =
+      event.target.value === 'null' ? null : event.target.value;
+    this.valueChange.emit(newOption);
+  }
+}
+```
+
+Y es usado en `app.component` asi:
+
+```HTML
+<app-dropdown
+  [options]="elements"
+  [(value)]="optionSelected"
+  placeholder="Seleccione un item" />
+```
+
+## Creacion del componente movie-type-dropdown
 
 Antes de crear un componente en `business-components` es necesario situarnos en el lugar correcto para su creacion, para eso nos situamos en `src` y creamos la carpeta `business-components` normalmente o con la terminal:
 
@@ -156,6 +254,48 @@ Obteniendo el siguiente componente:
 Este componente definira los siguientes parametros para ser configurado y utilizado:
 
 - `value`: el valor del elemento seleccionado
-- `onChange`: un comportamiento que se ejecuta cuando se cambia el elemento seleccionado
 
 La responsabilidad de este componente es encapsular el template HTML y logica que el componente `movie-type-dropdown` deberia de tener siempre en nuestra aplicacion. De esta forma nos ahorramos definir constantemente el componente en los lugares que queremos utilizarlo. La logica de este componente sera usar el componente `dropdown` encapsulando las configuraciones necesarias para que siempre despliegue los tipos de peliculas.
+
+Siendo la logica del componente `movie-type-dropdown` asi:
+
+```TypeScript
+@Component({
+  selector: 'app-movie-type-dropdown',
+  standalone: true,
+  imports: [DropdownComponent],
+  templateUrl: './movie-type-dropdown.component.html',
+  styles: ``,
+})
+export class MovieTypeDropdownComponent {
+  movieTypes: Array<DropdownOption> = [
+    { label: 'Action', value: 'action' },
+    { label: 'Comedy', value: 'comedy' },
+    { label: 'Drama', value: 'drama' },
+    { label: 'Horror', value: 'horror' },
+    { label: 'Sci-Fi', value: 'sci-fi' },
+  ];
+  @Input() value: string | null = null;
+}
+```
+
+## Uso de los componentes
+
+Estos componentes momentaneamente los vamos a utilizar en `app.component`. Para utilizar los componentes es necesario importarlos en el modulo del componente donde queremos utilizarlos. Teniendo como resultado el `app.module` de la siguiente manera:
+
+```TypeScript
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    ButtonComponent,
+    InputComponent,
+    DropdownComponent,
+    AppRoutingModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+
+```
