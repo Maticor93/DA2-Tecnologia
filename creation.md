@@ -67,6 +67,11 @@ La responsabilidad de este componente es encapsular el template HTML y logica qu
 
 Es importante destacar que para la generacion de cualquier elemento a traves de Angular CLI, no se pone el tipo del elemento ya que este es puesto por la herramienta.
 
+Este componente definira los siguientes parametros para ser configurado y utilizado:
+
+- `title`: un titulo a desplegar
+- `onClick`: un comportamiento que se ejcutara cuando se haga click
+
 ## Creacion del componente input y dropdown
 
 Repetir los pasos de la creacion del componente.
@@ -87,6 +92,12 @@ Repetir los pasos de la creacion del componente.
 [Directorio y archivos nuevos]
 </p>
 
+Este componente definira los siguientes parametros para ser configurado y utilizado:
+
+- `placeholder`: un placeholder en caso de querer mostrar uno
+- `label`: una lable en caso de querer mostrar uno
+- `value`: el valor del input
+
 ### Dropdown
 
 <p align="center">
@@ -102,6 +113,14 @@ Repetir los pasos de la creacion del componente.
 <p align="center">
 [Directorio y archivos nuevos]
 </p>
+
+Este componente definira los siguientes parametros para ser configurado y utilizado:
+
+- `elements`: un array de elementos de una estructura determinada a desplegar
+- `value`: el valor del elemento seleccionado
+- `label`: una lable en caso de querer mostrar uno
+- `placeholder`: un placeholder en caso de querer mostrar uno
+- `onChange`: un comportamiento que se ejecuta cuando se cambia el elemento seleccionado
 
 ### Creacion del componente movie-type-dropdown
 
@@ -133,5 +152,10 @@ Obteniendo el siguiente componente:
 <p align="center">
 [Directorio y archivos nuevos]
 </p>
+
+Este componente definira los siguientes parametros para ser configurado y utilizado:
+
+- `value`: el valor del elemento seleccionado
+- `onChange`: un comportamiento que se ejecuta cuando se cambia el elemento seleccionado
 
 La responsabilidad de este componente es encapsular el template HTML y logica que el componente `movie-type-dropdown` deberia de tener siempre en nuestra aplicacion. De esta forma nos ahorramos definir constantemente el componente en los lugares que queremos utilizarlo. La logica de este componente sera usar el componente `dropdown` encapsulando las configuraciones necesarias para que siempre despliegue los tipos de peliculas.
