@@ -4,6 +4,16 @@
 
 - [Definicion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/navigation.md)
 
+- [Orden de ejecucion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/execution-order.md)
+
+- [Navegacion anidada](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/inner-navigation.md)
+
+- [Refactor en la navegacion con modulos `eager`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/eager-module-separation.md)
+
+- [Refactor en la navegacion con modulos `lazy`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/lazy-module-separation.md)
+
+- [Navegacion con parametros](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/parameters-navigation.md)
+
 - [Implementacion proyecto](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/refactor.md)
 
 ## Siguientes pasos
