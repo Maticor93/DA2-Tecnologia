@@ -12,4 +12,4 @@
 
 6. [Servicios](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-service.md)
 
-7. [Ruteo y navegacion](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-routing-navigation.md)
+7. [Ruteo y navegacion](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-navigation/navigation.md)
