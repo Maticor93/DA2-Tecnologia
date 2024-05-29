@@ -1,10 +1,12 @@
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+
 # Uso de modulos `eager`
 
 Una de las mejoras a realizar es la creacion de diferentes modulos para la declaracion de los diferentes componentes, siguiendo el ejemplo, podriamos generar los siguientes modulos sin ruteo: `first`, `second` y `third`, donde estos modulos declararan sus componentes y los modulos seran importados en el modulo raiz `app.module`.
 
 Realizando este refactor, nos quedaria:
 
-### Modulo raiz: app.module
+## Modulo raiz: app.module
 
 ```TypeScript
 @NgModule({
@@ -26,7 +28,7 @@ Y el modulo de rutas raiz `app-routing.module` la unica actualizacion que habria
 
 Los modulos hijos a la raiz quedarian declarando sus componentes y exportandolos ya que deben ser importados por el modulo raiz `app.module`. Teniendo los modulos hijos de la siguiente manera:
 
-### First modulo: first.module
+## First modulo: first.module
 
 ```TypeScript
 @NgModule({
@@ -37,7 +39,7 @@ Los modulos hijos a la raiz quedarian declarando sus componentes y exportandolos
 export class FirstModule {}
 ```
 
-### Second modulo: second.module
+## Second modulo: second.module
 
 ```TypeScript
 @NgModule({
@@ -48,7 +50,7 @@ export class FirstModule {}
 export class SecondModule {}
 ```
 
-### Third modulo: third.module
+## Third modulo: third.module
 
 ```TypeScript
 @NgModule({

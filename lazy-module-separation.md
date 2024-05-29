@@ -1,4 +1,6 @@
-### Lazy loading
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+
+# Lazy loading
 
 Esta forma de cargar los modulos ayuda a que el tamaño del bundle sea mas chico, lo que ayuda a disminuir los tiempos de carga. Los modulos cargados de forma `lazy` son cargados con la property `loadChildren` en vez de usar `component` en las rutas definidas en `app-routing.module`.
 
@@ -28,7 +30,7 @@ Dado que ahora la definicion de rutas de los modulos recae en los modulos mismos
 
 Dado las grandes ventajas que propone la carga de modulos de forma `lazy`, procederemos a implementarla en el codigo que se viene trabajando. Teniendo como resultado lo siguiente:
 
-#### Modulo raiz: app.module
+## Modulo raiz: app.module
 
 ```TypeScript
 @NgModule({
@@ -45,7 +47,7 @@ export class AppModule {}
 
 Ahora el modulo raiz quedo sin la importacion de forma `eager` de los modulos hijos, lo que lo hace aun mas limpio.
 
-### Modulo de ruta raiz: app-routing.module
+## Modulo de ruta raiz: app-routing.module
 
 ```TypeScript
 const routes: Routes = [
@@ -71,7 +73,7 @@ const routes: Routes = [
 
 La definicion de las rutas hijas de las rutas raices recaen en los modulos de rutas de los modulos hijos lo que hace este modulo mas limpio y mas mantenible. Este modulo ahora solo mantiene unicamente las rutas raices.
 
-### Modulo First: first.module
+## Modulo First: first.module
 
 ```TypeScript
 @NgModule({
@@ -84,7 +86,7 @@ export class FirstModule {}
 
 Podemos ver que importa el modulo de rutas `FirstRoutingModule`, el cual es el modulo de rutas especifico de este modulo. Tambien se puede observar como ya no es necesario que se exporten componentes.
 
-### Modulo de ruta de First: first-routing.module
+## Modulo de ruta de First: first-routing.module
 
 ```TypeScript
 const routes: Routes = [
@@ -103,7 +105,7 @@ export class FirstRoutingModule {}
 
 Este es el modulo encargado de mantener las rutas relacionadas al modulo `first.module`. Dado que la definicion de la ruta utilizada era la de la raiz, esta esta definida en el modulo de rutas raiz `app-routing.module` y tiene como hijo la ruta vacia que despliega la vista del componente `FirstPageComponent`. Otra diferencia es que en los modulos considerados hijos de raiz, en la declaracion de las rutas se utiliza el metodo `forChild` del modulo `RouterModule` en vez del metodo `forRoots` como se usa en `app-routing.module`.
 
-### Modulo Second: second.module
+## Modulo Second: second.module
 
 ```TypeScript
 @NgModule({
@@ -114,7 +116,7 @@ Este es el modulo encargado de mantener las rutas relacionadas al modulo `first.
 export class SecondModule {}
 ```
 
-### Modulo de ruta de Second: second-routing.module
+## Modulo de ruta de Second: second-routing.module
 
 ```TypeScript
 const routes: Routes = [
@@ -131,7 +133,7 @@ const routes: Routes = [
 export class SecondRoutingModule {}
 ```
 
-### Modulo Third: third.module
+## Modulo Third: third.module
 
 ```TypeScript
 @NgModule({
@@ -142,7 +144,7 @@ export class SecondRoutingModule {}
 export class ThirdModule {}
 ```
 
-### Modulo de ruta de Third: third-routing.module
+## Modulo de ruta de Third: third-routing.module
 
 ```TypeScript
 const routes: Routes = [
@@ -178,3 +180,4 @@ export class ThirdRoutingModule {}
 ## Codigos
 
 - [Codigo de ejemplo de navegacion con `lazy`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenRefactorLazyExampleApp)
+

@@ -1,3 +1,5 @@
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+
 # Navegacion anidada
 
 A medida que la aplicacion va creciendo, es necesario ir creando mas nodos anidados para una buena organizacion y facil mantenimiento. Es muy comun querer elementos anidados para ir reutilizando partes estaticos. Para eso podemos usar la property `children` del tipo `Route` que define otro array de `Routes` para definir las rutas hijas de una ruta padre.

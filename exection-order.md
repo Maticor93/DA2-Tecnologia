@@ -1,3 +1,5 @@
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+
 # Orden de ejecucion
 
 El orden de las rutas es importante porque `Router` utiliza la estrategia first-match gana cuando encuentra rutas que matchean, es por eso que, las rutas mas especificas deberian de estar ubicadas antes que las rutas menos especificas. Las rutas con una parte estatica deberan ser listadas primero, seguido por una ruta vacia, lo cual matchea con la ruta por defecto.
