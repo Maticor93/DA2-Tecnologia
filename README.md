@@ -14,8 +14,8 @@
 
 - [Navegacion con parametros](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/parameters-navigation.md)
 
-- [Implementacion proyecto](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/refactor.md)
+- [Proyecto con navegacion lazy](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/refactor.md)
 
 ## Siguientes pasos
 
-- [Estilado - UI](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/style.md)
+- [Servicios](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/service.md)
