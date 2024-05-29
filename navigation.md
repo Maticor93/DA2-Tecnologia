@@ -10,30 +10,42 @@ Existen tres bloques fundamentales para definir las rutas.
 
 ## Primer bloque: configuracion de las rutas
 
-Se tiene que importar las rutas al archivo `app.config.ts` y agregarlo con la funcion `provideRouter` teniendo como resultado lo siguiente:
-
-```TypeScript
-export const routes: Routes = []
-
-export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
-};
-```
-
-## Segundo bloque: definicion de las rutas
-
-Cada ruta en el array `routes` contiene dos properties. La property `path`, define la URL para la ruta y la property `component`, define el componente de Angular que se deberia de usar para la ruta correspondiente.
+Tendremos un archivo `app-routing.module.ts` el cual es el lugar donde definiremos las rutas y las configuraremos como raices. Para ello, tendremos que definir las rutas en un array `routes`, donde cada ruta debe definir al menos las siguientes properties: `path` y `component`. La property `path` define la ruta que estara matcheando en la URL del navegador y la property `component` define el componente de Angular que se debera de instanciar cuando ocurra un matcheo entre el `path` definido con la URL del navegador.
 
 ```TypeScript
 const routes: Routes = [
   { path: 'first-component', component: FirstComponent },
   { path: 'second-component', component: SecondComponent },
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 ```
+
+En la metadata del decorador, podemos observar que importa las rutas definidas y las declara para que sean atendidas por la raiz. Tambien podemos observar que exporta lo modulo del router, esto implica que quien importe este modulo estara importando la configuracion de las rutas.
+
+## Segundo bloque: importacion de las rutas
+
+Una vez que tenemos las rutas definidas para la navegacion, este modulo tiene que ser importado en el modulo raiz `app.module` el cual estara importando la definicion de rutas raices.
+
+```TypeScript
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+Podemos ver como en la metadata del decorador, en la property `imports` el modulo de ruteo `AppRoutingModule` ya se encuentra importado.
 
 ## Tercer bloque: espacio reservado para desplegar los componentes
 
-Para que la navegacion tenga efecto, es necesario definir un espacio reservado para que Angular pueda mostrar y ocultar los componentes relacionados a las rutas en la URL. Para realizar esto se utiliza el componente `router-outlet`, el cual sirve como la definicion del espacio reservado para que Angular muestre u oculte los componentes en ese lugar.
+Para que la navegacion tenga efecto, es necesario definir un espacio reservado para que Angular pueda mostrar y ocultar los componentes relacionados a las rutas en la URL. Para realizar esto se utiliza el componente `router-outlet`, el cual sirve como la definicion del espacio reservado para que Angular muestre u oculte los componentes en ese lugar. Aquel template HTML que tenga defina `router-outlet` tiene que tener rutas hijas, es por esto que el siguiente codigo se ubica en `app.component.html`, ya que es el compnente raiz y queremos definir un espacio dinamico en este.
 
 ```HTML
 <h1>Angular Router App</h1>
@@ -51,7 +63,7 @@ Podemos ver que hay dos links que se relacionan uno a uno con las rutas definida
 
 En esta vista tenemos una parte estatica, la navegacion, y una parte dinamica, el espacio reservado.
 
-Para que dicho codigo funcione es necesario importar los siguientes elementos: `CommonModule`, `RouterOutlet`, `RouterLink`, `RouterLinkActive`.
+Para que dicho codigo funcione es necesario importar los siguientes elementos: `CommonModule`, `RouterLink`, `RouterLinkActive`.
 
 ## Orden de ejecucion
 
@@ -63,8 +75,8 @@ Ejemplo de definicion de orden de rutas:
 
 ```TypeScript
 const appRoutes: Routes = [
-  { path: 'create-movie', component: CreateMovieComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/create-movie
-  { path: 'movies',        component: MovieFeedComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/movies
+  { path: 'some-url', component: SomeUrlPageComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/some-url
+  { path: 'other-url',        component: OtherUrlPageComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/other-url
   { path: '',   redirectTo: '/movies', pathMatch: 'full' }, // ruta vacia que matchea con la ruta por defecto: https://localhost:3000/
   { path: '**', component: PageNotFoundComponent } // ruta comodin que matchea con cualquier ruta que no matchee con las anteriores
 ];
@@ -72,30 +84,25 @@ const appRoutes: Routes = [
 
 ## Pasar informacion en la ruta
 
-Es comun querer pasar informacion en la ruta de navegacion. Por ejemplo, si consideramos una aplicacion que muestra un listado de peliculas, cada pelicula tiene un unico `id`. Para editar una pelicula determinada, el usuario haria click en un boton Editar, que navegaria el usuario a la vista del componente `UpdateMovieComponent`.
+Es comun querer pasar informacion en la ruta de navegacion. Por ejemplo, si consideramos una aplicacion que muestra un listado de elementos y cada elemento tiene un unico `id`. Para editar un elemento determinado, el usuario haria click en un boton `Editar`, que navegaria el usuario a la vista del componente `UpdateElementComponent`.
 
-Para hacer esto modificamos la informacion de la ruta por la siguiente:
-
-1. Agregamos la funcion `withComponentInputBinding` al `providerRouter` metodo.
+Para hacer definimos la ruta de la siguiente forma:
 
 ```TypeScript
 export const appRoutes: Route[] =[
   {
-    path:'component/:movieId'
-    component: UpdateMovieComponent
+    path:'elements/:elementId'
+    component: UpdateElementComponent
   }
-]
-providers: [
-  provideRouter(appRoutes, withComponentInputBinding()),
 ]
 ```
 
-2. Actualizar el componente para tener un parametro que matchee en nombre y usar `Input`
+Y en el componente declaramos un parametro que matchee en nombre y usar `Input`
 
 ```TypeScript
 @Input()
-set id(movieId: string) {
-  this.movie$ = this.service.getMovie(movieId);
+set id(elementId: string) {
+  this.element$ = this.service.getElementById(elementId);
 }
 ```
 
@@ -103,11 +110,13 @@ En caso de querer hacer uso de dicho parametro al momento de inicializacion del 
 
 ```TypeScript
 ngOnInit() {
-  const id = this.route.snapshot.paramMap.get('movieId')!;
+  const id = this.route.snapshot.paramMap.get('elementId')!;
 
-  this.movie$ = this.service.getMovie(id);
+  this.element$ = this.service.getElementById(id);
 }
 ```
+
+Podran encontrar el codigo fuente que sigue los elementos implementados [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%)
 
 ## Lecturas recomendadas
 

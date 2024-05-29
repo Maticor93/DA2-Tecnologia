@@ -4,8 +4,6 @@
 
 - [Definicion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/navigation.md)
 
-- [Implementacion ejemplo](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/implementation.md)
-
 - [Implementacion proyecto](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/refactor.md)
 
 ## Siguientes pasos
