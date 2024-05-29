@@ -14,8 +14,8 @@ Tendremos un archivo `app-routing.module.ts` el cual es el lugar donde definirem
 
 ```TypeScript
 const routes: Routes = [
-  { path: 'first-component', component: FirstComponent },
-  { path: 'second-component', component: SecondComponent },
+  { path: 'first-component', component: FirstPageComponent },
+  { path: 'second-component', component: SecondPageComponent },
 ];
 
 @NgModule({
@@ -33,7 +33,7 @@ Una vez que tenemos las rutas definidas para la navegacion, este modulo tiene qu
 
 ```TypeScript
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FirstPageComponent, SecondPageComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
@@ -41,7 +41,7 @@ Una vez que tenemos las rutas definidas para la navegacion, este modulo tiene qu
 export class AppModule {}
 ```
 
-Podemos ver como en la metadata del decorador, en la property `imports` el modulo de ruteo `AppRoutingModule` ya se encuentra importado.
+Podemos ver como en la metadata del decorador, en la property `imports` el modulo de ruteo `AppRoutingModule` ya se encuentra importado. Tambien podemos observar que es necesario que el modulo declare los componentes que estaran atendiendo las rutas en la property `declarations`.
 
 ## Tercer bloque: espacio reservado para desplegar los componentes
 
@@ -63,8 +63,6 @@ Podemos ver que hay dos links que se relacionan uno a uno con las rutas definida
 
 En esta vista tenemos una parte estatica, la navegacion, y una parte dinamica, el espacio reservado.
 
-Para que dicho codigo funcione es necesario importar los siguientes elementos: `CommonModule`, `RouterLink`, `RouterLinkActive`.
-
 ## Orden de ejecucion
 
 El orden de las rutas es importante porque `Router` utiliza la estrategia first-match gana cuando encuentra rutas que matchean, es por eso que, las rutas mas especificas deberian de estar ubicadas antes que las rutas menos especificas. Las rutas con una parte estatica deberan ser listadas primero, seguido por una ruta vacia, lo cual matchea con la ruta por defecto.
@@ -75,9 +73,10 @@ Ejemplo de definicion de orden de rutas:
 
 ```TypeScript
 const appRoutes: Routes = [
-  { path: 'some-url', component: SomeUrlPageComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/some-url
-  { path: 'other-url',        component: OtherUrlPageComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/other-url
-  { path: '',   redirectTo: '/movies', pathMatch: 'full' }, // ruta vacia que matchea con la ruta por defecto: https://localhost:3000/
+  { path: 'first-component', component: FirstPageComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/first-component
+  { path: 'second-component', component: SecondPageComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/second-component
+  { path: 'third-component', component: SecondPageComponent }, // ruta estatica que matcha con la ruta: https://localhost:3000/third-component y con https://localhost:3000/third-component/child
+  { path: '',   redirectTo: '/first-component', pathMatch: 'full' }, // ruta vacia que matchea con la ruta por defecto: https://localhost:3000/
   { path: '**', component: PageNotFoundComponent } // ruta comodin que matchea con cualquier ruta que no matchee con las anteriores
 ];
 ```
@@ -116,7 +115,13 @@ ngOnInit() {
 }
 ```
 
-Podran encontrar el codigo fuente que sigue los elementos implementados [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%)
+## Codigos
+
+- [Codigo de ejemplo basico de navegacion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationExampleApp)
+
+- [Codigo de ejemplo de navegacion con hijos](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenExampleApp)
+
+- [Codigo de ejemplo de navegacion con parametros](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithParamsExampleApp)
 
 ## Lecturas recomendadas
 
