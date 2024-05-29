@@ -1,0 +1,31 @@
+<h1>third-component</h1>
+<nav>
+  <ul>
+    <li>
+      <a
+        routerLink="child"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Child Component</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="second-child"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Second child Component</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="not-registered-child"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Not registered child</a
+      >
+    </li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
