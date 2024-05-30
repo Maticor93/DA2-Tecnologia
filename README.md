@@ -1,3 +1,5 @@
+[Diagrama de clases segunda prueba teorica](https://drive.google.com/file/d/1th1mRjs_WCGlgGFt20L6AiWmOSn_TuOn/view?usp=sharing)
+
 # Repositorio de clase
 
 ## Planillas
