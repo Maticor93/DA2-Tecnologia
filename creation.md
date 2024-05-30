@@ -92,7 +92,7 @@ export default interface MovieTypeBasicInfoModel {
 
 Otro impacto que llevo a realizar dicho comportamiento fue la creacion de un archivo llamado `environment` el cual esta situado en `src`. Este archivo servira para acceder a variables del ambiente dentro de la aplicacion de una forma encapsulada. Es de gran utilidad este archivo para variar los valores de las variables definidas dependiendo el ambiente en el que se corra o compile la aplicacion.
 
-Por ultimo, el tipo de retorno del comportamiento tiene que ser el mismo que el de la funcion a utilizar de la clase `HttpClient`. El tipo de retorno es `Observable` el cual hace uso del patron `Observer` que nos permite suscribirnos a un evento y actualizar el estado de la clase cuando los datos esten disponibles. [Aca](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/observer.md) podran encontrar mas informacion sobre el patrong `Observer` y como Angular lo utiliza.
+Por ultimo, el tipo de retorno del comportamiento tiene que ser el mismo que el de la funcion a utilizar de la clase `HttpClient`. El tipo de retorno es `Observable` el cual es un tipo declarado en la libreria `RxJS` que nos ayuda a implementar el patron `Observer`. Este patron nos permite suscribirnos a un evento y actualizar el estado de la clase cuando los datos esten disponibles. [Aca](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/rxjs.md) podran encontrar mas informacion sobre la libreria `RxJS`.
 
 El paso siguiente es repetir el proceso de creacion de un servicio pero para la creacion del servicio `MovieTypeService` en la carpeta `services`. Para realizar dicha creacion ejectuar los siguientes comandos:
 
@@ -149,10 +149,20 @@ El paso siguiente es utilizar este servicio en el componente `movie-type-dropdow
 Teniendo como resultado el componente de la siguiente manera:
 
 ```TypeScript
+@Component({
+  selector: "app-movie-type-dropdown",
+  standalone: true,
+  imports: [DropdownComponent, CommonModule],
+  templateUrl: "./movie-type-dropdown.component.html",
+  styles: ``,
+})
 export class MovieTypeDropdownComponent implements OnInit, OnDestroy {
   @Input() value: string | null = null;
 
-  movieTypes: Array<DropdownOption> = [];
+  status: MovieTypesStatus = {
+    loading: true,
+    movieTypes: [],
+  };
 
   private _movieTypeGetAllSubscription: Subscription | null = null;
 
@@ -165,11 +175,21 @@ export class MovieTypeDropdownComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._movieTypeGetAllSubscription = this._movieTypeService
       .getAll()
-      .subscribe((movieTypes) => {
-        this.movieTypes = movieTypes.map((movieType) => ({
-          value: movieType.id,
-          label: movieType.name,
-        }));
+      .subscribe({
+        next: (movieTypes) => {
+          this.status = {
+            movieTypes: movieTypes.map((movieType) => ({
+              value: movieType.id,
+              label: movieType.name,
+            })),
+          };
+        },
+        error: (error) => {
+          this.status = {
+            movieTypes: [],
+            error,
+          };
+        },
       });
   }
 }
@@ -182,3 +202,29 @@ Dado que el consumo de datos es un proceso pesado, este no debe realizarse en el
 La data del componente se vera actualizada cuando en la suscripcion a los datos estos esten listos para ser consumidos, es por eso que en el metodo dentro de la suscripcion es el lugar para actualizar el estado del componente.
 
 Como la obtencion de la data es a traves de una suscripcion de un objeto `Observable`, esta suscripcion se debe de eliminar al momento de destruir el componente para evitar problemas de perdida de memoria. Es por esto que se implementa el comportamiento del ciclo de vida `OnDestroy`, donde hacemos la desuscripcion en caso de existir una.
+
+Como ultimo paso, utilizaremos el componente en la pagina `movie-page.component`, para ello debemos importar el componente `movie-type-dropdown` en el modulo `movie.module`. Teniendo como resultado lo siguiente:
+
+```TypeScript
+@NgModule({
+  declarations: [MoviePageComponent],
+  imports: [CommonModule, MovieRoutingModule, MovieTypeDropdownComponent],
+})
+export class MovieModule {}
+```
+
+Para finalizar, para que los repositorios de tipo api funcionen, es necesario proveer el `HttpClient`, para ello debemos importarlo en el modulo raiz `app.module` ya que es el modulo que provee todos los servicios. Teniendo como resultado lo siguiente
+
+```TypeScript
+@NgModule({
+  declarations: [AppComponent, PageNotFoundComponent],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [provideHttpClient()],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+## Lecturas Recomendadas
+
+- [Entendiendo HTTP](https://v17.angular.io/guide/understanding-communicating-with-http)

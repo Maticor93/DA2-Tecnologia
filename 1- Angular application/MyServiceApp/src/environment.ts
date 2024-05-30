@@ -1,4 +1,4 @@
 export const environment = {
-  vidlyApi: "http://localhost:3000",
+  vidlyApi: "https://localhost:7087",
 };
 

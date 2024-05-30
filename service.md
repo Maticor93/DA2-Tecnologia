@@ -112,7 +112,6 @@ Cuando se provee el servicio al nivel de la raiz, Angular crea una sola instanci
 @Component({
   selector:    'app-movie-feed',
   templateUrl: './movie-feed.component.html',
-  imports:     [ NgFor, NgIf, HeroDetailComponent ],
   providers:  [ MovieService ]
 })
 ```
@@ -124,4 +123,3 @@ Cuando se provee el servicio al nivel de la raiz, Angular crea una sola instanci
 - [DI en Angular](https://v17.angular.io/guide/dependency-injection-overview)
 
 - [Entendiendo DI](https://v17.angular.io/guide/dependency-injection)
-
