@@ -14,7 +14,7 @@
 
 - [Navegacion con parametros](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/parameters-navigation.md)
 
-- [Proyecto con navegacion lazy](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/refactor.md)
+- [Proyecto con navegacion lazy](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationApp)
 
 ## Siguientes pasos
 
