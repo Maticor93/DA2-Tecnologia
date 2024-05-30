@@ -21,6 +21,8 @@ public getAll(): Observable<Array<MovieTypeBasicInfoModel>> {
   }
 ```
 
+Es importante destacar que el uso de este operador tiene que ser antes de usar el operador `catchError`, sino no tendra efecto. Este operador nos permite resuscribirnos al observable original, el cual puede ser re ejecutado en caso de haber ocurrido algun error.
+
 ## Lecturas Recomendadas
 
 - [Reintentos automaticos](https://docs.angular.lat/guide/http#retrying-a-failed-request)

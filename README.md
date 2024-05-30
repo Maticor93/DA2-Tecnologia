@@ -12,9 +12,9 @@
 
 - [Reintentos automaticos](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/retry.md)
 
-- [Refactor de codigo]()
+- [Refactor de codigo](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/code-refactor.md)
 
-- [Uso de process.env]()
+- [Uso de process.env](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/read-env-variable.md)
 
 ## Siguientes pasos
 

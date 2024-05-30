@@ -46,7 +46,8 @@ El manejador de errores retorna una instancia de `ErrorObservable` de `RxJS` con
   }
 ```
 
+El operador `catchError` nos permite manejar errores conocidos en el observable. Este operador recibe la funcion `handleError` que es la encargada de procesar el error ocurrido y lanzar un error para quien este suscripto ejecuta el metodo de error definido.
+
 ## Lecturas Recomendadas
 
 - [Manejo de errores](https://docs.angular.lat/guide/http#handling-request-errors)
-
