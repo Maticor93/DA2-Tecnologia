@@ -18,4 +18,4 @@
 
 ## Siguientes pasos
 
-- [Servicios](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/service.md)
+- [Servicios](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service)
