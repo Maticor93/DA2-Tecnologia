@@ -1,0 +1,19 @@
+<h1>Welcome to {{ title }}!</h1>
+
+<app-button title="Guardar" [onClick]="onClick" />
+
+<app-input
+  type="text"
+  placeholder="example of input"
+  label="example of label"
+  [(value)]="input" />
+
+{{ input }}
+
+<app-dropdown
+  [options]="elements"
+  [(value)]="optionSelected"
+  placeholder="Seleccione un item" />
+{{ optionSelected }}
+
+<router-outlet />
