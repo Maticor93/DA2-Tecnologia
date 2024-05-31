@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ButtonComponent } from '../components/button/button.component';
 import { InputComponent } from '../components/input/input.component';
 import { DropdownComponent } from '../components/dropdown/dropdown.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,9 @@ import { DropdownComponent } from '../components/dropdown/dropdown.component';
     DropdownComponent,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync('noop')
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
