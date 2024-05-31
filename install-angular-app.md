@@ -18,7 +18,7 @@ Esto instalara todas las dependencias de la aplicacion Angular y podremos verifi
 
 ## Ejecutar la aplicacion
 
-Una vez que la aplicacion terminara de crearse, situarse en el directorio de la aplicacion
+Una vez que la aplicacion terminara de instalarse, situarse en el directorio de la aplicacion
 
 ```CMD
 cd <<nombre de la aplicacion>>
@@ -34,7 +34,7 @@ Parametros:
 
 - `open`: abrira automaticamente el navegador cuando la aplicacion este lista para usarse
 
-## 5. Aplicacion en ejecucion
+## Aplicacion en ejecucion
 
 Si todo esta bien, tendremos la siguiente salida:
 
