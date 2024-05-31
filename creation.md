@@ -10,8 +10,9 @@ En esta seccion realizaremos la implementacion de los componentes generico `butt
 |   |── components
 |   |   |── button
 |   |   |── input
+|   |   |── dropdown
 |   |── busniess-components
-|   |   |──dropdown
+|   |   |── movie-type-dropdown
 ```
 
 Dichos componentes los vamos a crear como standalone ya que queremos que sean autogestionados para la facil importacion de los mismos. Esta es una de las ventajas que esta funcionalidad nueva de Angular propone, el poder importar elementos unicamente necesarios. Si se crea un modulo para declarar todos los componentes en la carpeta `components` y otro modulo para declarar los componentes en la carpeta `business-components`, quien quiera usar al menos un elemento de alguno de estos modulos, terminara importando todos los componentes exportados por estos. Esto presenta una desventaja a la hora de performance ya que si solo quiere usar un componente se termina importando el modulo entero.
