@@ -50,12 +50,9 @@ La siguiente pregunta es que paleta de colores queremos utilizar, esto es person
 [Tipografia de Angular Material como global]
 </p>
 
-Se decidio no utilizar animaciones para mantener de forma simple el ejemplo
-
 <p align="center">
 <img src="./images/image-8.png">
 </p>
-
 <p align="center">
 [Animaciones]
 </p>

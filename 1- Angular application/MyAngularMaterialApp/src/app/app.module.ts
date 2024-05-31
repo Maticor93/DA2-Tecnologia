@@ -17,9 +17,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     DropdownComponent,
     AppRoutingModule,
   ],
-  providers: [
-    provideAnimationsAsync('noop')
-  ],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
