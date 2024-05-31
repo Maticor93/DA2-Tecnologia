@@ -17,6 +17,12 @@
     3.1.3.[ngSwitch](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/ngSwitch.md)
 
    3.2.[Directiva atributo](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/structural-directive.md)
+    
+    3.2.1.[ngClass](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/ngClass.md)
+    
+    3.2.2.[ngStyle](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/ngStyle.md)
+
+    3.2.3.[ngModel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/ngModel.md)
 
 4. [Pipe](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-pipe.md)
 
