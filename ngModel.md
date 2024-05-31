@@ -21,6 +21,14 @@ La version larga seria de la siguiente manera:
 <input [ngModel]="currentItem.name" (ngModelChange)="setUppercaseName($event)" id="example-uppercase">
 ```
 
+<p align="center">
+<img src="./images/ng-model-anim.gif"/>
+</p>
+
+<p align="center">
+[Funcionamiento two-way binding]
+</p>
+
 ## Funcionamiento de ngModel
 
 `NgModel` funciona para aquellos elementos que soportan [`ControlValueAccessor`](https://angular.dev/api/forms/ControlValueAccessor). Angular provee value accessors para todos los elementos basicos de HTML. Para mas informacion ver [Formularios](https://angular.dev/guide/forms).
@@ -30,4 +38,3 @@ Para aplicar `[(ngModel)]` a un elemento que no pertenece a un formulario o a un
 ## Lecturas Recomendadas
 
 - [NgModel](https://angular.dev/guide/directives#displaying-and-updating-properties-with-ngmodel)
-
