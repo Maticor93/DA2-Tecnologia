@@ -61,7 +61,7 @@ npm install jquery
 Nuevamente debemos modificar `angular.json` para integrar `JQuery` en la aplicacion. En la property array `architect.build.options.scripts` debemos agregar:
 
 ```
-"node_modules/jquery/dist/jquery.min.js"
+"node_modules/jquery/dist/jquery.min.js" y "node_modules/jquery/dist/jquery.min.js"
 ```
 
 Teniendo como resultado:

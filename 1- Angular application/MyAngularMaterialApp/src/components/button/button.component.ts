@@ -1,28 +1,15 @@
-import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [NgClass],
+  imports: [MatButtonModule],
   templateUrl: './button.component.html',
   styles: ``,
 })
 export class ButtonComponent {
   @Input({ required: true }) title!: string;
   @Input({ required: true }) onClick!: () => void;
-  @Input() color:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'danger'
-    | 'warning'
-    | 'info'
-    | 'light'
-    | 'dark'
-    | 'link' = 'dark';
-
-  public colorClass(): string {
-    return `btn-${this.color}`;
-  }
+  @Input() color: 'primary' | 'accent' | 'warn' = 'primary';
 }
