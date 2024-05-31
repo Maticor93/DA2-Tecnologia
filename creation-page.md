@@ -14,6 +14,9 @@ Cuando hablamos de niveles de ruta, nos referimos a lo siguiente:
 
 ```
 https://localhost:3000/movie/create
+\____________________/\____/\_____/
+          |              |      |
+       dominio          raiz  segundo nivel
 ```
 
 En este ejemplo tenemos dos niveles:
@@ -27,6 +30,9 @@ Otro ejemplo seria:
 
 ```
 https://localhost:3000
+\____________________/\/
+          |            |
+        dominio      raiz vacia
 ```
 
 Donde el unico nivel que existe es la raiz y es `/` (vacio). Esto implica que deberia de existir una pagina, llamemosle por el momento `HomePageComponent`, el cual define todos los componentes a visualizar en esta ruta raiz vacia.
