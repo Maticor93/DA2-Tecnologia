@@ -103,7 +103,42 @@ Definamos un nuevo input al componente que sea `color` para dar la flexibilidad 
 Dejando `button.component.ts` de la siguiente forma:
 
 ```TypeScript
+@Component({
+  selector: 'app-button',
+  standalone: true,
+  imports: [NgClass],
+  templateUrl: './button.component.html',
+  styles: ``,
+})
+export class ButtonComponent {
+  @Input({ required: true }) title!: string;
+  @Input({ required: true }) onClick!: () => void;
+  @Input() color:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'light'
+    | 'dark'
+    | 'link' = 'dark';
+
+  public colorClass(): string {
+    return `btn-${this.color}`;
+  }
+}
 ```
+
+Teniendo su template HTML `button.component.html` asi:
+
+```HTML
+<button [ngClass]="['btn', colorClass()]" (click)="onClick()">
+  {{ title }}
+</button>
+```
+
+Donde usa la directiva `ngClass` para pasarle una clase estatica y otra calculada en base al parametro pasado.
 
 ## Lecturas Recomendadas
 

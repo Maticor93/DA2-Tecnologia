@@ -1,15 +1,16 @@
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './button.component.html',
   styles: ``,
 })
 export class ButtonComponent {
-  @Input() title: string = 'Button';
-  @Input() onClick!: () => void;
+  @Input({ required: true }) title!: string;
+  @Input({ required: true }) onClick!: () => void;
   @Input() color:
     | 'primary'
     | 'secondary'
@@ -20,4 +21,8 @@ export class ButtonComponent {
     | 'light'
     | 'dark'
     | 'link' = 'dark';
+
+  public colorClass(): string {
+    return `btn-${this.color}`;
+  }
 }
