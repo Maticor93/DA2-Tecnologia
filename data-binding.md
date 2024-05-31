@@ -1,3 +1,5 @@
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component)
+
 # Data Binding
 
 Sin un framework, nosotros seriamos responsables de submitear los valores de la data a los elementos HTML y convertir las respuestas de los usuarios en acciones y actualizaciones de data. Escribir tal logica de push y pull de la data es tedioso, un posible causante de errores e inmantenible.
