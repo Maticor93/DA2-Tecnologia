@@ -140,6 +140,10 @@ Teniendo su template HTML `button.component.html` asi:
 
 Donde usa la directiva `ngClass` para pasarle una clase estatica y otra calculada en base al parametro pasado.
 
+## Codigos
+
+- [Componentes con `bootstrap`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyComponentApp)
+
 ## Lecturas Recomendadas
 
 - [Bootstrap](https://getbootstrap.com/)
