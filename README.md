@@ -12,4 +12,4 @@
 
 ## Siguientes pasos
 
-- [Navegacion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/navigation.md)
+- [Navegacion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
