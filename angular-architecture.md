@@ -1,3 +1,5 @@
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular)
+
 # Arquitectura de Angular
 
 1. [Modulos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-module)
@@ -5,6 +7,16 @@
 2. [Componentes](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-component)
 
 3. [Directivas](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-directive.md)
+
+   3.1.[Directiva estructural](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/structural-directive.md)
+
+    3.1.1.[ngIf](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/ngIf.md)
+    
+    3.1.2.[ngFor](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/ngFor.md)
+
+    3.1.3.[ngSwitch](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/ngSwitch.md)
+
+   3.2.[Directiva atributo](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/structural-directive.md)
 
 4. [Pipe](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-pipe.md)
 
