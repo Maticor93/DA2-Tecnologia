@@ -113,6 +113,8 @@ export class ButtonComponent {
 
 Como `Angular Material` es una libreria de componentes Angular, debemos crear nuestros componentes esqueletos y usar las directivas y componentes que la libreria provee y usarlos en los componentes de la aplicacion. Esto tiene como consecuencia la importacion de los elementos individuales necesarios como `MatButtonModule`.
 
+Esto trae una desventaja la cual propone un tiempo de aprendizaje y de investigacion de como usar la libreria. No es muy intuitiva y requiere de cierta experiencia para poderla usar correctamente.
+
 ## Codigos
 
 - [Componentes con `angular material`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyAngularMaterialApp)

@@ -140,6 +140,8 @@ Teniendo su template HTML `button.component.html` asi:
 
 Donde usa la directiva `ngClass` para pasarle una clase estatica y otra calculada en base al parametro pasado.
 
+Como es una libreria de clases css, el uso de esta herramienta es bastante sencilla y de rapida incorporacion en cualquier proyecto. Tiene la gran ventaja de que es agnostica a la tecnologia de la aplicacion, por lo que el traspaso de conocimiento entre aplicaciones es algo posible. Otra ventaja es que no es necesario importar componentes o modulos de forma independiente porque es de uso global.
+
 ## Codigos
 
 - [Componentes con `bootstrap`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyComponentApp)
