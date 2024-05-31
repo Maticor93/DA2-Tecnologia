@@ -84,8 +84,8 @@ Teniendo la logica del componente `button.component`:
   styles: ``,
 })
 export class ButtonComponent {
-  @Input() title: string = 'Button';
-  @Input() onClick!: () => void;
+  @Input({required: true }) title!: string;
+  @Input({ requiered: true }) onClick!: () => void;
 }
 ```
 
@@ -136,9 +136,9 @@ Teniendo la logica del componente `input.component`:
 })
 export class InputComponent {
   @Input() label: string | null = null;
-  @Input() placeholder = '';
+  @Input() placeholder | null = null;
   @Input() type: 'text' | 'number' = 'text';
-  @Input() value = '';
+  @Input() value: string | null = null;
 
   @Output() valueChange = new EventEmitter<string>();
 
@@ -186,9 +186,9 @@ Teniendo la logica del componente `dropdown-component`:
 
 ```TypeScript
 export class DropdownComponent implements OnInit {
-  @Input() options!: Array<DropdownOption>;
-  @Input() label = '';
-  @Input() placeholder = '';
+  @Input({ required: true }) options!: Array<DropdownOption>;
+  @Input() label: string | null = null;
+  @Input() placeholder: string | null = null;
   @Input() emptyMessage = 'No options found';
   @Input() value: string | null = null;
 
