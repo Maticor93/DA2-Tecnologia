@@ -90,7 +90,11 @@ export default interface MovieTypeBasicInfoModel {
 }
 ```
 
-Otro impacto que llevo a realizar dicho comportamiento fue la creacion de un archivo llamado `environment` el cual esta situado en `src`. Este archivo servira para acceder a variables del ambiente dentro de la aplicacion de una forma encapsulada. Es de gran utilidad este archivo para variar los valores de las variables definidas dependiendo el ambiente en el que se corra o compile la aplicacion.
+Otro impacto que llevo a realizar dicho comportamiento fue la creacion de la carpeta `environment` con el archivo `index.ts` en la carpeta `src`. Este archivo servira para acceder a variables del ambiente dentro de la aplicacion de una forma encapsulada. Es de gran utilidad este archivo para variar los valores de las variables definidas dependiendo el ambiente en el que se corra o compile la aplicacion.
+
+Teniendo index.ts de la siguiente manera:
+
+
 
 Por ultimo, el tipo de retorno del comportamiento tiene que ser el mismo que el de la funcion a utilizar de la clase `HttpClient`. El tipo de retorno es `Observable` el cual es un tipo declarado en la libreria `RxJS` que nos ayuda a implementar el patron `Observer`. Este patron nos permite suscribirnos a un evento y actualizar el estado de la clase cuando los datos esten disponibles. [Aca](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/rxjs.md) podran encontrar mas informacion sobre la libreria `RxJS`.
 
