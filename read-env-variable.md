@@ -157,7 +157,7 @@ Si ejecutamos la aplicacion dos veces, una por cada ambiente, veremos que el val
 <p align="center">
 <img src="./images/image-14.png"/>
 </p>
-<p algin="center">
+<p align="center">
 [Evidencia de uso de environment.local.ts]
 </p>
 
@@ -166,6 +166,6 @@ Para visualizar dicha evidencia es necesario abrir la consola de desarrollo del 
 <p align="center">
 <img src="./images/image-15.png"/>
 </p>
-<p algin="center">
+<p align="center">
 [Consola de desarrollo en Network]
 </p>
