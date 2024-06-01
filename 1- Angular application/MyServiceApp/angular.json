@@ -46,9 +46,7 @@
             "outputPath": "dist/my-module-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -56,13 +54,11 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "prod": {
               "budgets": [
                 {
                   "type": "initial",
@@ -75,27 +71,39 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/index.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
-            "development": {
+            "local": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/index.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "prod"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "MyModuleApp:build:production"
+            "prod": {
+              "buildTarget": "MyModuleApp:build:prod"
             },
-            "development": {
-              "buildTarget": "MyModuleApp:build:development"
+            "local": {
+              "buildTarget": "MyModuleApp:build:local"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "local"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"

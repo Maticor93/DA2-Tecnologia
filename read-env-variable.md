@@ -6,119 +6,166 @@ Las variables de ambiente deben ser dinamicas ya que sus valores dependen del am
 
 Nosotros vamos a utilizar dos ambientes: `local` y `prod`.
 
-Primero debemos crear los archivos asociados a los ambientes que queremos utilizar. Estos archivos deben ubicarse en la carpeta `environment` situada en la raiz de la carpeta de la aplicacion. Para ello ejecutaremos:
+Primero debemos crear los archivos asociados a los ambientes que queremos utilizar. Estos archivos deben ubicarse en la carpeta `environments` situada en `src`.
 
 Los archivos a crear se llamaran, `environment.prod.ts` y `environment.local.ts`. Estos archvios guardaran valores distintos para su ambiente de las variables definidas en `index.ts`.
 
 Teniendo en `environment.prod.ts` lo siguiente:
 
 ```TypeScript
-export const {
+export default {
   vidlyApi: 'http://localhost:9000'
 }
 ```
 
+Donde este archivo apunta al host y puerto de nuestra api deployada en produccion.
+
 Y en `environment.local.ts` lo siguiente:
 
 ```TypeScript
-export const {
+export default {
   vidlyApi: 'https://localhost:7106'
 }
 ```
 
-Para utilizar esta libreria debemos actualizar la seccion de `scripts` de este mismo archivo para que utilice diferentes ambientes cuando ejecute y buildee la aplicacion. Dejando esta seccion de la siguiente manera:
+Donde este archivo apunta al host y puerto que tenemos en `launchSettings.json` de nuestra api.
+
+Los valores definidos en cada archivo remplazaran los valores definidos en `index.ts` cuando indiquemos en que ambiente queremos ejecutar o compilar nuestra aplicacion. Estos archivos especificos de ambientes, deben ser ignorados en `.gitignore` ya que pueden contener valores sensibles.
+
+Para ello debemos agregar en `.gitignore`:
+
+```
+environment.local.ts
+environment.prod.ts
+```
+
+Para utilizar diferentes los archivos de ambiente, debemos modificar la seccion `scripts` del archivo `package.json` para que utilice diferentes ambientes cuando ejecute y compile la aplicacion. Dejando esta seccion de la siguiente manera:
 
 ```JSON
 "scripts": {
     "ng": "ng",
-    "start:local": "env-cmd -f .env.local ng serve",
-    "start:prod": "env-cmd -f .env.prod ng serve",
-    "build:prod": "env-cmd -f .env.prod ng build",
+    "start:local": "ng serve --configuration local",
+    "start:prod": "ng serve --configuration prod",
+    "build:prod": "ng build -- configuration prod",
     "watch": "ng build --watch --configuration development"
   },
 ```
 
 Donde:
 
-- `start:local`: es el comando a utilizar para correr la aplicacion usando el ambiente `.env.local`
-- `start:prod`: es el comando a utilizar para correr la aplicacion usando el ambiente `.env.prod`
-- `build:prod`: es el comando a utilizar para compilar la aplicacion usando el ambiente `.env.prod`
+- `start:local`: es el comando a utilizar para correr la aplicacion usando el ambiente `environment.local`
+- `start:prod`: es el comando a utilizar para correr la aplicacion usando el ambiente `environment.prod`
+- `build:prod`: es el comando a utilizar para compilar la aplicacion usando el ambiente `environment.prod`
 
-Como ultimo paso, para que estos comandos funcionen necesitamos crear dichos archivos en la raiz del directorio de la aplicacion.
+El siguiente paso es configurar la aplicacion de Angular que cuando se ejecuten esos scripts sustituya los valores de las variables encontradas en `index.ts` por los valores de las mismas variables en el archivo de ambiente. Es importante destacar que los archivos de ambiente deben definir las mismas variables que quieren sustituir.
 
-El archivo `.env.local` quedaria asi:
-
-```
-  vidlyApi=https://localhost:7087
-```
-
-Donde este archivo apunta al host y puerto que tenemos en `launchSettings.json` de nuestra api.
-
-El archivo `.env.prod` quedaria asi:
-
-```
-  vidlyApi=http://localhost:9000
-```
-
-Donde este archivo apunta al host y puerto de nuestra api deployada en produccion.
-
-Estos archivos especificos de los ambientes a utilizar no se deben de commitear, es por eso que se debe actualizar el `.gitignore` agregando:
-
-```
-.env.prod
-.env.local
-```
-
-Para que otro desarrollador pueda crear sus propios archivos de ambiente, es necesario indicar que variables tiene que declarar, para ello debemos crear el archivo `.env` que si se commiteara, y debe tener declarada las variables a utilizar en los diferentes archivos de ambientes.
-
-Teniendo el `.env` asi:
-
-```
-vidlyApi=https://localhost:5000
-```
-
-Una vez terminadas las declaraciones y configuraciones, es momento de utilizarlo dentro de la aplicacion. Para ello debemos modificar el archivo `environment.ts` el cual es quien tiene encapsulado las variables de ambiente a utilizar dentro de la aplicacion. Gracias a esta decision, evitamos modificar en varias partes de la aplicacion.
-
-Dejando `environment.ts` de la siguiente manera:
-
-```TypeScript
-export const environment = {
-  vidlyApi: process.env['VIDLY_API'] ?? 'https://localhost:7087',
-};
-```
-
-Esto significa que tomara el valor de la variable `VIDLY_API` y en caso de encontrar un valor seteara ese, en caso de que sea vacio o null seteara `https://localhost:7087` que es el por defecto.
-
-Previamente a correr la aplicacion, necesitamos instalar `@types/node` para hacer uso de `process`. Para ello ejecutaremos:
-
-```CMD
-npm install --save-dev @types/node
-```
-
-Que instalara la libreria [`@types/node`](https://www.npmjs.com/package/@types/node) en la seccion de desarrollo en `package.json`.
-
-<p align="center">
-<img src="./images/image-13.png">
-</p>
-<p align="center">
-[package.json con @types/node]
-</p>
-
-Una vez que este instalado `@types/node` debemos actualizar nuestro `tsconfig.app.json` para que no de errores de compilacion. La property a modificar es `types`, dejando nuestro `tsconfig.app.json` de la siguiente manera:
+Para ello debemos modificar el archivo `angular.json`, modificaremos dos secciones, `build` y `serve`. Dicho archivo nos debe de quedar de la siguiente manera:
 
 ```JSON
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": ["node"]
-  },
-  "files": [
-    "src/main.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ]
+  // ...
+  "projects": {
+    "MyModuleApp": {
+      // ...
+      "prefix": "app",
+      "architect":{
+        "build": {
+          // ...
+          "configurations": {
+            "prod": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/index.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "local": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/index.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "prod"
+        },
+        "serve": {
+          // ...
+          "configurations": {
+            "prod": {
+              "buildTarget": "MyModuleApp:build:prod"
+            },
+            "local": {
+              "buildTarget": "MyModuleApp:build:local"
+            }
+          },
+          "defaultConfiguration": "local"
+        },
+      }
+    }
+  }
 }
 ```
+
+Una vez creado los archivos de ambiente, los scripts a utilizar y la configuracion de la aplicacion para usar dichos ambientes, la forma de ejectuar cada script es la siguiente:
+
+Para ejecutar `start:local`, se debe correr:
+
+```
+npm run start:local
+```
+
+Para ejecutar `start:prod`, se debe correr:
+
+```
+npm run start:prod
+```
+
+Para ejecutar `build:prod`, se debe correr:
+
+```
+npm run build:prod
+```
+
+Si ejecutamos la aplicacion dos veces, una por cada ambiente, veremos que el valor de `vidlyApi` cambia en funcion al ambiente:
+
+<p align="center">
+<img src="./images/image-13.png"/>
+</p>
+<p algin="center">
+[Evidencia de uso de environment.prod.ts]
+</p>
+
+<p align="center">
+<img src="./images/image-14.png"/>
+</p>
+<p algin="center">
+[Evidencia de uso de environment.local.ts]
+</p>
+
+Para visualizar dicha evidencia es necesario abrir la consola de desarrollo del navegador, haciendo click derecho en la pagina e inspect o con F12. Una vez abierta la consola de desarrollo, dirjirse a la seccion `Network`, filtrar por `Fetch/XHR`, refrezcar la pagina y hacer click en el nombre `movie-types`.
+
+<p align="center">
+<img src="./images/image-15.png"/>
+</p>
+<p algin="center">
+[Consola de desarrollo en Network]
+</p>

@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import MovieTypeBasicInfoModel from '../services/models/MovieTypeBasicInfoModel';
-import { environment } from '../environment';
 import ApiRepository from './api-repository';
+import environment from '../environments';
 
 @Injectable({
   providedIn: 'root',
