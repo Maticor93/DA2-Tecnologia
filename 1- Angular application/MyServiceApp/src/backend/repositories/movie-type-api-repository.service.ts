@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import MovieTypeBasicInfoModel from '../services/models/MovieTypeBasicInfoModel';
 import ApiRepository from './api-repository';
-import environment from '../environments';
+import environment from '../../environments';
 
 @Injectable({
   providedIn: 'root',

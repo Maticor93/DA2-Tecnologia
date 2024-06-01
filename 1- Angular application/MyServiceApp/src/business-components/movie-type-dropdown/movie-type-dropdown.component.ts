@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { DropdownComponent } from "../../components/dropdown/dropdown.component";
-import { MovieTypeService } from "../../services/movie-type.service";
+import { MovieTypeService } from "../../backend/services/movie-type.service";
 import { Subscription } from "rxjs";
 import MovieTypesStatus from "./models/MovieTypesStatus";
 import { CommonModule } from '@angular/common';
