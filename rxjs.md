@@ -92,6 +92,20 @@ const squareOdd = of(1, 2, 3, 4, 5)
 squareOdd.subscribe(x => console.log(x));
 ```
 
+## Observables vs Promise
+
+Otra forma bastante comun de obtener datos a través de HTTP es usando promises. Las promises/promesas son objetos de JavaScript que sirven para hacer computación asincrónica, representando un cierto valor que puede estar ahora, en el futuro o nunca. Estas permiten setear manejadores (funciones o callbacks), que ejecuten comportamiento una vez que el valor esté disponible. Las llamadas por HTTP, pueden ser manejadas a través de promesas. Esto permite que métodos asíncronicos devuelvan valores como si fueran sincrónicos: en vez de inmediatamente retornar el valor final, el método asincrónico devuelve una promesa de suministrar el valor en algún momento en el futuro.
+
+Tanto Observables como Promises sirven para lo mismo, pero los Observables permiten hacer más cosas:
+
+- Los Observables permiten cancelar la suscripcion, mientras que las Promises no. Si el resultado de una request HTTP a un servidor o alguna otra operación costosa que es asincrónica no es más necesaria, el objeto Suscription sobre un Observable puede ser cancelado.
+
+- Las Promises manejan un unico evento, cuando una operación asincronica completa o falla. Los Observables son como los Stream (en muchos lenguajes), y permiten pasar cero o mas eventos donde el callback sera llamado para cada evento.
+
+- En general, se suelen usar Observables porque permiten hacer lo mismo que las Promises y más.
+
+- Los Observables proveen operadores como map, forEach, reduce, similares a un array.
+
 ## Convenciones de nombres
 
 Como las aplicaciones de Angular estan desarrolladas usando TypeScript, deberiamos de poder identificar cuando una variable es un observable. Para detectar dicha evidencia, es normal terminar el nombre de las variables de este tipo con el signo `$`.
