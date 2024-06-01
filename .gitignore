@@ -2,6 +2,7 @@
 [Bb]in/
 [Oo]bj/
 .env
+node_modules
 .angular
 # mstest test results
 TestResults
