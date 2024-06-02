@@ -58,10 +58,10 @@ npm install jquery
 [package.json con jquery]
 </p>
 
-Nuevamente debemos modificar `angular.json` para integrar `JQuery` en la aplicacion. En la property array `architect.build.options.scripts` debemos agregar:
+Nuevamente debemos modificar `angular.json` para integrar `JQuery` y js de bootstrap en la aplicacion. En la property array `architect.build.options.scripts` debemos agregar:
 
 ```
-"node_modules/jquery/dist/jquery.min.js" y "node_modules/jquery/dist/jquery.min.js"
+"node_modules/jquery/dist/jquery.min.js" y ""node_modules/bootstrap/dist/js/bootstrap.min.js""
 ```
 
 Teniendo como resultado:
