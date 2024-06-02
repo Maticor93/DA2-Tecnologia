@@ -8,7 +8,7 @@
 
 - [Creacion de `input`, `button`, `dropdown` y `movie-type-dropdown`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/creation.md)
 
-- [Creacion de paginas](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/creation-page.md)
+- [Creacion de paginas `authentication`, `users`, `movies`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/creation-page.md)
 
 - [Formularios](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component/forms.md)
 
