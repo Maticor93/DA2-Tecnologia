@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-component)
+[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component)
 
 # Implementacion de la autenticacion
 
