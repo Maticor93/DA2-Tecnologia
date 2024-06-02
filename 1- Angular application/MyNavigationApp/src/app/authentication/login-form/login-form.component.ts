@@ -36,6 +36,7 @@ export class LoginFormComponent {
 
   public onSubmit(values: any) {
     console.log(values);
+    localStorage.setItem('isLoggedIn', 'true');
     this._router.navigate(['/home']);
   }
 }
