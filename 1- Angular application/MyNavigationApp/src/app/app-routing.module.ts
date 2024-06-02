@@ -13,6 +13,10 @@ const routes: Routes = [
       import('./movie/movie.module').then((m) => m.MovieModule),
   },
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./authentication/authentication.module').then(

@@ -10,9 +10,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class InputComponent {
   @Input() label: string | null = null;
-  @Input() placeholder = '';
-  @Input() type: 'text' | 'number' = 'text';
-  @Input() value = '';
+  @Input() placeholder: string | null = null;
+  @Input() type: 'text' | 'number' | 'password' = 'text';
+  @Input() value: string | null = null;
 
   @Output() valueChange = new EventEmitter<string>();
 

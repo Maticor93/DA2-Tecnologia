@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styles: ``,
 })
 export class ButtonComponent {
-  @Input() title: string = 'Button';
-  @Input() onClick!: () => void;
+  @Input({ required: true }) title!: string;
+  @Input({ required: true }) onClick!: () => void;
 }
