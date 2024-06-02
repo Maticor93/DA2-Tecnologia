@@ -1,18 +1,18 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: 'app-input',
+  selector: "app-input",
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './input.component.html',
+  templateUrl: "./input.component.html",
   styles: ``,
 })
 export class InputComponent {
   @Input() label: string | null = null;
-  @Input() placeholder = '';
-  @Input() type: 'text' | 'number' = 'text';
-  @Input() value = '';
+  @Input() placeholder: string | null = null;
+  @Input() type: "text" | "number" | "password" = "text";
+  @Input() value: string | null = null;
 
   @Output() valueChange = new EventEmitter<string>();
 

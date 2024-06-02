@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import DropdownOption from '../components/dropdown/models/DropDownOption';
+import DropdownOption from '../components/dropdown/models/DropdownOption';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import DropdownOption from '../components/dropdown/models/DropDownOption';
   styles: [],
 })
 export class AppComponent {
-  title = 'MyModuleApp';
+  title = 'MyComponentApp';
   input: string = 'Hello World';
   elements: Array<DropdownOption> = [
     {
