@@ -1,15 +1,15 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
-import { DropdownComponent } from "../../components/dropdown/dropdown.component";
-import { MovieTypeService } from "../../backend/services/movie-type.service";
-import { Subscription } from "rxjs";
-import MovieTypesStatus from "./models/MovieTypesStatus";
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { DropdownComponent } from '../../components/dropdown/dropdown.component';
+import { MovieTypeService } from '../../backend/services/movie-type/movie-type.service';
+import { Subscription } from 'rxjs';
+import MovieTypesStatus from './models/movie-type.status';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: "app-movie-type-dropdown",
+  selector: 'app-movie-type-dropdown',
   standalone: true,
   imports: [DropdownComponent, CommonModule],
-  templateUrl: "./movie-type-dropdown.component.html",
+  templateUrl: './movie-type-dropdown.component.html',
   styles: ``,
 })
 export class MovieTypeDropdownComponent implements OnInit, OnDestroy {

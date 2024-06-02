@@ -1,0 +1,28 @@
+<h1>Bienvenido a MyServiceApp</h1>
+
+<app-form [form]="loginForm" (onSubmit)="onSubmit($event)">
+  <app-form-input
+    type="text"
+    placeholder="email@example.com"
+    [name]="formField.email.name"
+    [form]="loginForm"
+    [formField]="formField" />
+
+  <app-form-input
+    type="password"
+    placeholder="*****"
+    [name]="formField.password.name"
+    [form]="loginForm"
+    [formField]="formField" />
+
+  <app-form-button *ngIf="!loginStatus; else loadingOrError" title="Login" />
+
+  <ng-template #loadingOrError>
+    <div *ngIf="loginStatus!.loading; else notLoading">
+      Cargando...
+    </div>
+    <ng-template #notLoading>
+      <div>{{ loginStatus!.error }}</div>
+    </ng-template>
+  </ng-template>
+</app-form>
