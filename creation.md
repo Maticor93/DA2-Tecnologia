@@ -137,7 +137,7 @@ Teniendo la logica del componente `input.component`:
 export class InputComponent {
   @Input() label: string | null = null;
   @Input() placeholder | null = null;
-  @Input() type: 'text' | 'number' = 'text';
+  @Input() type: 'text' | 'number' | 'password' = 'text';
   @Input() value: string | null = null;
 
   @Output() valueChange = new EventEmitter<string>();

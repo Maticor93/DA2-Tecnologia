@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
   styles: ``,
 })
 export class DropdownComponent implements OnInit {
-  @Input() options!: Array<DropdownOption>;
-  @Input() label = '';
-  @Input() placeholder = '';
+  @Input({ required: true }) options!: Array<DropdownOption>;
+  @Input() label: string | null = null;
+  @Input() placeholder: string | null = null;
   @Input() emptyMessage = 'No options found';
   @Input() value: string | null = null;
 
