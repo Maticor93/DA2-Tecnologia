@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import ApiRepository from './api-repository';
 import { HttpClient } from '@angular/common/http';
 import environments from '../../environments';
-import UserCredentialsModel from '../services/session/models/user-credentials.model';
+import UserCredentialsModel from '../services/session/models/UserCredentialsModel';
 import { Observable } from 'rxjs';
-import SessionCreatedModel from '../services/session/models/session-created.model';
+import SessionCreatedModel from '../services/session/models/SessionCreatedModel';
 
 @Injectable({
   providedIn: 'root',

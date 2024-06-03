@@ -36,7 +36,15 @@ export class SessionService {
   public login(
     credentials: UserCredentialsModel
   ): Observable<SessionCreatedModel> {
-    return this._repository.login(credentials);
+    return this._repository
+      .login(credentials)
+      .pipe(tap((response) => {
+        localStorage.setItem("token", response.token);
+        localStorage.setItem(
+          "permissions",
+          JSON.stringify(response.permissions)
+        );
+    }));
   }
 }
 ```
@@ -50,17 +58,18 @@ export default interface UserCredentialsModel{
 }
 ```
 
-Y esta situada en el directorio `backend/service/session/models/user-credentials.model.ts`;
+Y esta situada en el directorio `backend/service/session/models/UserCredentialsModel.ts`;
 
 Tambien implementamos el tipo de retorno `SessionCreatedModel` la cual esta definida de la siguiente manera:
 
 ```TypeScript
 export default interface SessionCreatedModel{
   token: string;
+  permissions: Array<string>;
 }
 ```
 
-Y esta situada en el directorio `backend/service/session/models/session-created.model.ts`;
+Y esta situada en el directorio `backend/service/session/models/SessionCreatedModel.ts`;
 
 Una vez terminada la implementacion del servicio, pasaremos a implementar a `session-api-repository.session`, la cual debera de quedar asi:
 
@@ -119,12 +128,10 @@ export class LoginFormComponent {
       next: (response) => {
         this.loginStatus = null;
 
-        localStorage.setItem('token', response.token);
-
         this._router.navigate(['/home']);
       },
       error: (error) => {
-        this.loginStatus = { error: error.message };
+        this.loginStatus = { error };
       },
     });
   }
@@ -141,16 +148,85 @@ Esta modificacion impacta en el template HTML del componente de la siguiente man
 <app-form [form]="loginForm" (onSubmit)="onSubmit($event)">
  <!-- ... -->
 
-  <app-form-button *ngIf="!loginStatus; else loadingOrError" title="Login" />
+   <div *ngIf="loginStatus?.loading; else notLoading">Cargando...</div>
 
-  <ng-template #loadingOrError>
-    <div *ngIf="loginStatus.loading; else notLoading">
-      Cargando...
-    </div>
-    <ng-template #notLoading>
-      <div>{{ loginStatus.error }}</div>
-    </ng-template>
+  <ng-template #notLoading>
+    <div *ngIf="loginStatus?.error">{{ loginStatus!.error }}</div>
+    <app-form-button title="Login" />
   </ng-template>
 </app-form>
 ```
 
+## Custom observable
+
+Lo siguiente que vamos a implementar es una property de tipo `Observable` que guarde el usuario logueado en `session.service`, para que los componentes puedan suscribirse a esta property y reaccionar ante los cambios de valores de la property. De esta forma asi podemos mantener el estado de nuestra aplicacion sincronizada sin la necesidad de hacer un refresh de la aplicacion de forma manual.
+
+Para esto, vamos a modificar el comportamiento `login` en `session.service` de la siguiente manera:
+
+```TypeScript
+export class SessionService {
+  private readonly _userLogged$: BehaviorSubject<UserLoggedModel | null> =
+    new BehaviorSubject<UserLoggedModel | null>(null);
+
+  get userLogged(): Observable<UserLoggedModel | null> {
+    if (!this._userLogged$.value) {
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        const permissions = JSON.parse(
+          localStorage.getItem("permissions") || "[]"
+        );
+        this._userLogged$.next({ token, permissions });
+      }
+    }
+
+    return this._userLogged$.asObservable();
+  }
+
+  constructor(private readonly _repository: SessionApiRepositoryService) {}
+
+  public login(
+    credentials: UserCredentialsModel
+  ): Observable<SessionCreatedModel> {
+    return this._repository.login(credentials).pipe(
+      tap((response) => {
+        localStorage.setItem("token", response.token);
+        localStorage.setItem(
+          "permissions",
+          JSON.stringify(response.permissions)
+        );
+        this._userLogged$.next(response);
+      })
+    );
+  }
+}
+```
+
+Lo que estamos haciendo es publicando el nuevo valor de token cuando ocurre un login exitoso, y estamos exponiendo el `userLogged` para que se suscriban. El token lo estamos persistiendo en dos lugares en `localstorage` y en memoria con `Observable`. Es necesario persistirlo en `localstorage` porque en ese lugar la data no se borra ni se ponen los valores por defectos cuando ocurren un reload de la aplicacion como ocurre con la data en memoria. Es por eso que antes de retornar el `Observable` del `userLogged` preguntamos si no tiene valor, si no tiene valor, esto no significa que no se logueara el usuario, ya que pudo haber ocurrido un login pero un reload de la aplicacion. Si no hay un valor en memoria pero si en `localstorage` entonces se actualiza el `Observable` y se retorna a quien lo solicita.
+
+Este `Observable` lo usaremos dentro de `home-page.component` para desplegar los permisos del usuario logueado. Dejando `home-page.component` de la siguiente manera:
+
+```TypeScript
+// ...
+export class HomePageComponent implements OnInit {
+  permissions: Array<string> = [];
+
+  constructor(private readonly _sessionService: SessionService) {}
+
+  ngOnInit(): void {
+    this._sessionService.userLogged.subscribe({
+      next: (userLogged) => {
+        this.permissions = userLogged?.permissions ?? [];
+      },
+    });
+  }
+}
+```
+
+Y su template HTML de la siguiente forma:
+
+```HTML
+<p *ngFor="let permission of permissions">{{ permission }}</p>
+```
+
+Cuando se renderice el componente la lista `permissions` sera una lista vacia, pero cuando los permisos del usuario logueado esten listos para ser consumidos, estos se desplegaran.

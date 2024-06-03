@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import MovieTypeBasicInfoModel from "./models/movie-type-basic-info.model";
+import MovieTypeBasicInfoModel from "./models/MovieTypeBasicInfoModel";
 import { MovieTypeApiRepositoryService } from '../../repositories/movie-type-api-repository.service';
 
 @Injectable({

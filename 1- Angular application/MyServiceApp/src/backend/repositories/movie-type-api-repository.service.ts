@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import MovieTypeBasicInfoModel from '../services/movie-type/models/movie-type-basic-info.model';
+import MovieTypeBasicInfoModel from '../services/movie-type/models/MovieTypeBasicInfoModel';
 import ApiRepository from './api-repository';
 import environments from '../../environments';
 

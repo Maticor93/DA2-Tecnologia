@@ -15,14 +15,10 @@
     [form]="loginForm"
     [formField]="formField" />
 
-  <app-form-button *ngIf="!loginStatus; else loadingOrError" title="Login" />
+  <div *ngIf="loginStatus?.loading; else notLoading">Cargando...</div>
 
-  <ng-template #loadingOrError>
-    <div *ngIf="loginStatus!.loading; else notLoading">
-      Cargando...
-    </div>
-    <ng-template #notLoading>
-      <div>{{ loginStatus!.error }}</div>
-    </ng-template>
+  <ng-template #notLoading>
+    <div *ngIf="loginStatus?.error">{{ loginStatus!.error }}</div>
+    <app-form-button title="Login" />
   </ng-template>
 </app-form>
