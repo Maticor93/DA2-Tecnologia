@@ -2,6 +2,8 @@
 
 # `login-form` con Observable
 
+## Creacion del servicio `session`
+
 En esta seccion implementaremos en `login-form` la llamada a un servicio que tenga la logica de login.
 
 Para esto crearemos un servicio `session` en `services`. Procederemos a ejecutar:
@@ -71,6 +73,8 @@ export default interface SessionCreatedModel{
 
 Y esta situada en el directorio `backend/service/session/models/SessionCreatedModel.ts`;
 
+## Creacion del servicio `session-api-repository`
+
 Una vez terminada la implementacion del servicio, pasaremos a implementar a `session-api-repository.session`, la cual debera de quedar asi:
 
 ```TypeScript
@@ -89,6 +93,8 @@ export class SessionApiRepositoryService extends ApiRepository {
   }
 }
 ```
+
+## Inyeccion de dependencia
 
 Una vez terminada la implementacion del lado del backend, el siguiente paso es utilizar el servicio `session` en el componente `login-form` de la siguiente manera:
 
@@ -159,9 +165,9 @@ Esta modificacion impacta en el template HTML del componente de la siguiente man
 
 ## Custom observable
 
-Lo siguiente que vamos a implementar es una property de tipo `Observable` que guarde el usuario logueado en `session.service`, para que los componentes puedan suscribirse a esta property y reaccionar ante los cambios de valores de la property. De esta forma asi podemos mantener el estado de nuestra aplicacion sincronizada sin la necesidad de hacer un refresh de la aplicacion de forma manual.
+Lo siguiente que vamos a implementar es una property de tipo `Observable` que guarde el usuario logueado en `session`, para que los componentes puedan suscribirse a esta property y reaccionar ante los cambios de valores de la property. De esta forma asi podemos mantener el estado de nuestra aplicacion sincronizada sin la necesidad de hacer un refresh de la aplicacion de forma manual.
 
-Para esto, vamos a modificar el comportamiento `login` en `session.service` de la siguiente manera:
+Para esto, vamos a modificar el comportamiento `login` en `session` de la siguiente manera:
 
 ```TypeScript
 export class SessionService {
@@ -202,9 +208,9 @@ export class SessionService {
 }
 ```
 
-Lo que estamos haciendo es publicando el nuevo valor de token cuando ocurre un login exitoso, y estamos exponiendo el `userLogged` para que se suscriban. El token lo estamos persistiendo en dos lugares en `localstorage` y en memoria con `Observable`. Es necesario persistirlo en `localstorage` porque en ese lugar la data no se borra ni se ponen los valores por defectos cuando ocurren un reload de la aplicacion como ocurre con la data en memoria. Es por eso que antes de retornar el `Observable` del `userLogged` preguntamos si no tiene valor, si no tiene valor, esto no significa que no se logueara el usuario, ya que pudo haber ocurrido un login pero un reload de la aplicacion. Si no hay un valor en memoria pero si en `localstorage` entonces se actualiza el `Observable` y se retorna a quien lo solicita.
+Lo que estamos haciendo es publicando el nuevo valor de token cuando ocurre un login exitoso, y estamos exponiendo el `userLogged` para que se suscriban. El token lo estamos persistiendo en dos lugares en `localStorage` y en memoria con `Observable`. Es necesario persistirlo en `localStorage` porque en ese lugar la data no se borra ni se ponen los valores por defectos cuando ocurren un reload de la aplicacion como ocurre con la data en memoria. Es por eso que antes de retornar el `Observable` del `userLogged` preguntamos si no tiene valor, si no tiene valor, esto no significa que no se logueara el usuario, ya que pudo haber ocurrido un login pero un reload de la aplicacion. Si no hay un valor en memoria pero si en `localStorage` entonces se actualiza el `Observable` y se retorna a quien lo solicita.
 
-Este `Observable` lo usaremos dentro de `home-page.component` para desplegar los permisos del usuario logueado. Dejando `home-page.component` de la siguiente manera:
+Este `Observable` lo usaremos dentro de `home-page` para desplegar los permisos del usuario logueado. Dejando `home-page` de la siguiente manera:
 
 ```TypeScript
 // ...
