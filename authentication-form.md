@@ -155,3 +155,35 @@ export class HomeRoutingModule {}
 ```
 
 Una vez terminada la implementacion de la ruta `home` veremos que el componente `page-not-found` no se renderiza sino que se renderiza `home-page` cuando accedemos a `home`.
+
+## Creacion de `navbar`
+
+En dicha pagina utilizaremos un componente `navbar` que especificara el nombre de la aplicacion, la navegacion dentro de la aplicacion y un boton para desloguearse.
+
+Este componente es generico y agnostico al negocio, es decir que lo podemos encontrar en varias aplicaciones que quieran presentar una navegacion, por eso debe estar ubicado en la carpeta `components`.
+
+Para crear el componente ejecutaremos lo siguiente en la terminal:
+
+```CMD
+cd src
+cd components
+ng generate component navbar
+```
+
+Este componente definira los siguientes parametros:
+
+- `title`: nombre de la aplicacion
+- `options`: array de opciones a renderizar dentro del componente
+
+Teniendo el template HTML de la siguiente manera:
+
+```HTML
+{{title}}
+@for (component of components; track $index){
+  {{component}}
+}
+<app-button title="logout" [onClick]="onLogoutClick">
+```
+
+Y su logica de la siguiente manera:
+[En construccion...]
