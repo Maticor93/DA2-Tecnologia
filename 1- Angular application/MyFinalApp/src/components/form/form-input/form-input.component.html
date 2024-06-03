@@ -3,4 +3,6 @@
   [label]="label"
   [placeholder]="placeholder"
   [(value)]="value" />
-<small *ngIf="error" class="error">{{ error }}</small>
+<small *ngIf="error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">{{
+  error
+}}</small>
