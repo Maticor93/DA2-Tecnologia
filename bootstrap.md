@@ -144,7 +144,7 @@ Como es una libreria de clases css, el uso de esta herramienta es bastante senci
 
 ## Codigos
 
-- [Componentes con `bootstrap`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyComponentApp)
+- [Componentes con `bootstrap`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyBootstrapApp)
 
 ## Lecturas Recomendadas
 

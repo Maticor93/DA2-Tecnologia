@@ -1,0 +1,8 @@
+<div class="mb-3">
+  <label *ngIf="label" class="form-label">{{ label }}</label>
+  <input
+    [placeholder]="placeholder"
+    [type]="type"
+    [value]="value"
+    (input)="onValueChange($event)" />
+</div>

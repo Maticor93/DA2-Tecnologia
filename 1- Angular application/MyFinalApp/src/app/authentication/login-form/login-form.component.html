@@ -1,0 +1,40 @@
+<h1>Bienvenido a MyFinalApp</h1>
+
+<app-form [form]="loginForm" (onSubmit)="onSubmit($event)">
+  <div class="container">
+    <div class="row justify-content-center mb-3">
+      <div class="col-auto">
+        <app-form-input
+          type="text"
+          label="Email"
+          placeholder="email@example.com"
+          [name]="formField.email.name"
+          [form]="loginForm"
+          [formField]="formField" />
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-auto">
+        <app-form-input
+          type="password"
+          label="Password"
+          placeholder="*****"
+          [name]="formField.password.name"
+          [form]="loginForm"
+          [formField]="formField" />
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <div *ngIf="loginStatus?.loading; else notLoading">Cargando...</div>
+
+        <ng-template #notLoading>
+          <div *ngIf="loginStatus?.error">{{ loginStatus!.error }}</div>
+          <app-form-button title="Login" color="primary" />
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</app-form>

@@ -1,0 +1,15 @@
+<div *ngIf="status.loading; else finishLoading">
+  Cargando tipos de peliculas...
+</div>
+<ng-template #finishLoading>
+  <div *ngIf="status.error; else showDropdown">
+    <p>{{ status.error }}</p>
+  </div>
+  <ng-template #showDropdown>
+    <app-dropdown
+      [options]="status.movieTypes"
+      [value]="value"
+      placeholder="Selecciona un tipo de pelicula"
+      emptyMessage="No hay tipos de peliculas" />
+  </ng-template>
+</ng-template>
