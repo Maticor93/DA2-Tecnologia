@@ -182,7 +182,7 @@ Teniendo el template HTML de la siguiente manera:
 @for (component of components; track $index){
   {{component}}
 }
-<app-button title="logout" [onClick]="onLogoutClick">
+<app-button title="logout" [onClick]="onClickLogout">
 ```
 
 Y su logica de la siguiente manera:
