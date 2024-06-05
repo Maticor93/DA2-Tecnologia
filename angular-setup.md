@@ -83,7 +83,19 @@ Teniendo como resultado:
 
 Es importante que la version de `Angular CLI` sea la `18.0.1` para la version de `node` `20.13.1` y `npm` `10.5.2`.
 
-En caso de que tengamos esa version de node pero otra version de angular-cli, ejectuar lo siguiente:
+En caso de que tengamos esa version de node pero una version de angular-cli mas vieja, ejectuar lo siguiente:
+
+Podemos ejecutar una de las siguientes opciones:
+
+### Instalar ultima version
+
+```CMD
+npm install -g @angular/cli@latest
+```
+
+Eso nos deberia de sobreescribir la version que se tiene instalada.
+
+### Desinstalar y volver a instalar
 
 ```CMD
 npm uninstall -g @angular/cli
