@@ -17,6 +17,7 @@ Antes de realizar la instalacion de nvm, es necesario desinstalar cualquier vers
 Con nvm (node version manager) podremos tener mas de una version de Node en la maquina. Para ello tenemos que ir a [nvm](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file) y descargamos el [nvm-setup.zip](https://github.com/coreybutler/nvm-windows/releases) de la ultima version. Lo instalamos y ya podremos usar los comandos:
 
 ```CMD
+nvm
 nvm install <<version de node a instalar>>
 nvm use <<version de node instalada>>
 ```
