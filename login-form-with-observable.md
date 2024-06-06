@@ -26,6 +26,7 @@ ng generate service session-api-repository
 
 Una vez creados el servicio y el repositorio, procederemos a implementarlos con las especificaciones antes mencionadas.
 
+## Implementacion del servicio `session`
 El servicio `session` nos debera de quedar de la siguiente manera:
 
 ```TypeScript
@@ -73,7 +74,7 @@ export default interface SessionCreatedModel{
 
 Y esta situada en el directorio `backend/service/session/models/SessionCreatedModel.ts`;
 
-## Creacion del servicio `session-api-repository`
+## Implementacion del servicio `session-api-repository`
 
 Una vez terminada la implementacion del servicio, pasaremos a implementar a `session-api-repository.session`, la cual debera de quedar asi:
 
@@ -236,3 +237,43 @@ Y su template HTML de la siguiente forma:
 ```
 
 Cuando se renderice el componente la lista `permissions` sera una lista vacia, pero cuando los permisos del usuario logueado esten listos para ser consumidos, estos se desplegaran.
+
+## Actualizacion de las `guards`
+
+### Actualizacion de `auth-guard`
+
+La ultima modificacion es la actualizacion de las `guards` para que usen la nueva variable `token`.
+
+Quedando `auth-guard` de la siguiente manera:
+
+```TypeScript
+export const authGuard: CanActivateFn = (route, state) => {
+  const isNotLoggedIn = localStorage.getItem('token') === null;
+
+  if (isNotLoggedIn) {
+    const router = inject(Router);
+
+    return router.parseUrl('/login');
+  }
+
+  return true;
+};
+```
+
+### Actualizacion de `no-auth`
+
+Y la `guard` `no-auth` debera quedar asi:
+
+```TypeScript
+export const noAuthGuard: CanActivateFn = (route, state) => {
+  const isLoggedIn = localStorage.getItem('token') !== null;
+
+  if (isLoggedIn) {
+    const router = inject(Router);
+
+    return router.parseUrl('/home');
+  }
+
+  return true;
+};
+```
