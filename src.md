@@ -28,6 +28,9 @@ La organizacion de la aplicacion que debemos respetar es la siguiente:
 |
 |── src
 |   |── app
+|   |   |── business-components
+|   |   |── components
+|   |   |── layouts
 |   |   |── app.module.ts
 |   |   |── app.component.ts
 |   |   |── app-routing.module.ts
@@ -36,8 +39,6 @@ La organizacion de la aplicacion que debemos respetar es la siguiente:
 |   |   |── services
 |   |   |   |── models
 |   |   |── repositories
-|   |── business-components
-|   |── components
 |   |── index.html
 |   |── main.ts
 |   |──styles.css
