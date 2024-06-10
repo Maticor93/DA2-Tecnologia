@@ -46,7 +46,7 @@ Para utilizar diferentes los archivos de ambiente, debemos modificar la seccion 
     "ng": "ng",
     "start:local": "ng serve --configuration local",
     "start:prod": "ng serve --configuration prod",
-    "build:prod": "ng build -- configuration prod",
+    "build:prod": "ng build --configuration prod",
     "watch": "ng build --watch --configuration development"
   },
 ```
