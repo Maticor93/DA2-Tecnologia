@@ -1,14 +1,14 @@
-**Description of changes**
-[Description of changes]
+**Descripcion de los cambios**
+[Descripcion de los cambios realizados]
 
-[If applies - image or video showcasing the result of the changes (i.e: new endpoints)]
+[Si aplica - imagen o video mostrando los nuevos cambios(ej: nuevos endpoints)]
 
-**Are there new DB migrations?**
-[Yes/No]
+**Hay nuevas migraciones?**
+[Si/No]
 
-**Requirement**: [descripcion del requerimiento]
+**Requerimiento**: [descripcion del requerimiento]
 
-**Paired with**: [mention your pairing partner]
+**Trabajado con**: [mention your pairing partner]
 
-**Before requesting a review, have you self-reviewed your code?**
-[Yes/No]
+**Antes de solicitar per review, revisaste el codigo?**
+[Si/No]
