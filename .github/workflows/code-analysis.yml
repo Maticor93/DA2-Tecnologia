@@ -2,26 +2,33 @@ name: Code analysis
 
 on:
   pull_request:
-    branches: [main, develop]
   push:
     branches: [main, develop]
 
 env:
-  .NET_VERSION: 8.0.X
+  DOTNET_VERSION: 8.0.X
 
 jobs:
   analysis:
     name: Analysis
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Run code analysis report
-      run: dotnet format --verify-no-changes --verbosity diagnostic
+      run: dotnet format --verify-no-changes --verbosity diagnostic --report ./analysis
+
+    - name: Upload code analysis report
+      continue-on-error: true
+      uses: actions/upload-artifact@v4
+      with:
+        name: Code Analysis Report
+        path: ./analysis/format-report.json
+        retention-days: 3
