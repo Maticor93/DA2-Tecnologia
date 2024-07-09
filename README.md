@@ -2,9 +2,9 @@
 
 - **.gitignore**: Este archivo es necesario y requerido para ignorar aquellos archivos que no se quiere tener un control de version. Esto quiere decir, que ciertos archivos por mas que sean modificados, eliminados o agregados, no se vera ningun cambio efectuado en el historico de cambios de git antes al momento de crear un commit. Para que este archivo tenga efecto, tiene que ser commiteado en un primer commit antes de ponerse a trabajar en el proyecto.
 
-- **.editorconfig**: Es un archivo que configura reglas de clean code para c#. En caso de que este archivo genere problemas al momento de compilar, ejecutar o tengan contradicciones, hacer uso del archivo **.editorconfig2** eliminando el 2 y eliminando el **.editorconfig**. Solo debe existir un **.editorconfig**.
+- **.editorconfig**: Es un archivo que configura reglas de clean code para c#. En caso de que este archivo genere problemas al momento de compilar, ejecutar o tengan contradicciones.
 
-- **Directory.Build.props (opcional)**: Es el lugar para especificar aquellos paquetes que son usados por todos los proyectos locales de la solucion. Es una forma mas rapida de controlar sus versiones y que los paquetes locales se actualicen en simultaneo.
+- **Directory.Build.props**: Es el lugar para especificar aquellos paquetes que son usados por todos los proyectos locales de la solucion. Es una forma mas rapida de controlar sus versiones y que los paquetes locales se actualicen en simultaneo.
 
 - **pull_request_template.md**: Es una guia sobre la informacion a incluir en los pull request que se creen.
 
