@@ -2,6 +2,11 @@
   <ItemGroup>
     <PackageReference 
     Include="CQ.Utility" 
-    Version="1.1.8" />
+    Version="1.1.16" />
   </ItemGroup>
+	<ItemGroup>
+		<PackageReference
+		Include="StyleCop.Analyzers"
+		Version="1.1.118" />
+	</ItemGroup>
 </Project>
