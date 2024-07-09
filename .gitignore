@@ -1,13 +1,16 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
 [Oo]bj/
+
 .env
 .env.*
 
 coverage/
 
+appsettings.Local.json
 appsettings.Development.json
 appssettings.Production.json
+
 # mstest test results
 TestResults
 
