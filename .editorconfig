@@ -25,12 +25,12 @@ dotnet_diagnostic.SA1001.severity = Warning
 dotnet_diagnostic.SA1002.severity = Warning
 dotnet_diagnostic.SA1003.severity = Warning
 dotnet_diagnostic.SA1004.severity = Warning
-dotnet_diagnostic.SA1005.severity = Warning
+dotnet_diagnostic.SA1005.severity = error
 dotnet_diagnostic.SA1006.severity = Warning
 dotnet_diagnostic.SA1007.severity = Warning
 dotnet_diagnostic.SA1008.severity = Error
-dotnet_diagnostic.SA1009.severity = Error
-dotnet_diagnostic.SA1010.severity = Warning
+dotnet_diagnostic.SA1009.severity = none
+dotnet_diagnostic.SA1010.severity = none
 dotnet_diagnostic.SA1011.severity = Warning
 dotnet_diagnostic.SA1012.severity = Warning
 dotnet_diagnostic.SA1013.severity = Warning
@@ -61,9 +61,9 @@ dotnet_diagnostic.SA1106.severity = Warning
 dotnet_diagnostic.SA1107.severity = Warning
 dotnet_diagnostic.SA1108.severity = Warning
 dotnet_diagnostic.SA1109.severity = None
-dotnet_diagnostic.SA1110.severity = Warning
+dotnet_diagnostic.SA1110.severity = error
 dotnet_diagnostic.SA1111.severity = Warning
-dotnet_diagnostic.SA1112.severity = Warning
+dotnet_diagnostic.SA1112.severity = error
 dotnet_diagnostic.SA1113.severity = Warning
 dotnet_diagnostic.SA1114.severity = Warning
 dotnet_diagnostic.SA1115.severity = Warning
@@ -73,12 +73,12 @@ dotnet_diagnostic.SA1118.severity = Silent
 dotnet_diagnostic.SA1120.severity = Warning
 dotnet_diagnostic.SA1121.severity = Warning
 dotnet_diagnostic.SA1122.severity = Error
-dotnet_diagnostic.SA1123.severity = Warning
-dotnet_diagnostic.SA1124.severity = Warning
+dotnet_diagnostic.SA1123.severity = none
+dotnet_diagnostic.SA1124.severity = none
 dotnet_diagnostic.SA1125.severity = Warning
 dotnet_diagnostic.SA1126.severity = None
 dotnet_diagnostic.SA1127.severity = Warning
-dotnet_diagnostic.SA1128.severity = Warning
+dotnet_diagnostic.SA1128.severity = error
 dotnet_diagnostic.SA1129.severity = Warning
 dotnet_diagnostic.SA1130.severity = Warning
 dotnet_diagnostic.SA1131.severity = Warning
@@ -113,9 +113,9 @@ dotnet_diagnostic.SA1217.severity = Warning
 #### Naming rules ####
 dotnet_diagnostic.SA1300.severity = Error
 dotnet_diagnostic.SA1301.severity = None
-dotnet_diagnostic.SA1302.severity = Warning
-dotnet_diagnostic.SA1303.severity = Warning
-dotnet_diagnostic.SA1304.severity = Warning
+dotnet_diagnostic.SA1302.severity = error
+dotnet_diagnostic.SA1303.severity = error
+dotnet_diagnostic.SA1304.severity = error
 dotnet_diagnostic.SA1305.severity = None
 dotnet_diagnostic.SA1306.severity = Warning
 dotnet_diagnostic.SA1307.severity = Warning
@@ -124,18 +124,18 @@ dotnet_diagnostic.SA1309.severity = Silent
 dotnet_diagnostic.SA1310.severity = Silent
 dotnet_diagnostic.SA1311.severity = Warning
 dotnet_diagnostic.SA1312.severity = Warning
-dotnet_diagnostic.SA1313.severity = Warning
+dotnet_diagnostic.SA1313.severity = error
 dotnet_diagnostic.SA1314.severity = Warning
 dotnet_diagnostic.SX1309.severity = None
 dotnet_diagnostic.SX1309S.severity = None
 
 #### Maintainability rules ####
 dotnet_diagnostic.SA1119.severity = Warning
-dotnet_diagnostic.SA1400.severity = Warning
+dotnet_diagnostic.SA1400.severity = error
 dotnet_diagnostic.SA1401.severity = Silent
 dotnet_diagnostic.SA1402.severity = Warning
-dotnet_diagnostic.SA1403.severity = Warning
-dotnet_diagnostic.SA1404.severity = Warning
+dotnet_diagnostic.SA1403.severity = error
+dotnet_diagnostic.SA1404.severity = error
 dotnet_diagnostic.SA1405.severity = Warning
 dotnet_diagnostic.SA1406.severity = Warning
 dotnet_diagnostic.SA1407.severity = Warning
@@ -152,17 +152,17 @@ dotnet_diagnostic.SA1501.severity = Warning
 dotnet_diagnostic.SA1502.severity = Warning
 dotnet_diagnostic.SA1503.severity = Warning
 dotnet_diagnostic.SA1504.severity = Warning
-dotnet_diagnostic.SA1505.severity = Error
+dotnet_diagnostic.SA1505.severity = error
 dotnet_diagnostic.SA1506.severity = Warning
 dotnet_diagnostic.SA1507.severity = Error
 dotnet_diagnostic.SA1508.severity = Error
-dotnet_diagnostic.SA1509.severity = Warning
+dotnet_diagnostic.SA1509.severity = error
 dotnet_diagnostic.SA1510.severity = Warning
 dotnet_diagnostic.SA1511.severity = Warning
-dotnet_diagnostic.SA1512.severity = Warning
+dotnet_diagnostic.SA1512.severity = none
 dotnet_diagnostic.SA1513.severity = Error
 dotnet_diagnostic.SA1514.severity = Warning
-dotnet_diagnostic.SA1515.severity = Warning
+dotnet_diagnostic.SA1515.severity = error
 dotnet_diagnostic.SA1516.severity = Silent
 dotnet_diagnostic.SA1517.severity = Warning
 dotnet_diagnostic.SA1518.severity = Warning
@@ -170,7 +170,7 @@ dotnet_diagnostic.SA1519.severity = Warning
 dotnet_diagnostic.SA1520.severity = Warning
 
 #### Documentation rules ####
-dotnet_diagnostic.SA1600.severity = Silent
+dotnet_diagnostic.SA1600.severity = none
 dotnet_diagnostic.SA1601.severity = Warning
 dotnet_diagnostic.SA1602.severity = Warning
 dotnet_diagnostic.SA1603.severity = None
@@ -244,6 +244,12 @@ dotnet_diagnostic.CS8321.severity = Error
 dotnet_diagnostic.CS0162.severity = Error
 
 
+dotnet_diagnostic.CS8618.severity = Error
+dotnet_diagnostic.CS9113.severity = Error
+dotnet_diagnostic.CS1998.severity = Error
+dotnet_diagnostic.CS8604.severity = Error
+
+
 
 # Organize usings
 dotnet_separate_import_directive_groups = false
@@ -304,9 +310,9 @@ dotnet_style_allow_statement_immediately_after_block_experimental = true
 #### C# Coding Conventions ####
 
 # var preferences
-csharp_style_var_elsewhere = false
-csharp_style_var_for_built_in_types = false
-csharp_style_var_when_type_is_apparent = false
+csharp_style_var_elsewhere = false:silent
+csharp_style_var_for_built_in_types = true:error
+csharp_style_var_when_type_is_apparent = true:error
 
 # Expression-bodied members
 csharp_style_expression_bodied_accessors = true:silent
@@ -319,49 +325,49 @@ csharp_style_expression_bodied_operators = false:silent
 csharp_style_expression_bodied_properties = true:silent
 
 # Pattern matching preferences
-csharp_style_pattern_matching_over_as_with_null_check = true
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
 csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
-csharp_style_prefer_extended_property_pattern = true
-csharp_style_prefer_not_pattern = true
-csharp_style_prefer_pattern_matching = true
-csharp_style_prefer_switch_expression = true
+csharp_style_prefer_extended_property_pattern = true:suggestion
+csharp_style_prefer_not_pattern = true:suggestion
+csharp_style_prefer_pattern_matching = true:silent
+csharp_style_prefer_switch_expression = true:suggestion
 
 # Null-checking preferences
-csharp_style_conditional_delegate_call = true:suggestion
+csharp_style_conditional_delegate_call = true:error
 
 # Modifier preferences
 csharp_prefer_static_local_function = true:suggestion
 csharp_preferred_modifier_order = public,private,protected,internal,file,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,required,volatile,async
-csharp_style_prefer_readonly_struct = true
+csharp_style_prefer_readonly_struct = true:suggestion
 
 # Code-block preferences
 csharp_prefer_braces = true:silent
 csharp_prefer_simple_using_statement = true:suggestion
-csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_namespace_declarations = file_scoped:error
 csharp_style_prefer_method_group_conversion = true:silent
 csharp_style_prefer_top_level_statements = true:silent
 
 # Expression-level preferences
 csharp_prefer_simple_default_expression = true:suggestion
-csharp_style_deconstructed_variable_declaration = true
-csharp_style_implicit_object_creation_when_type_is_apparent = true
-csharp_style_inlined_variable_declaration = true
-csharp_style_prefer_index_operator = true
+csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
+csharp_style_inlined_variable_declaration = true:suggestion
+csharp_style_prefer_index_operator = true:suggestion
 csharp_style_prefer_local_over_anonymous_function = true:suggestion
 csharp_style_prefer_null_check_over_type_check = true:suggestion
-csharp_style_prefer_range_operator = true
-csharp_style_prefer_tuple_swap = true
-csharp_style_prefer_utf8_string_literals = true
+csharp_style_prefer_range_operator = true:suggestion
+csharp_style_prefer_tuple_swap = true:suggestion
+csharp_style_prefer_utf8_string_literals = true:suggestion
 csharp_style_throw_expression = true:suggestion
-csharp_style_unused_value_assignment_preference = discard_variable
-csharp_style_unused_value_expression_statement_preference = discard_variable
+csharp_style_unused_value_assignment_preference = discard_variable:error
+csharp_style_unused_value_expression_statement_preference = discard_variable:silent
 
 # 'using' directive preferences
-csharp_using_directive_placement = outside_namespace:silent
+csharp_using_directive_placement = outside_namespace:error
 
 # New line preferences
-csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true
-csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true
+csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:silent
+csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true:silent
 csharp_style_allow_embedded_statements_on_same_line_experimental = true:silent
 
 #### C# Formatting Rules ####
@@ -415,11 +421,11 @@ csharp_preserve_single_line_statements = true
 
 # Naming rules
 
-dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
+dotnet_naming_rule.interface_should_be_begins_with_i.severity = error
 dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
 dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
 
-dotnet_naming_rule.types_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.types_should_be_pascal_case.severity = error
 dotnet_naming_rule.types_should_be_pascal_case.symbols = types
 dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
 
@@ -452,6 +458,12 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
+csharp_style_prefer_primary_constructors = true:suggestion
+csharp_style_prefer_readonly_struct_member = true:suggestion
+csharp_style_allow_blank_line_after_token_in_conditional_expression_experimental = true:silent
+csharp_style_allow_blank_line_after_token_in_arrow_expression_clause_experimental = true:silent
+dotnet_diagnostic.ASP0018.severity = error
+dotnet_diagnostic.CA1507.severity = error
 
 [*.{cs,vb}]
 dotnet_style_coalesce_expression = true:suggestion
@@ -468,7 +480,7 @@ dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
 dotnet_style_prefer_compound_assignment = true:suggestion
 dotnet_style_prefer_simplified_interpolation = true:suggestion
-dotnet_style_namespace_match_folder = true:suggestion
+dotnet_style_namespace_match_folder = true:error
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
 tab_width = 4
 indent_size = 4
@@ -476,3 +488,34 @@ end_of_line = crlf
 dotnet_style_predefined_type_for_locals_parameters_members = true:silent
 dotnet_diagnostic.CA2211.severity = silent
 dotnet_diagnostic.CA1069.severity = silent
+dotnet_style_prefer_collection_expression = when_types_loosely_match:suggestion
+dotnet_style_readonly_field = true:error
+dotnet_style_predefined_type_for_member_access = true:silent
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
+dotnet_style_allow_statement_immediately_after_block_experimental = true:silent
+dotnet_style_allow_multiple_blank_lines_experimental = true:silent
+dotnet_code_quality_unused_parameters = all:error
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:error
+dotnet_style_qualification_for_field = false:error
+dotnet_style_qualification_for_property = false:error
+dotnet_style_qualification_for_method = false:error
+dotnet_style_qualification_for_event = false:error
+dotnet_diagnostic.CA1502.severity = error
+dotnet_diagnostic.CA1506.severity = error
+dotnet_diagnostic.CA1505.severity = error
+dotnet_diagnostic.CA1823.severity = error
+dotnet_diagnostic.CA1510.severity = error
+dotnet_diagnostic.CA1511.severity = error
+dotnet_diagnostic.CA1512.severity = error
+dotnet_diagnostic.CA1513.severity = error
+dotnet_diagnostic.CA1712.severity = error
+dotnet_diagnostic.CA1727.severity = error
+dotnet_diagnostic.CA1806.severity = error
+dotnet_diagnostic.CA1827.severity = error
+dotnet_diagnostic.CA1828.severity = error
+dotnet_diagnostic.CA1829.severity = error
+dotnet_diagnostic.CA1724.severity = error
+insert_final_newline = true
