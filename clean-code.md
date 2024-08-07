@@ -313,3 +313,78 @@ public void DoThis(Employee employee)
 <p align="center">
   [Codigo strongly typed]
 </p>
+
+## 14. Extensiones de metodos C# vs una libreria de mapeo
+1. Simplicidad
+   Codigo que necesitamos y solo que necesitamos. Las extensiones de metodos permiten un mapeo mas preciso sin una configuracion adicional.
+
+2. Performance
+  No hay reflection, no hay costos ocultos. Los mapeos directos aseguran una performance optima.
+
+3. Leible
+   El codigo cuenta una historia. Cuando alguien mas lee los mapeos, las extensiones de metodos pueden ser mas explicitos, eliminando insertidumbres de que se esta mapeando
+
+4. Flexibilidad
+   Es codigo propio. No estar limitados por las limitaciones de una libreria.
+
+5. Debugging
+   Situarse directamente en el codigo del mapeo. No hay necesidad de realizar debugs complejos en elementos internos de ninguna libreria.
+
+Mientras que una libreria de mapeo es un increible recurso, a veces las soluciones mas straightforward pueden ofrecer una mayor claridad y eficiencia.
+
+```C#
+public List<MovieBasicInfoResponse> GetAll()
+{
+  var movies = _movieService.GetAll();
+
+  return movies.ToResponse();
+}
+```
+
+```C#
+public static class MovieBasicInfoResponseMapping
+{
+  public static List<MovieBasicInfoResponse> ToResponse(this List<Movie> movies)
+  {
+    return movies.ConvertAll(m => new MovieBasicInfoResponse(m));
+  }
+}
+```
+
+## 15. Breaking changes
+Un breaking change son por ejemplo:
+- Eliminar o renombrar un endpoint de una API o parametros
+- Cambiar el comportamiento de un endpoint existente en una API
+- Cambiar los codigos de error de una API
+
+ASP .NET Core hace facil la introduccion del versionado en una API.
+
+```C#
+[ApiController]
+[ApiVersion(1)]
+[ApiVersion(2)]
+[Route("v{v:apiVersion}/movies")]
+public sealed class MovieController(IMovieService movieService)
+  : ControllerBase
+{
+  [MapToApiVersion(1)]
+  [HttpGet]
+  public List<MovieBasicInfoResponse> GetAllV1()
+  {
+    var movies = movieService.GetAll();
+
+    return movies.ToResponse();
+  }
+
+  [MapToApiVersion(2)]
+  [HttpGet]
+  public List<MovieBasicInfoResponse> GetAllV2(
+    [FromQuery] int? minStars,
+    [FromQuery] int? maxStars)
+  {
+    var movies = movieService.GetAll(minStars, maxStars);
+
+    return movies.ToResponse(); 
+  }
+}
+```
