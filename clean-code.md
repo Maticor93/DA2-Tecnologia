@@ -160,10 +160,14 @@ Concatenar las funciones LINQ de forma horizontal dificulta en la lectura, la ex
 <p align="center">
 [Concatenacion de forma horizontal]
 </p>
-<p align="center">
-<img src="./images/image-6.png">
-<p>
-
+```C#
+dbContext
+  .Animals
+  .Where(animal => animal.HasBigEars)
+  .OrderBy(animal => animal.IsDangerous)
+  .Select(animal => (animal.Id, animal.Name))
+  .ToList();
+```
 <p align="center">
 [Concatenacion de forma vertical]
 </p>
