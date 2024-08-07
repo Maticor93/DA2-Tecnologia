@@ -160,6 +160,7 @@ Concatenar las funciones LINQ de forma horizontal dificulta en la lectura, la ex
 <p align="center">
 [Concatenacion de forma horizontal]
 </p>
+
 ```C#
 dbContext
   .Animals
