@@ -1,4 +1,4 @@
-# Tips Clean Code
+# Tips Clean Code y Buenas Practicas
 
 Clean code es codigo que:
 
@@ -386,5 +386,22 @@ public sealed class MovieController(IMovieService movieService)
 
     return movies.ToResponse(); 
   }
+}
+```
+## 16. Evitar la negacion
+La negacion de una condicion de forma directa en un if o en en algun otro lado, suele a no ser tan visible la intencion por lo que puede llegar a generar confusiones a la hora de interpretar el codigo. Por eso siempre que se pueda evitar, las condiciones se tienen que situar en variables con un nombre nemotecnico o con un metodo.
+
+```C#
+if(!myVariable.HasValue)
+{
+  // do something
+}
+```
+[Evitar preguntar en el if]
+
+```C#
+if(myVariable == null)
+{
+  // do something
 }
 ```
