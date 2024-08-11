@@ -405,3 +405,16 @@ if(myVariable == null)
   // do something
 }
 ```
+
+## 17. readonly vs const
+🔥 𝗰𝗼𝗻𝘀𝘁 y 𝗿𝗲𝗮𝗱𝗼𝗻𝗹𝘆 en 𝗖# comparten el objetivo en comun de prevenir que las variables sean modificadas despues de ser inicializadas, pero tienen algunas diferencias.
+
+🔷 𝗰𝗼𝗻𝘀𝘁
+- Son deifnidas en tiempo de compilacion, esto quiere decir, que su valor es sabido en tiempo de compilacion y no puede ser modificado en tiempo de ejecucion.
+- Debe ser declarado con un inicializador y son implicitamente estaticos.
+- Pueden ser usado solamente con tipos primitivos, integers, booleans, y strings. User-defined types, incluyendo classes, structs, y arrays, no pueden ser 𝗰𝗼𝗻𝘀𝘁.
+
+🔷 𝗿𝗲𝗮𝗱𝗼𝗻𝗹𝘆 
+- Son definidos en tiempos de ejecucion. Su valor puede ser asignado durante la inicializacion o en un constructor, pero no puede ser modificado luego.
+- Pueden ser declarados con o sin un inicializador y pueden ser estaticos o no.
+- Pueden ser usados con cualquier tipo de datos, incluyendo tipos de referencia.
