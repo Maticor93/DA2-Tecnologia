@@ -447,3 +447,123 @@ public sealed record class User
 </p>
 
 Esto hace mas visible identificar aquellas entidades con identidad para diferenciar cuales son `value-objects` y `reference-objects`.
+
+## 19. El orden de los setup importa
+A la hora de configurar los comportamientos de las dependencias en las pruebas unitarias, es importante definir un orden de configuracion para que puedan ser facilmente mantenibles, logren contar un cuento ordenado y que se relacione con la logica adyacente que se esta probando. Ese orden debe ser el orden de ejecucion, esto quiere decir que los setups de los mocks de las dependencias tienen que estar en el mismo orden de llamada en la logica que las utiliza.
+
+Esto favorecera en encontrar mas facilmente y rapido los errores con dichas configuraciones.
+
+```C#
+public sealed class UserService(
+  IRepository<User> userRepository,
+  IPermissionService permissionService)
+  : IUserService
+{
+  public List<User> GetAll(string userLoggedId)
+  {
+    permissionService.AssertHasPermission(PermissionKey.GetAllUsers, userLoggedId);
+
+    var users = userRepository.GetAll();
+
+    return users;
+  }
+}
+```
+
+```C#
+// ------
+[TestClass]
+public sealed class UserServiceTests
+{
+  private readonly UserService _userService;
+  private readonly Mock<IPermissionService> _permissionServiceMock;
+  private readonly Mock<IRepository<User>> _userRepositoryMock;
+
+  [TestInitialize]
+  public void Initialize()
+  {
+    _permissionServiceMock = new Mock<IPermissionService>(MockBehavior.Strict);
+    _userRepositoryMock = new Mock<IRepository<User>>(MockBehavior.Strict);
+
+    _userService = new UserService(
+      _userRepositoryMock.Object,
+      _permissionServiceMock.Object);
+  }
+}
+
+[TestMethod]
+public void GetAll_WhenUserLoggedHasPermissionAndExistUsers_ShouldThrowException()
+{
+  var userLoggedId = Random.NextInt();
+
+  var user = UserBuilder
+    .Builder()
+    .Build();
+
+  _userRepositoryMock
+  .Setup(i => i.GetAll())
+  .Returns([user]);
+
+  _permissionServiceMock
+  .Setup(p => p.AssertHasPermission(PermissionKey.GetAllUsers, userLoggedId));
+
+  var users = _userService.GetAll();
+
+  users.Should().HaveCount(1);
+  var userResult = users[0];
+  userResult.Id.Should().Be(user.Id);
+  userResult.Name.Should().Be(user.Name);
+}
+```
+<p align="center">
+  [Setup de mocks no siguen el orden de la logica]
+</p>
+
+```C#
+[TestClass]
+public sealed class UserServiceTests
+{
+  private readonly UserService _userService;
+  private readonly Mock<IRepository<User>> _userRepositoryMock;
+  private readonly Mock<IPermissionService> _permissionServiceMock;
+
+  [TestInitialize]
+  public void Initialize()
+  {
+    _userRepositoryMock = new Mock<IRepository<User>>(MockBehavior.Strict);
+    _permissionServiceMock = new Mock<IPermissionService>(MockBehavior.Strict);
+
+    _userService = new UserService(
+      _userRepositoryMock.Object,
+      _permissionServiceMock.Object);
+  }
+}
+
+[TestMethod]
+public void GetAll_WhenUserLoggedHasPermissionAndExistUsers_ShouldThrowException()
+{
+  var userLoggedId = Random.NextInt();
+
+  var user = UserBuilder
+    .Builder()
+    .Build();
+
+  _permissionServiceMock
+  .Setup(p => p.AssertHasPermission(PermissionKey.GetAllUsers, userLoggedId));
+
+  _userRepositoryMock
+  .Setup(i => i.GetAll())
+  .Returns([user]);
+
+  var users = _userService.GetAll();
+
+  users.Should().HaveCount(1);
+  var userResult = users[0];
+  userResult.Id.Should().Be(user.Id);
+  userResult.Name.Should().Be(user.Name);
+}
+```
+
+<p align="center">
+  [Setup de mocks siguen el orden de la logica]
+</p>
