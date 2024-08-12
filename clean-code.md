@@ -418,3 +418,32 @@ if(myVariable == null)
 - Son definidos en tiempos de ejecucion. Su valor puede ser asignado durante la inicializacion o en un constructor, pero no puede ser modificado luego.
 - Pueden ser declarados con o sin un inicializador y pueden ser estaticos o no.
 - Pueden ser usados con cualquier tipo de datos, incluyendo tipos de referencia.
+
+## 18. Identidad de entidades
+Toda aquella entidad que requiera una identidad, es buena practica que su primary key sea `Id`. Esto permitira la facil busqueda y rapida deteccion de estas entidades por esta propiedad.
+
+```C#
+public sealed record class User
+{
+  [Key]
+  public string Email { get; init; }
+}
+```
+<p align="center">
+  [Marca como PK el email]
+</p>
+
+```C#
+public sealed record class User
+{
+  public string Id { get; init; }
+
+  public string Email { get; init; }
+}
+```
+
+<p align="center">
+  [La property con el nombre Id, ya es identificada como PK]
+</p>
+
+Esto hace mas visible identificar aquellas entidades con identidad para diferenciar cuales son `value-objects` y `reference-objects`.
