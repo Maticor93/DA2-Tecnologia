@@ -563,7 +563,91 @@ public void GetAll_WhenUserLoggedHasPermissionAndExistUsers_ShouldThrowException
   userResult.Name.Should().Be(user.Name);
 }
 ```
-
 <p align="center">
   [Setup de mocks siguen el orden de la logica]
+</p>
+
+## 20. La organizacion de la capa de aplicacion deberia de evidenciar el negocio
+La capa de aplicacion es donde se encuentra el core de nuestra aplicacion y de una Clean Architecture. Es donde se definen las entidades y la logica de negocio mas importante.
+
+Es por esto que la organizacion no se deberia de centrar en conceptos tecnicos en vez de funcionalidades. Los sintomas que evidencian esto son carpetas con los siguientes nombres:
+
+- Entities
+- Enumerations
+- Exceptions
+- Repositories
+- ValueObjects
+
+Cual es el problema con la agrupacion por tipos?
+Esta organizacion no evidencia nada sobre el negocio. Tambien involucra poca cohesion en cada carpeta, ya que los elementos involucrados no se relacionan entre ellos.
+
+Para resolver esto hay que reorganizar la estructura involucrando en la misma carpeta conceptos relacionados.
+
+Los beneficios de este enfoque son:
+
+- Mejorar la cohesion
+- Bajo acoplamiento entre carpetas no relacionadas
+
+  ```
+  |
+  |--Core
+  |--Entities
+  |--Enumerations
+  |--Exceptions
+  |--Repositories
+  |--Services
+  |--ValueObjects
+  ```
+  <p align="center">
+    [Agrupacion por tipo]
+  </p>
+
+```
+|
+|--Events
+|--Firendships
+|  |
+|  |--Friendship.cs
+|  |--FriendshipRequest.cs
+|  |--FriendshipService.cs
+|  |--IFriendshipRepository.cs
+|--Invitations
+|--Users
+```
+<p align="center">
+  [Agrupacion por negocio]
+</p>
+
+## 21. Mejorando la performance con una llamada a la base
+Cada llamada al metodo `SaveChanges` significa una ida a la base de datos. Eso quiere decir que si tenemos la llamada al `SaveChanges` dentro de un loop estaremos impactando en la base constantemente hasta que el loop termine. Para mejorar esto, lo correcto es hacer que EFCore traquee las entidades en memoria y una vez terminado, se impacte una unica vez a la base.
+
+```C#
+using var context = new ApplicationDbContext();
+
+var users = GetUsers();
+
+users.ForEach(user => {
+  context.Users.Add(user);
+
+  context.SaveChanges();
+});
+```
+<p align="center">
+  [EFCore inmediatamente que trackea un usuario (cuando se llama a context.Users.Add) tambien se impacta en la bd]
+</p>
+
+```C#
+using var context = new ApplicationDbContext();
+
+var users = GetUsers();
+
+users.ForEach(user => {
+  context.Users.Add(user);
+});
+
+context.SaveChanges();
+```
+
+<p align="center">
+  [EFCore trackea todos los usuarios y luego impacta en la bd]
 </p>
