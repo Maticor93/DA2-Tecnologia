@@ -1,4 +1,8 @@
-# Archivos
+# Configuracino de repo
+
+A continuacion se pueden encontrar aquellos archivos que son requeridos en la solucion junto con una descripcion de cuales son los objetivos.
+
+## Archivos
 
 - **.gitignore**: Este archivo es necesario y requerido para ignorar aquellos archivos que no se quiere tener un control de version. Esto quiere decir, que ciertos archivos por mas que sean modificados, eliminados o agregados, no se vera ningun cambio efectuado en el historico de cambios de git antes al momento de crear un commit. Para que este archivo tenga efecto, tiene que ser commiteado en un primer commit antes de ponerse a trabajar en el proyecto.
 
