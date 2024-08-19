@@ -8,6 +8,9 @@
 # mstest test results
 TestResults
 
+node-modules
+.angular
+
 .vscode
 
 analysis
