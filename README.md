@@ -1,4 +1,4 @@
-# Configuracion de repo
+# Configuracion del repo
 
 A continuacion se pueden encontrar aquellos archivos que son requeridos en la solucion junto con una breve descripcion de su funcionalidad dentro del repositorio y de la solucion.
 
