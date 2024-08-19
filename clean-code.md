@@ -1,4 +1,4 @@
-# Tips Clean Code
+# Tips Clean Code y Buenas Practicas
 
 Clean code es codigo que:
 
@@ -160,10 +160,15 @@ Concatenar las funciones LINQ de forma horizontal dificulta en la lectura, la ex
 <p align="center">
 [Concatenacion de forma horizontal]
 </p>
-<p align="center">
-<img src="./images/image-6.png">
-<p>
 
+```C#
+dbContext
+  .Animals
+  .Where(animal => animal.HasBigEars)
+  .OrderBy(animal => animal.IsDangerous)
+  .Select(animal => (animal.Id, animal.Name))
+  .ToList();
+```
 <p align="center">
 [Concatenacion de forma vertical]
 </p>
@@ -307,4 +312,342 @@ public void DoThis(Employee employee)
 ```
 <p align="center">
   [Codigo strongly typed]
+</p>
+
+## 14. Extensiones de metodos C# vs una libreria de mapeo
+1. Simplicidad
+   Codigo que necesitamos y solo que necesitamos. Las extensiones de metodos permiten un mapeo mas preciso sin una configuracion adicional.
+
+2. Performance
+  No hay reflection, no hay costos ocultos. Los mapeos directos aseguran una performance optima.
+
+3. Leible
+   El codigo cuenta una historia. Cuando alguien mas lee los mapeos, las extensiones de metodos pueden ser mas explicitos, eliminando insertidumbres de que se esta mapeando
+
+4. Flexibilidad
+   Es codigo propio. No estar limitados por las limitaciones de una libreria.
+
+5. Debugging
+   Situarse directamente en el codigo del mapeo. No hay necesidad de realizar debugs complejos en elementos internos de ninguna libreria.
+
+Mientras que una libreria de mapeo es un increible recurso, a veces las soluciones mas straightforward pueden ofrecer una mayor claridad y eficiencia.
+
+```C#
+public List<MovieBasicInfoResponse> GetAll()
+{
+  var movies = _movieService.GetAll();
+
+  return movies.ToResponse();
+}
+```
+
+```C#
+public static class MovieBasicInfoResponseMapping
+{
+  public static List<MovieBasicInfoResponse> ToResponse(this List<Movie> movies)
+  {
+    return movies.ConvertAll(m => new MovieBasicInfoResponse(m));
+  }
+}
+```
+
+## 15. Breaking changes
+Un breaking change son por ejemplo:
+- Eliminar o renombrar un endpoint de una API o parametros
+- Cambiar el comportamiento de un endpoint existente en una API
+- Cambiar los codigos de error de una API
+
+ASP .NET Core hace facil la introduccion del versionado en una API.
+
+```C#
+[ApiController]
+[ApiVersion(1)]
+[ApiVersion(2)]
+[Route("v{v:apiVersion}/movies")]
+public sealed class MovieController(IMovieService movieService)
+  : ControllerBase
+{
+  [MapToApiVersion(1)]
+  [HttpGet]
+  public List<MovieBasicInfoResponse> GetAllV1()
+  {
+    var movies = movieService.GetAll();
+
+    return movies.ToResponse();
+  }
+
+  [MapToApiVersion(2)]
+  [HttpGet]
+  public List<MovieBasicInfoResponse> GetAllV2(
+    [FromQuery] int? minStars,
+    [FromQuery] int? maxStars)
+  {
+    var movies = movieService.GetAll(minStars, maxStars);
+
+    return movies.ToResponse(); 
+  }
+}
+```
+## 16. Evitar la negacion
+La negacion de una condicion de forma directa en un if o en en algun otro lado, suele a no ser tan visible la intencion por lo que puede llegar a generar confusiones a la hora de interpretar el codigo. Por eso siempre que se pueda evitar, las condiciones se tienen que situar en variables con un nombre nemotecnico o con un metodo.
+
+```C#
+if(!myVariable.HasValue)
+{
+  // do something
+}
+```
+[Evitar preguntar en el if]
+
+```C#
+if(myVariable == null)
+{
+  // do something
+}
+```
+
+## 17. readonly vs const
+🔥 𝗰𝗼𝗻𝘀𝘁 y 𝗿𝗲𝗮𝗱𝗼𝗻𝗹𝘆 en 𝗖# comparten el objetivo en comun de prevenir que las variables sean modificadas despues de ser inicializadas, pero tienen algunas diferencias.
+
+🔷 𝗰𝗼𝗻𝘀𝘁
+- Son deifnidas en tiempo de compilacion, esto quiere decir, que su valor es sabido en tiempo de compilacion y no puede ser modificado en tiempo de ejecucion.
+- Debe ser declarado con un inicializador y son implicitamente estaticos.
+- Pueden ser usado solamente con tipos primitivos, integers, booleans, y strings. User-defined types, incluyendo classes, structs, y arrays, no pueden ser 𝗰𝗼𝗻𝘀𝘁.
+
+🔷 𝗿𝗲𝗮𝗱𝗼𝗻𝗹𝘆 
+- Son definidos en tiempos de ejecucion. Su valor puede ser asignado durante la inicializacion o en un constructor, pero no puede ser modificado luego.
+- Pueden ser declarados con o sin un inicializador y pueden ser estaticos o no.
+- Pueden ser usados con cualquier tipo de datos, incluyendo tipos de referencia.
+
+## 18. Identidad de entidades
+Toda aquella entidad que requiera una identidad, es buena practica que su primary key sea `Id`. Esto permitira la facil busqueda y rapida deteccion de estas entidades por esta propiedad.
+
+```C#
+public sealed record class User
+{
+  [Key]
+  public string Email { get; init; }
+}
+```
+<p align="center">
+  [Marca como PK el email]
+</p>
+
+```C#
+public sealed record class User
+{
+  public string Id { get; init; }
+
+  public string Email { get; init; }
+}
+```
+
+<p align="center">
+  [La property con el nombre Id, ya es identificada como PK]
+</p>
+
+Esto hace mas visible identificar aquellas entidades con identidad para diferenciar cuales son `value-objects` y `reference-objects`.
+
+## 19. El orden de los setup importa
+A la hora de configurar los comportamientos de las dependencias en las pruebas unitarias, es importante definir un orden de configuracion para que puedan ser facilmente mantenibles, logren contar un cuento ordenado y que se relacione con la logica adyacente que se esta probando. Ese orden debe ser el orden de ejecucion, esto quiere decir que los setups de los mocks de las dependencias tienen que estar en el mismo orden de llamada en la logica que las utiliza.
+
+Esto favorecera en encontrar mas facilmente y rapido los errores con dichas configuraciones.
+
+```C#
+public sealed class UserService(
+  IRepository<User> userRepository,
+  IPermissionService permissionService)
+  : IUserService
+{
+  public List<User> GetAll(string userLoggedId)
+  {
+    permissionService.AssertHasPermission(PermissionKey.GetAllUsers, userLoggedId);
+
+    var users = userRepository.GetAll();
+
+    return users;
+  }
+}
+```
+
+```C#
+// ------
+[TestClass]
+public sealed class UserServiceTests
+{
+  private readonly UserService _userService;
+  private readonly Mock<IPermissionService> _permissionServiceMock;
+  private readonly Mock<IRepository<User>> _userRepositoryMock;
+
+  [TestInitialize]
+  public void Initialize()
+  {
+    _permissionServiceMock = new Mock<IPermissionService>(MockBehavior.Strict);
+    _userRepositoryMock = new Mock<IRepository<User>>(MockBehavior.Strict);
+
+    _userService = new UserService(
+      _userRepositoryMock.Object,
+      _permissionServiceMock.Object);
+  }
+}
+
+[TestMethod]
+public void GetAll_WhenUserLoggedHasPermissionAndExistUsers_ShouldThrowException()
+{
+  var userLoggedId = Random.NextInt();
+
+  var user = UserBuilder
+    .Builder()
+    .Build();
+
+  _userRepositoryMock
+  .Setup(i => i.GetAll())
+  .Returns([user]);
+
+  _permissionServiceMock
+  .Setup(p => p.AssertHasPermission(PermissionKey.GetAllUsers, userLoggedId));
+
+  var users = _userService.GetAll();
+
+  users.Should().HaveCount(1);
+  var userResult = users[0];
+  userResult.Id.Should().Be(user.Id);
+  userResult.Name.Should().Be(user.Name);
+}
+```
+<p align="center">
+  [Setup de mocks no siguen el orden de la logica]
+</p>
+
+```C#
+[TestClass]
+public sealed class UserServiceTests
+{
+  private readonly UserService _userService;
+  private readonly Mock<IRepository<User>> _userRepositoryMock;
+  private readonly Mock<IPermissionService> _permissionServiceMock;
+
+  [TestInitialize]
+  public void Initialize()
+  {
+    _userRepositoryMock = new Mock<IRepository<User>>(MockBehavior.Strict);
+    _permissionServiceMock = new Mock<IPermissionService>(MockBehavior.Strict);
+
+    _userService = new UserService(
+      _userRepositoryMock.Object,
+      _permissionServiceMock.Object);
+  }
+}
+
+[TestMethod]
+public void GetAll_WhenUserLoggedHasPermissionAndExistUsers_ShouldThrowException()
+{
+  var userLoggedId = Random.NextInt();
+
+  var user = UserBuilder
+    .Builder()
+    .Build();
+
+  _permissionServiceMock
+  .Setup(p => p.AssertHasPermission(PermissionKey.GetAllUsers, userLoggedId));
+
+  _userRepositoryMock
+  .Setup(i => i.GetAll())
+  .Returns([user]);
+
+  var users = _userService.GetAll();
+
+  users.Should().HaveCount(1);
+  var userResult = users[0];
+  userResult.Id.Should().Be(user.Id);
+  userResult.Name.Should().Be(user.Name);
+}
+```
+<p align="center">
+  [Setup de mocks siguen el orden de la logica]
+</p>
+
+## 20. La organizacion de la capa de aplicacion deberia de evidenciar el negocio
+La capa de aplicacion es donde se encuentra el core de nuestra aplicacion y de una Clean Architecture. Es donde se definen las entidades y la logica de negocio mas importante.
+
+Es por esto que la organizacion no se deberia de centrar en conceptos tecnicos en vez de funcionalidades. Los sintomas que evidencian esto son carpetas con los siguientes nombres:
+
+- Entities
+- Enumerations
+- Exceptions
+- Repositories
+- ValueObjects
+
+Cual es el problema con la agrupacion por tipos?
+Esta organizacion no evidencia nada sobre el negocio. Tambien involucra poca cohesion en cada carpeta, ya que los elementos involucrados no se relacionan entre ellos.
+
+Para resolver esto hay que reorganizar la estructura involucrando en la misma carpeta conceptos relacionados.
+
+Los beneficios de este enfoque son:
+
+- Mejorar la cohesion
+- Bajo acoplamiento entre carpetas no relacionadas
+
+  ```
+  |
+  |--Core
+  |--Entities
+  |--Enumerations
+  |--Exceptions
+  |--Repositories
+  |--Services
+  |--ValueObjects
+  ```
+  <p align="center">
+    [Agrupacion por tipo]
+  </p>
+
+```
+|
+|--Events
+|--Firendships
+|  |
+|  |--Friendship.cs
+|  |--FriendshipRequest.cs
+|  |--FriendshipService.cs
+|  |--IFriendshipRepository.cs
+|--Invitations
+|--Users
+```
+<p align="center">
+  [Agrupacion por negocio]
+</p>
+
+## 21. Mejorando la performance con una llamada a la base
+Cada llamada al metodo `SaveChanges` significa una ida a la base de datos. Eso quiere decir que si tenemos la llamada al `SaveChanges` dentro de un loop estaremos impactando en la base constantemente hasta que el loop termine. Para mejorar esto, lo correcto es hacer que EFCore traquee las entidades en memoria y una vez terminado, se impacte una unica vez a la base.
+
+```C#
+using var context = new ApplicationDbContext();
+
+var users = GetUsers();
+
+users.ForEach(user => {
+  context.Users.Add(user);
+
+  context.SaveChanges();
+});
+```
+<p align="center">
+  [EFCore inmediatamente que trackea un usuario (cuando se llama a context.Users.Add) tambien se impacta en la bd]
+</p>
+
+```C#
+using var context = new ApplicationDbContext();
+
+var users = GetUsers();
+
+users.ForEach(user => {
+  context.Users.Add(user);
+});
+
+context.SaveChanges();
+```
+
+<p align="center">
+  [EFCore trackea todos los usuarios y luego impacta en la bd]
 </p>
