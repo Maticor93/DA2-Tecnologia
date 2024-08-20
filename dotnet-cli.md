@@ -41,7 +41,7 @@ El parametro `-n` sirve para especificar un nombre, en este caso el nombre que q
 - Crear el proyecto WebApi
 
 ```
-  dotnet new webapi -au none -n Vidly.WebApi
+  dotnet new webapi -au none --no-openapi -controllers -n Vidly.WebApi
 ```
 
   <p align="center">
