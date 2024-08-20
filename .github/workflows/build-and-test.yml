@@ -26,7 +26,7 @@ jobs:
         run: dotnet restore
 
       - name: Run build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release
 
   test:
     name: Test
@@ -43,21 +43,21 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: dotnet restore
 
-      - name: Run build
-        run: dotnet build --configuration Release --no-restore
+      - name: Run Build
+        run: dotnet build --configuration Release
 
-      - name: Generate test results
-        run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx" --results-directory ./coverage
+      - name: Generate Test Results
+        run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;LogFilePrefix=test-results" --results-directory ./coverage
 
-      - name: Upload test results
+      - name: Uploaded Test Results
         uses: dorny/test-reporter@v1
-        if: success() || failure()
+        if: always()
         with:
-          name: Test Results
-          path: coverage/test-results.trx
+          name: Uploaded Test Results
+          path: coverage/test-results*
           reporter: dotnet-trx
           path-replace-backslashes: false
           list-suites: all
@@ -67,7 +67,7 @@ jobs:
           fail-on-empty: true
           only-summary: false
 
-      - name: Generate test coverage
+      - name: Generate Test Coverage
         run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
         
       - name: Code Coverage Report
@@ -81,16 +81,17 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: '80 90'
+          thresholds: '85 90'
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && always()
         with:
           recreate: true
           path: code-coverage-results.md
 
       - name: Write to Job Summary
+        if: always()
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
       - name: Build Tag

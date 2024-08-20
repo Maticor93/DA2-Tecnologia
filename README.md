@@ -25,11 +25,11 @@ A continuacion se pueden encontrar aquellos archivos que son requeridos en la so
 Las badges son elementos que nos permiten visualizar rapidamente el estado del repositorio. Estos nos van a servir para ver rapidamente si las pruebas estan pasando o fallando y si se esta respetando clean code sin la necesidad de inspeccionar en profundidad el repositorio y/o el codigo.
 
 ```md
-[![Build and Test - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=develop&event=push)](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml)
+![Build and Test - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=develop&event=push)
 ```
 
 ```md
-[![Build and Test - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main&event=push)](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml)
+![Build and Test - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main&event=push)
 ```
 
 <p align="center">
@@ -38,11 +38,11 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 
 
 ```md
-[![Clean Code - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=develop&event=push)](https://github.com/daniel18acevedo/style-analysis/actions/workflows/code-analysis.yml)
+![Clean Code - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=develop&event=push)
 ```
 
 ```md
-[![Clean Code - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main&event=push)](https://github.com/daniel18acevedo/style-analysis/actions/workflows/code-analysis.yml)
+![Clean Code - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main&event=push)
 ```
 <p align="center">
   [Badge de clean code]
