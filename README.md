@@ -16,6 +16,7 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 
 ### Configuracion
 
+- [Creacion del repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-creation)
 - [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
 - [Creacion PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
 
