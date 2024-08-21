@@ -98,7 +98,6 @@ En caso de que no aparezca dicha notificacion en la pagina principal, se podran 
    </p>
 
 7. Una vez completado el formulario y creado el PR podremos ver que las github actions se estan ejecutando y podremos ver aqui mismo si fallan o pasan.
-![alt text](image.png)
 <p align="center">
      <img src="./images/image-10.png">
    </p>
