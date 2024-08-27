@@ -1,3 +1,5 @@
+[Atras - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
+
 # Pruebas
 
 Las pruebas son un aspecto fundamental en el desarrollo de software de calidad. En base a un set de pruebas aseguran que el codigo desarrollado funciona como es de esperar y es libre de bugs.
@@ -81,3 +83,6 @@ Algunas ventajas de usar los diferentes test doubles son:
 - Control
 - Velocidad
 - Flexibilidad
+
+  ## Lecturas recomendadas
+  - [Buenas practicas para pruebas unitarias](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
