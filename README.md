@@ -47,3 +47,7 @@ Una vez aceptada la invitacion a la organizacion, para crear un repositorio, deb
 ## 5. Guardar el link del repositorio en este [excel](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/ERVYsgSzrElNvxnwj0L3ZbkBwP8cQTkOXgUuY6DePBcNHA?rtime=GovoME_F3Eg) en la hoja correspondiente al grupo que corresponda
 
 ## 6. Seguir los pasos en [configuracion](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/repo-configuration) para configurar el repositorio
+
+## Link de la clase
+### N5-AN
+- [Creacion y configuracion del repo](https://vimeopro.com/universidadortfi/fi-6343-diseno-de-aplicaciones-2-70276-d2-n5a-an/video/1001858328)
