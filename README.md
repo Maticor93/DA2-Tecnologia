@@ -1,4 +1,4 @@
-[Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
+[Atras - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
 # Indice
 
