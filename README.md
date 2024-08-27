@@ -16,7 +16,7 @@ A continuacion se pueden encontrar aquellos archivos que son requeridos en la so
 
 - **[.github/workflows/build-and-test.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-and-test.yml)**: Es una configuracion para ejecutar tareas al momento de realizar ciertas acciones en github. Esta configurado para que haga build y corra las pruebas junto con el chequeo de cobertura del codigo, cuando se crea un PR y cuando se mergea codigo a una rama.
 
-- **[.github/workflows/code-analysis](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/code-analysis.yml)**: Es una configuracion que analiza el codigo en funcion a los parametros del archivo **.editorconfig**.
+- **[.github/workflows/code-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/code-analysis.yml)**: Es una configuracion que analiza el codigo en funcion a los parametros del archivo **.editorconfig**.
 
   - Estos dos ultimos archivos para que tengan efecto, se tienen que encontrar dentro de la carpeta `workflows` y esta dentro de la carpeta `.github`.
 
