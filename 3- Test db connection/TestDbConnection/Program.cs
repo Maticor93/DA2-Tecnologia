@@ -10,13 +10,9 @@ builder
 var context = new TestDbContext(builder.Options);
 context.Database.EnsureCreated();
 
-var newUser = new User
+var newUser = new User("something")
 {
-    Name = "something",
-    Book = new()
-    {
-        Name = "Nunca jamas"
-    }
+    Book = new("book")
 };
 context.Users.Add(newUser);
 context.SaveChanges();
@@ -40,7 +36,7 @@ public sealed class TestDbContext
     }
 }
 
-public sealed record class User
+public sealed record class User()
 {
     public Guid Id { get; init; } = Guid.NewGuid();
 
@@ -49,11 +45,23 @@ public sealed record class User
     public Guid BookId { get; set; }
 
     public Book Book { get; set; } = null!;
+
+    public User(string name)
+        : this()
+        {
+            Name = name;
+        }
 }
 
-public sealed record class Book
+public sealed record class Book()
 {
-    public Guid Id { get; init; }
+    public Guid Id { get; init; } = Guid.NewGuid();
 
     public string Name { get; set; } = null!;
+
+    public Book(string name)
+        : this()
+        {
+            Name = name;
+        }
 }
