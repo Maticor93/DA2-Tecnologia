@@ -47,10 +47,7 @@ Lo siguiente a verificar son operaciones simples con la base de datos para corro
 var newUser = new User
 {
     Name = "something",
-    Book = new()
-    {
-        Name = "Nunca jamas"
-    }
+    Book = new("book")
 };
 context.Users.Add(newUser);
 context.SaveChanges();
@@ -137,11 +134,17 @@ Esta construccion automatica de EFCore nos impide tener control directo de los v
 
 Luego tenemos la entidad `Book`
 ```C#
-public sealed record class Book
+public sealed record class Book()
 {
-    public Guid Id { get; init; }
+    public Guid Id { get; init; } = Guid.NewGuid();
 
     public string Name { get; set; } = null!;
+
+    public Book(string name)
+        : this()
+    {
+        Name = name;
+    }
 }
 ```
 
