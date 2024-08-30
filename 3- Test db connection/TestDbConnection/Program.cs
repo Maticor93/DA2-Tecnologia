@@ -22,6 +22,7 @@ var users = context
     .ToList();
 
 Console.WriteLine(users);
+context.Dispose();
 
 public sealed class TestDbContext
     : DbContext
