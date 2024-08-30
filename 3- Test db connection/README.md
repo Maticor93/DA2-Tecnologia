@@ -152,6 +152,12 @@ Como podran ver, en ambas entidades existe una property llamada `Id`, este nombr
 
 Es buena practica que toda entidad persistida contenga una `Id` unica para asegurar un acceso rapido a la entidad. Tambien es buena practica que dicha property siempre sea tratada como `PK` ya que dicho valor nunca deberia de ser cambiado.
 
+El tipo de esta `PK` puede ser tanto `string`, `int` como el usado `Guid`. El tipo `Guid` (Globally Unique Identifier) es un entero de 128-bit usado para asegurar un identificador unico. Un valor de este tipo es desplegado con el siguiente formato en string `123e4567-e89b-12d3-a456-426614174000`. El uso de `Guid` como tipo de `PK` nos brinda las siguientes ventajas:
+
+- **Valor global unico**: nos aseguramos de que las `PK` de todas las tablas tengan valores unicos
+- **Seguridad**: son difisiles de adivinar en comparacion a valores secuenciales como `int`
+- **Escalabilidad**: donde multiples instancias de una misma aplicacion esta haciendo inserciones, estas no se tienen que sincronizar para averiguar el siguiente valor disponible para `PK`
+
 Por ultimo se tiene la siguiente linea
 ```C#
 context.Dispose();
