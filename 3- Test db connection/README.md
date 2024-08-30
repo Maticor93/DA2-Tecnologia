@@ -152,5 +152,11 @@ Como podran ver, en ambas entidades existe una property llamada `Id`, este nombr
 
 Es buena practica que toda entidad persistida contenga una `Id` unica para asegurar un acceso rapido a la entidad. Tambien es buena practica que dicha property siempre sea tratada como `PK` ya que dicho valor nunca deberia de ser cambiado.
 
+Por ultimo se tiene la siguiente linea
+```C#
+context.Dispose();
+```
+La cual sirve para indicar que se cierre la conexion establecida con la base de datos. Esto lo tenemos que hacer manual ya que la conexion la abrimos nosotros mismos, cuando la conexion la establece el framework no es necesario explicitar el cierre de la misma nosotros mismos.
+
 ## Ejercicio
 Modificar el codigo para que la agregacion del libro de usuario sea independiente a la agregacion del usuario pero ocurra en un unico impacto a la base de datos.
