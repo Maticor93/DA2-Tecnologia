@@ -6,7 +6,7 @@ Este framework resuelve muchas interacciones de bajo nivel con una base de datos
 
 Algunos puntos fundamentales sobre ef core:
 
-- Model first: ef core permite a los desarrolladores definir el esquema de base de datos usando entidades. Las clases representan tablas y las propiedades serian las columnas de las tablas.
+- Database first: ef core permite a los desarrolladores generar las clases que se relacionaran con las tablas a partir de una base de datos. Esto quiere decir, que a partir de una base de datos (tablas, columnas, PK, FK) se cree automaticamente un contexto para la conexion, clases y properties respectivamente.
 
 - Code first: alternativamente, los desarrolladores pueden comenzar con clases del dominio y hacer uso de herramientas de migracion para generar el esquema de base de datos basandose en esas clases.
 
