@@ -13,7 +13,11 @@ Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología
 Aca van a encontrar tanto materiales de interes para profundizar, como códigos de ejemplo que serán de utilidad para la realización del obligatorio.
 
 ## Temas
+## Teorico
+- [Repaso DA1](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
+- [Arquitecturas WEB - Web API RESTfull](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/arquitecturas-web)
 
+## Tecnologia
 ### Configuracion
 
 - [Creacion del repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-creation)
