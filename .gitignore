@@ -2,8 +2,11 @@
 [Bb]in/
 [Oo]bj/
 
+.github/
+
 .env
 .env.*
+
 
 # mstest test results
 TestResults
