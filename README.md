@@ -1,4 +1,4 @@
-[Atras - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
+[Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
 # Configuracion del repo
 
@@ -117,3 +117,6 @@ Se requiere que configuren reglas en las branches principales para evitar confli
 </p>
 
 - Para terminar apretar `Create`
+
+  # Link de la clase
+  [N5-AN](https://vimeopro.com/universidadortfi/fi-6343-diseno-de-aplicaciones-2-70276-d2-n5a-an/video/1001858328)
