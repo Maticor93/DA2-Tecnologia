@@ -18,9 +18,9 @@
 - [Thread en GitHub sobre agregar en una actualizacion](https://github.com/dotnet/efcore/issues/18044)
 - [Poder agregar una entidad secundaria en la actualizacion de una entidad primaria con PK Guid](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-3.x/breaking-changes#detectchanges-honors-store-generated-key-values)
 
-## Link de la clase
-### M6-ID
-- [Intro a EFCore](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec10be40-b41d-4500-8766-b1d900b96f29)
-### M5-AN
-- [Intro a EFCore](https://vimeopro.com/universidadortfi/fi-6343-diseno-de-aplicaciones-2-70276-d2-n5a-an/video/1004354265)
+# Link de la clase
+## Intro a EFCore
+[M6-ID](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec10be40-b41d-4500-8766-b1d900b96f29)
+
+[N5-AN](https://vimeopro.com/universidadortfi/fi-6343-diseno-de-aplicaciones-2-70276-d2-n5a-an/video/1004354265)
 
