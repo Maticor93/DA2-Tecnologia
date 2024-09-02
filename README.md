@@ -31,8 +31,8 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 
 ### Primera parte: .NET Core WebApi
 
-- [WebApi](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
-- [Pruebas unitarias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
+- [Web API](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
+- [Pruebas unitarias y de integracion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
 - [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
 - [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
