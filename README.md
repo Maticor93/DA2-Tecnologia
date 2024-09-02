@@ -14,7 +14,7 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 
 ## Temas
 ## Teorico
-- [Repaso DA1](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
+- [Repaso DA1](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repaso-da1)
 - [Arquitecturas WEB - Web API RESTfull](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/arquitecturas-web)
 
 ## Tecnologia
