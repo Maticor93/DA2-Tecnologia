@@ -97,7 +97,7 @@ Se requiere que configuren reglas en las branches principales para evitar confli
 <img src="images/image-3.png"/>
 </p>
 
-- En el nombre de la rama poner: `main`
+- En el nombre de la rama poner: `[main,develop]*`
 
 - Seleccionar la opcion `Require a pull request before merging`
 <p align="center">
@@ -117,5 +117,3 @@ Se requiere que configuren reglas en las branches principales para evitar confli
 </p>
 
 - Para terminar apretar `Create`
-
-- Replicar lo mismo para otra branch llamada `develop`
