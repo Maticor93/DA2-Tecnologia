@@ -19,7 +19,6 @@
 - [Poder agregar una entidad secundaria en la actualizacion de una entidad primaria con PK Guid](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-3.x/breaking-changes#detectchanges-honors-store-generated-key-values)
 
 # Link de la clase
-## Intro a EFCore
 [M6-ID - Intro](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec10be40-b41d-4500-8766-b1d900b96f29)
 
 [M6-ID - Ejecucion primera parte](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c0f3472c-428f-4993-946c-b1e000b6ebec)
