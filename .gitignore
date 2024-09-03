@@ -2,8 +2,6 @@
 [Bb]in/
 [Oo]bj/
 
-.github/
-
 .env
 .env.*
 
