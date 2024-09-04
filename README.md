@@ -78,6 +78,10 @@ Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** d
 
 ⚠️ El código que se encuentra está escrito en un ámbito de clase lo cual implica que esta desarrollado de forma practica por tema de tiempos. Todo el codigo no se debe tomar como ejemplo final. Tomar con cuidado, es solo un ejemplo ⚠️
 
+## Noticias
+
+- [Puerto por defecto cambiado en docker](https://learn.microsoft.com/en-us/dotnet/core/compatibility/containers/8.0/aspnet-port)
+
 ## Docentes
 
 - :space_invader: Daniel Acevedo (daniel18acevedo@gmail.com)
