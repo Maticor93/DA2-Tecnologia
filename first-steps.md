@@ -376,6 +376,8 @@ Utilizar el cliente a eleccion ([SQL Server Management Studio (SSMS)](https://le
 
 [Iniciar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 
+[Aplicar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli)
+
 [Gestionar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/managing?tabs=dotnet-core-cli)
 
 [Como indicar la configuracion del contexto para la migracion](https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli)
