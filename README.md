@@ -23,9 +23,9 @@
 # Link de la clase
 [M6-ID - Intro](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec10be40-b41d-4500-8766-b1d900b96f29)
 
-[M6-ID - Ejecucion primera parte](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c0f3472c-428f-4993-946c-b1e000b6ebec)
+[M6-ID - Test Db Connection Ejecucion - primera parte](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c0f3472c-428f-4993-946c-b1e000b6ebec)
 
-[M6-ID - Ejecucion segunda parte y solucion](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec10be40-b41d-4500-8766-b1d900b96f29)
+[M6-ID - Test Db Connection Ejecucion - Ejecucion segunda parte y solucion](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ec10be40-b41d-4500-8766-b1d900b96f29)
 
-[N5-AN - Intro, Ejecucion y Solucion](https://vimeopro.com/universidadortfi/fi-6343-diseno-de-aplicaciones-2-70276-d2-n5a-an/video/1004354265)
+[N5-AN - Intro, Test Db Connection Ejecucion y Solucion](https://vimeopro.com/universidadortfi/fi-6343-diseno-de-aplicaciones-2-70276-d2-n5a-an/video/1004354265)
 
