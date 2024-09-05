@@ -6,6 +6,8 @@
 
 - [Prueba de conexion](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/3-%20Test%20db%20connection)
 
+- [Prueba de relaciones](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/4-%20Test%20relations.md)
+  
 - [Primeros pasos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/first-steps.md)
   
 - [Patron repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/extra-ef-core.md)
