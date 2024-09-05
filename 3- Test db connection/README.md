@@ -165,5 +165,8 @@ context.Dispose();
 ```
 La cual sirve para indicar que se cierre la conexion establecida con la base de datos. Esto lo tenemos que hacer manual ya que la conexion la abrimos nosotros mismos, cuando la conexion la establece el framework no es necesario explicitar el cierre de la misma nosotros mismos.
 
-## Ejercicio
-Modificar el codigo para que la agregacion del libro de usuario sea independiente a la agregacion del usuario pero ocurra en un unico impacto a la base de datos.
+## Ejercicio 1
+Modificar el codigo existente para crear un usuario y asociarlo a un libro ya existente a la base de datos, se debe de validar que dicho libro exista. No se debe de obtener el libro.
+
+## Ejercicio 2
+Modificar el codigo existente para crear un libro independientemente a la creacion de un usuario. Este usuario tiene que referenciar a dicho libro nuevo. Dichas creaciones deben mantenerse con un unico impacto a la base de datos.
