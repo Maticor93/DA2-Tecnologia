@@ -97,7 +97,7 @@ Se requiere que configuren reglas en las branches principales para evitar confli
 <img src="images/image-3.png"/>
 </p>
 
-- En el nombre de la rama poner: `[main,develop]*`
+- En el nombre de la rama poner: `main`
 
 - Seleccionar la opcion `Require a pull request before merging`
 <p align="center">
@@ -117,6 +117,8 @@ Se requiere que configuren reglas en las branches principales para evitar confli
 </p>
 
 - Para terminar apretar `Create`
+
+- Repetir los mismos pasos pero con `develop`
 
   # Link de la clase
   [M6-ID - Al final](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8c10290e-53f2-4a9f-95ad-b1e000bb2e18)
