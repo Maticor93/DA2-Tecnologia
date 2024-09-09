@@ -19,12 +19,12 @@ Luego en la entidad secundaria tenemos que configurar la FK a la entidad primari
 public sealed record class Book()
 {
     // ...
-    public Guid ReaderId { get; init; }
+    public Guid AuthorId { get; init; }
 
-    public User Reader { get; init; } = null!;
+    public User Author { get; init; } = null!;
     // ...
 }
 ```
-En esta entidad estamos configurando que la columna con la constraint `FK` se llame `ReaderId` no dejando la opcion de que `EFCore` genere el nombre automaticamente. Con esta configuracion tenemos mas control sobre el modelado de tablas en la base de datos, es una relacion uno a uno y podemos evolucionar y mantener dicho esquema con mayor facilidad. Tambien trae la ventaja de tener cierta flexibilidad en la manipulacion de los datos pudiendo ser mas performantes y optimos en el armado de las queries.
+En esta entidad estamos configurando que la columna con la constraint `FK` se llame `AuthorId` no dejando la opcion de que `EFCore` genere el nombre automaticamente. Con esta configuracion tenemos mas control sobre el modelado de tablas en la base de datos, es una relacion uno a uno y podemos evolucionar y mantener dicho esquema con mayor facilidad. Tambien trae la ventaja de tener cierta flexibilidad en la manipulacion de los datos pudiendo ser mas performantes y optimos en el armado de las queries.
 
-Otra cosa a notar es que la property `ReaderId` no tiene configurado de que sea requerido, esto es porque el tipo `Guid` es un `struct` por lo que asegura de que no se le pueda asociar un valor `null`, esta configuracion se le pone a la property que identifica la relacion, la cual es `Reader`. Tambien con esta configuracion estamos eligiendo el nombre del rol de como estas dos entidades se ven entre ellas, logrando mas transparencia y similitud con lo encontrado en la base de datos.
+Otra cosa a notar es que la property `AuthorId` no tiene configurado de que sea requerido, esto es porque el tipo `Guid` es un `struct` por lo que asegura de que no se le pueda asociar un valor `null`, esta configuracion se le pone a la property que identifica la relacion, la cual es `Author`. Tambien con esta configuracion estamos eligiendo el nombre del rol de como estas dos entidades se ven entre ellas, logrando mas transparencia y similitud con lo encontrado en la base de datos.
