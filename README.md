@@ -12,9 +12,9 @@
   
 - [Primeros pasos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/first-steps.md)
   
-- [Patron repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/extra-ef-core.md)
+- [Patron repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/repository-pattern.md)
 
-- [Patron UnitOfWork](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/extra-ef-core.md)
+- [Patron UnitOfWork](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/unit-of-work-pattern.md)
 
 - [Conceptos extra de EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/extra-ef-core.md)
 
