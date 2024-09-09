@@ -6,7 +6,9 @@
 
 - [Prueba de conexion](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/3-%20Test%20db%20connection)
 
-- [Prueba de relaciones](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/4-%20Test%20relations.md)
+- [Relacion 1 a N](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/4-%20One%20to%20many%20map%20relation)
+
+- [Relacion N a N](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/5-%20Many%20to%20many%20map%20relation)
   
 - [Primeros pasos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/first-steps.md)
   
