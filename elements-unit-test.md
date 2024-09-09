@@ -6,25 +6,25 @@ Para que una clase sea determinada por el framework como una clase de pruebas un
 
 ```C#
 [TestClass]
-public sealed class MovieControllerTests
+public sealed class MovieServiceTests
 {
   // unit tests
 }
 ```
 
-Esta clase de prueba, es un ejemplo de una clase que quiere probar el comportamiento publico de la clase `MovieController`. Esta es una forma de organizacion de la prueba, tiene la ventaja y desventaja de que todo lo relacionado a este `controller` esta encapsulado en una clase sola. Independientemente de si la clase tiene muchos comportamientos a probar, esta clase de prueba definira varios casos de uso haciendola una clase muy extensa en donde trabajar. Una forma de resolver esta problematica es hacer uso de las `regions`.
+Esta clase de prueba, es un ejemplo de una clase que quiere probar el comportamiento publico de la clase `MovieService`. Esta es una forma de organizacion de la prueba, tiene la ventaja y desventaja de que todo lo relacionado a este `service` esta encapsulado en una clase sola. Independientemente de si la clase tiene muchos comportamientos a probar, esta clase de prueba definira varios casos de uso haciendola una clase muy extensa en donde trabajar. Una forma de resolver esta problematica es hacer uso de las `regions`.
 
 Otra opcion de marco de trabajo podria ser tener una clase de prueba por comportamiento a probar. Siguiendo este camino podria existir lo siguiente:
 
 ```C#
 [TestClass]
-public sealed class CreateMovieControllerTests
+public sealed class CreateMovieServiceTests
 {
   // unit tests
 }
 ```
 
-Esta clase hace referencia a probar el comportamiento `Create` de la clase `MovieController`. Este camino hace que cada clase de prueba sea mas compacta pero incrementa en cantidad de clases de prueba a mantener.
+Esta clase hace referencia a probar el comportamiento `Create` de la clase `MovieService`. Este camino hace que cada clase de prueba sea mas compacta pero incrementa en cantidad de clases de prueba a mantener.
 
 ## TestInitialize
 
@@ -34,7 +34,7 @@ Dado que es un metodo con un atributo, en este no podremos inicializar estado de
 
 ```C#
 [TestClass]
-public sealed class MovieControllerTests
+public sealed class MovieServiceTests
 {
   [TestInitialize]
   public void Initialize()
@@ -50,7 +50,7 @@ Es el atributo que se le puede dar a un metodo que se ejecutara posteriormente a
 
 ```C#
 [TestClass]
-public sealed class MovieControllerTests
+public sealed class MovieServiceTests
 {
   // some code
 
@@ -67,7 +67,7 @@ Es el atributo que se le da a un metodo de prueba. Sirve para que el framework i
 
 ```C#
 [TestClass]
-public sealed class MovieControllerTests
+public sealed class MovieServiceTests
 {
   // some code
   [TestMethod]
@@ -88,3 +88,30 @@ Por ejemplo
 - El nombre de una prueba para crear un usuario con informacion correcta seria: `Create_WhenInfoIsCorrect_ShouldReturnNewId`
 - El nombre de una prueba para crear un usuario y el email tiene formato invalido seria: `Create_WhenEmailFormatIsIncorrect_ShouldThrowEmailFormatException`
 
+## DataRow
+Existen algunas condiciones donde queremos ejecutar la misma prueba, es decir, la misma seccion de `Arrange`, `Act` y `Assert` pero solo variando cierta data en el `Arrange`. Para evitar duplicar las pruebas, se puede utilizar el atributo `DataRow` para leer estos valores desde parametros del metodo de prueba sin necesidad de hardcodearlos en la prueba misma. La forma de utilizar dicho atributo es la siguiente:
+```C#
+[TestMethod]
+[DataRow("")
+[DataRow(null)
+public void MethodToTest_WhenConditionsOfTheTest_ShouldBehaviourExpected(string name)
+{
+  //Arrange
+  //Act
+  //Assert
+}
+```
+
+## TestCategory
+Tanto a las pruebas como a las clases que encapsulan pruebas las podemos agrupar dentro de una categoria para filtrar aquellas pruebas que queremos ejecutar. Para realizar esto usamos el atributo `TestCategory` indicando el nombre de la categoria, y estas las podemos filtrar en el explorador de pruebas de Visual Studio. Dicho atributo lo podemos usar de la siguiente manera:
+
+```C#
+[TestClass]
+[TestCategory("Service")
+[TestCategory("Movie")]
+public sealed class MovieServiceTests
+{
+  //...
+}
+```
+En este codigo se crearon dos categorias, la categoria `Service` para agrupar todas las pruebas relacionadas con la capa de aplicacion y servicios, y la otra categoria `Movie` que es mas especifica relacionado a la entidad `Movie`. Las mismas estan ordenadas de lo mas generico (modular) a algo mas especifico (concreto).
