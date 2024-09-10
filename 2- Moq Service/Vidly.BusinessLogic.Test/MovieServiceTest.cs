@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using Moq;
-using Vidly.WebApi.Services.Movies;
-using Vidly.WebApi.Services.Movies.Entities;
+using Vidly.BusinessLogic.Movies;
+using Vidly.BusinessLogic.Movies.Entities;
 
-namespace Vidly.WebApi.UnitTests
+namespace Vidly.BusinessLogic.Test
 {
     [TestClass]
     public sealed class MovieServiceTest

@@ -1,7 +1,6 @@
-﻿using Vidly.WebApi.Controllers.Movies;
-using Vidly.WebApi.Services.Movies.Entities;
+﻿using Vidly.BusinessLogic.Movies.Entities;
 
-namespace Vidly.WebApi.Services.Movies
+namespace Vidly.BusinessLogic.Movies
 {
     public interface IMovieService
     {

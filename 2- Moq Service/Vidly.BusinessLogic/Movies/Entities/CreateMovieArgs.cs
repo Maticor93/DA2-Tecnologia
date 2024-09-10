@@ -1,4 +1,6 @@
-﻿namespace Vidly.WebApi.Controllers.Movies.Entities
+﻿using System.Globalization;
+
+namespace Vidly.BusinessLogic.Movies.Entities
 {
     public sealed record class CreateMovieArgs
     {

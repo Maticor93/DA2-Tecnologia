@@ -1,4 +1,4 @@
-﻿namespace Vidly.WebApi.Services.Movies.Entities
+﻿namespace Vidly.BusinessLogic.Movies.Entities
 {
     public sealed record class Movie
     {
@@ -17,7 +17,7 @@
         public Movie()
         {
             Id = Guid.NewGuid().ToString();
-            this.CreatedOn = DateTimeOffset.UtcNow;
+            CreatedOn = DateTimeOffset.UtcNow;
         }
     }
 }

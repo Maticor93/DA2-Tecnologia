@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vidly.WebApi\Vidly.WebApi.csproj" />
+    <ProjectReference Include="..\Vidly.BusinessLogic\Vidly.BusinessLogic.csproj" />
   </ItemGroup>
 
   <ItemGroup>

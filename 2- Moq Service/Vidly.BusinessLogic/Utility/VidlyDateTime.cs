@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Vidly.WebApi.Utility
+namespace Vidly.BusinessLogic.Utility
 {
     public static class VidlyDateTime
     {
