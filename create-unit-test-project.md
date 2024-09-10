@@ -1,6 +1,6 @@
 # Creacion de proyecto MSTest
 
-A la solucion creada en el paso [Creacion de una Solucion](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main/solution-creation.md) le vamos agregar un proyecto de prueba `MSTest` que pruebe un proyecto `ClassLib`.
+A la solucion creada en el paso [Creacion de una Solucion](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/solution-creation.md) le vamos agregar un proyecto de prueba `MSTest` que pruebe un proyecto `ClassLib`.
 
 - Abrir una terminal en el directorio de la solucion. Para saber si estamos bien situados ejecutar `ls` y se deberia de ver el archivo `.sln`
 
@@ -15,30 +15,11 @@ Comandos:
 <p align="center">
 <img src='./images/image.png'>
 </p>
-
 <p align="center">
 [Terminal en directorio]
 </p>
 
-- Crearemos una carpeta llamada `tests` donde agruparemos todos nuestros proyectos de prueba en conjunto. Para esto se puede crear el directorio normal o con la terminal ejecutando el comando
-
-```
-mkdir tests
-```
-
-Comandos:
-
-- `mkdir`: creacion de directorio por la terminal
-
-<p align="center">
-<img src='./images/image-1.png'>
-</p>
-
-<p align="center">
-[Directorio tests]
-</p>
-
-- Una vez creada la carpeta `tests`, nos situaremos en ella con la terminal ejectuando:
+- Para crear el proyecto `MSTest` nos situaremos en la carpeta `tests` con la terminal ejectuando:
 
 ```
 cd tests
@@ -132,23 +113,7 @@ Comandos:
 [Chequear que se agrego a la solucion]
 </p>
 
-- Debemos agregar el proyecto `ClassLib` que se quiere probar a la solucion. Para esto debemos crear la carpeta `src` que sera hermana a la carpeta `tests`. Esta carpeta `src` sera la que agrupe el codigo fuente de la aplicacion.
-
-Situados con la terminal en el directorio de la solucion `.sln`, creamos la carpeta `src` normal o con la terminal ejecutando:
-
-```
-mkdir src
-```
-
-<p align="center">
-<img src='./images/image-6.png'>
-</p>
-
-<p align="center">
-[Creacion directorio src]
-</p>
-
-- Una vez creado el directorio, nos situaremos en el con la terminal ejecutando el comando:
+- Debemos agregar el proyecto `ClassLib` que se quiere probar a la solucion. Para esto debemos situarnos en la carpeta `src` ejecutando el siguiente comando:
 
 ```
 cd src
