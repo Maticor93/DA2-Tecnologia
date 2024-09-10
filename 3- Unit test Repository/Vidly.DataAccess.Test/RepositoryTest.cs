@@ -1,22 +1,24 @@
 ﻿using FluentAssertions;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
-using Vidly.WebApi.DataAccess.Repositories;
+using Vidly.DataAccess.Utils;
 
-namespace Vidly.WebApi.UnitTests
+namespace Vidly.DataAccess.Test
 {
     [TestClass]
     public class RepositoryTest
     {
-        private readonly DbContext _context;
+        private readonly DbContext _context = DbContextBuilder.BuildTestDbContext();
         private readonly Repository<EntityTest> _repository;
 
         public RepositoryTest()
         {
-            _context = DbContextBuilder.BuildTestDbContext();
-
             _repository = new Repository<EntityTest>(_context);
+        }
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _context.Database.EnsureCreated();
         }
 
         [TestCleanup]
@@ -70,7 +72,8 @@ namespace Vidly.WebApi.UnitTests
         #endregion
     }
 
-    internal sealed class TestDbContext(DbContextOptions options) : DbContext(options)
+    internal sealed class TestDbContext(DbContextOptions options)
+        : DbContext(options)
     {
         public DbSet<EntityTest> EntitiesTest { get; set; }
     }

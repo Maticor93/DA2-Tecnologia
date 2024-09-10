@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Vidly.WebApi.DataAccess.Repositories
+namespace Vidly.DataAccess.Utils
 {
     public sealed class Repository<TEntity> : IRepository<TEntity>
         where TEntity : class

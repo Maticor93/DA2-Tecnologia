@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Vidly.WebApi.DataAccess.Repositories
+namespace Vidly.DataAccess.Utils
 {
     public interface IRepository<TEntity>
         where TEntity : class
