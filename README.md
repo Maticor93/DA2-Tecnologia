@@ -15,6 +15,8 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 ## Teorico
 - [Repaso DA1](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repaso-da1)
 - [Arquitecturas WEB - Web API RESTfull](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/arquitecturas-web)
+- [Modelo 4 + 1](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/modelo-4-+-1)
+- [Patrones de diseño](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/design-patterns)
 
 ## Tecnologia
 ### Configuracion
