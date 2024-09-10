@@ -40,11 +40,11 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 
 
 ```md
-![Clean Code - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=develop&event=push)
+![Clean Code - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
 ```
 
 ```md
-![Clean Code - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main&event=push)
+![Clean Code - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
 ```
 <p align="center">
   [Badge de clean code]
