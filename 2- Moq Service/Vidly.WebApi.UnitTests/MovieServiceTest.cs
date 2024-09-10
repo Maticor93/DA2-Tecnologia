@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Moq;
 using Vidly.WebApi.Services.Movies;
 using Vidly.WebApi.Services.Movies.Entities;
 
@@ -7,35 +8,34 @@ namespace Vidly.WebApi.UnitTests
     [TestClass]
     public sealed class MovieServiceTest
     {
+        private Mock<IMovieRepository> _movieRepositoryMock;
         private MovieService _service;
 
         [TestInitialize]
         public void Initialize()
         {
-            _service = new MovieService();
+            _movieRepositoryMock = new Mock<IMovieRepository>(MockBehavior.Strict);
+            _service = new MovieService(_movieRepositoryMock.Object);
         }
 
         #region Create
         #region Error
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
         public void Create_WhenTitleIsDuplicated_ShouldThrowException()
         {
-            try
-            {
-                var args = new CreateMovieArgs(
-                    "Duplicated",
-                    "valid description",
-                    DateTimeOffset.UtcNow.AddMonths(-1));
-                _service.Add(args);
+            var args = new CreateMovieArgs(
+                "Duplicated",
+                "valid description",
+                DateTimeOffset.UtcNow.AddMonths(-1));
 
-                _service.Add(args);
-            }
-            catch (Exception ex)
-            {
-                ex.Message.Should().Be("Movie duplicated");
-                throw;
-            }
+            _movieRepositoryMock
+                .Setup(i => i.Exists(i => i.Title == args.Title))
+                .Returns(true);
+
+            var act = () => _service.Add(args);
+
+            act.Should().Throw<Exception>().WithMessage("Movie duplicated");
+            _movieRepositoryMock.VerifyAll();
         }
         #endregion
 
