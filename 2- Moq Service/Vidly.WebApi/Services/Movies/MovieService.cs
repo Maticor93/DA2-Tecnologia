@@ -5,9 +5,9 @@ namespace Vidly.WebApi.Services.Movies
     public class MovieService(IMovieRepository movieRepository)
         : IMovieService
     {
-        public Movie Add(CreateMovieArgs movie)
+        public Movie Add(CreateMovieArgs args)
         {
-            var existMovie = movieRepository.Exists(m => m.Title == movie.Title);
+            var existMovie = movieRepository.Exists(m => m.Title == args.Title);
             if (existMovie)
             {
                 throw new Exception("Movie duplicated");
@@ -15,9 +15,9 @@ namespace Vidly.WebApi.Services.Movies
 
             var movieToSave = new Movie
             {
-                Title = movie.Title,
-                Description = movie.Description,
-                PublishedOn = movie.PublishedOn,
+                Title = args.Title,
+                Description = args.Description,
+                PublishedOn = args.PublishedOn,
             };
 
             movieRepository.Create(movieToSave);
