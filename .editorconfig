@@ -232,6 +232,7 @@ dotnet_diagnostic.IDE0059.severity = Error
 dotnet_diagnostic.IDE0051.severity = Error
 dotnet_diagnostic.IDE0005.severity = Error
 dotnet_diagnostic.IDE0028.severity = Error
+dotnet_diagnostic.IDE0300.severity = Error
 dotnet_diagnostic.CS0219.severity = None
 
 #### A type that's not accessible outside its assembly and has no subtypes within its containing assembly is not marked sealed (https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1852) #####
