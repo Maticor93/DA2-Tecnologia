@@ -20,7 +20,7 @@ insert_final_newline = false
 #### Rules Actions ####
 
 #### Spacing rules ####
-dotnet_diagnostic.SA1000.severity = Error
+dotnet_diagnostic.SA1000.severity = Silent
 dotnet_diagnostic.SA1001.severity = Warning
 dotnet_diagnostic.SA1002.severity = Warning
 dotnet_diagnostic.SA1003.severity = Warning
