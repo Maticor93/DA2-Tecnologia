@@ -1,6 +1,7 @@
-# Creacion del proyecto Web Api
+# Creacion de proyecto Web API
+A la solucion creada en el paso [Creacion de una solucion](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/solution-creation.md) utilizada en la [Creacion de proyecto MSTest](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/create-unit-test-project.md), le vamos agregar un proyecto `Web API` que sera nuestro punto de entrada para consumir nuestra aplicacion.
 
-- Abrir una terminal y situarse en el directorio donde quieren crear el proyecto.
+- Abrir una terminal en el directorio de la solucion. Para saber si estamos bien situados ejecutar ls y se deberia de ver el archivo .sln
 
 <p align="center">
   <img src="images/image-5.png"/>
