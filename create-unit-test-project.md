@@ -29,7 +29,7 @@ Comandos:
 
 - `cd`: movimiento a un directorio en particular
 
-- Una vez parados en la carpeta `tests` con la terminal, crearemos un proyecto `MSTest`
+- Una vez parados en la carpeta `tests` con la terminal, crearemos un proyecto `MSTest` ejecutando lo siguiente
 
 ```C#
 dotnet new mstest -n Vidly.BusinessLogic.Test
