@@ -17,10 +17,10 @@ Comandos:
 [Terminal en directorio]
 </p>
 
-- Entrar al directorio del proyecto de prueba. Vidly.WebApi.UnitTests
+- Entrar al directorio del proyecto de prueba. Vidly.BusinessLogic.Test
 
 ```C#
-cd Vidly.WebApi.UnitTests
+cd Vidly.BusinessLogic.Test
 ```
 
 Comandos y parametros:
@@ -55,7 +55,7 @@ Comandos
 [Agregar Moq]
 </p>
 
-- Chequear que se agrego `Moq`. Hacer doble click en `Vidly.WebApi.UnitTests.csproj`
+- Chequear que se agrego `Moq`. Hacer doble click en `Vidly.BusinessLogic.Test.csproj`
 <p align="center">
 <img src='./images/image-28.png'>
 </p>
@@ -85,7 +85,7 @@ Comandos
 [Agregar FluentAssertions]
 </p>
 
-- Chequear que se agrego `FluentAssertions`. Hacer doble click en `Vidly.WebApi.UnitTests.csproj`
+- Chequear que se agrego `FluentAssertions`. Hacer doble click en `Vidly.BusinessLogic.Test.csproj`
 <p align="center">
 <img src='./images/image-26.png'>
 </p>
