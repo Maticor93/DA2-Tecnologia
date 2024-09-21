@@ -106,7 +106,7 @@ Los paquetes para esos proveedores son los siguients:
 - [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
 - [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite)
 - [Microsoft.EntityFrameworkCore.MySql](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
-- [Microsoft.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
+- [Microsoft.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL)
 
 Pueden encontrar mas sobre los diferentes proveedores de base de datos que soporta EF Core [aca](https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli)
 
