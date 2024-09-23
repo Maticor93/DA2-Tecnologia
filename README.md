@@ -22,6 +22,8 @@ A continuacion se pueden encontrar aquellos archivos que son requeridos en la so
 
 - **[.gitattributes](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitattributes)**: Este archivo de configuracion permite asignarle atributos a otros archivos y directorios en el proyecto, para poder indicarle a Git como debe tratarlos.
 
+- **[.runsettings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.runsettings)**: Este archivo de configuracion permite configurar algunos elementos al generar la cobertura de codigo usando `dotnet cli`. Lo que configura particularmente es que se ignoren las `migraciones` generadas y cualquier clase con algun atributo `GeneratedCodeAttribute`. De esta manera estamos dejando por fuera clases autogeneradas de la cobertura.
+
 # Badges
 
 Las badges son elementos que nos permiten visualizar rapidamente el estado del repositorio. Estos nos van a servir para ver rapidamente si las pruebas estan pasando o fallando y si se esta respetando clean code sin la necesidad de inspeccionar en profundidad el repositorio y/o el codigo.
