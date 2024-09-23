@@ -13,7 +13,7 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 
 ## Temas
 ## Teorico
-- [Lecturas recomendadas](https://fi365-my.sharepoint.com/:w:/r/personal/da185082_fi365_ort_edu_uy/_layouts/15/Doc.aspx?sourcedoc=%7BADB9D766-E71C-4023-8953-C314D30BD2B2%7D&file=Lecturas%20recomendadas.docx&action=default&mobileredirect=true)
+- [Lecturas recomendadas](https://fi365-my.sharepoint.com/:w:/g/personal/da185082_fi365_ort_edu_uy/EWbXua0c5yNAiVPDFNML0rIBlhlyEwbTdsCpyoMJ5ywONQ?e=oSyA92)
   
 ## Tecnologia
 ### Configuracion
