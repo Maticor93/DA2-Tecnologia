@@ -1,26 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
-using Vidly.WebApi.Services.Sessions.Entities;
+using Vidly.WebApi.Services.Users;
 
 namespace Vidly.WebApi.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public sealed class AuthorizationFilterAttribute(string? permission = null) 
-    : Attribute,
-    IAuthorizationFilter
+    public sealed class AuthorizationFilterAttribute(string? permission = null)
+        : Attribute,
+        IAuthorizationFilter
     {
-        public override void OnAuthorization(AuthorizationFilterContext context)
+        public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if(context.Result != null)
+            if (context.Result != null)
             {
                 return;
             }
 
-            var userLogged = context.HttpContext.Items[Items.UserLogged];
+            var userLogged = context.HttpContext.Items[Item.UserLogged];
 
             var userIsNotIdentified = userLogged == null;
-            if(userIsNotIdentified)
+            if (userIsNotIdentified)
             {
                 context.Result = new ObjectResult(new
                 {
@@ -33,7 +33,7 @@ namespace Vidly.WebApi.Filters
 
             var permission = BuildPermission(context);
 
-            var hasNotPermission = !userLoggedMapped.Role.HasPermission(permission);
+            var hasNotPermission = !userLoggedMapped.HasPermission(permission);
 
             if (hasNotPermission)
             {

@@ -1,6 +1,6 @@
 ﻿namespace Vidly.WebApi
 {
-    public enum Items
+    public enum Item
     {
         UserLogged
     }

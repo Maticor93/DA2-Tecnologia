@@ -6,7 +6,7 @@ namespace Vidly.WebApi.Filters
 {
     public sealed class ExceptionFilter : IExceptionFilter
     {
-        private readonly Dictionary<Type, IActionResult> _errors = new Dictionary<Type, IActionResult>
+        private readonly Dictionary<Type, IActionResult> _errors = new()
         {
             {
                 typeof(ArgumentNullException),

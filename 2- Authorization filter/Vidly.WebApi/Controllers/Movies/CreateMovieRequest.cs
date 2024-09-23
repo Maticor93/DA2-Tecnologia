@@ -1,6 +1,6 @@
-﻿namespace Vidly.WebApi.Controllers.Movies.Models
+﻿namespace Vidly.WebApi.Controllers.Movies
 {
-    public sealed record class CreateMovieRequest
+    public sealed record CreateMovieRequest
     {
         public string? Title { get; init; }
 

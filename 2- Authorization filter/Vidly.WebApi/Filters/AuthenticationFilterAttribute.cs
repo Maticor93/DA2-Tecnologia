@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Net.Http.Headers;
 using System.Net;
 using Vidly.WebApi.Services.Sessions;
-using Vidly.WebApi.Services.Sessions.Entities;
+using Vidly.WebApi.Services.Users;
 
 namespace Vidly.WebApi.Filters
 {
 
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class AuthenticationFilterAttribute : Attribute, IAuthorizationFilter
+    public sealed class AuthenticationFilterAttribute
+        : Attribute,
+        IAuthorizationFilter
     {
-        private const string AUTHORIZATION_HEADER = "Authorization";
-
-        public virtual void OnAuthorization(AuthorizationFilterContext context)
+        public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var authorizationHeader = context.HttpContext.Request.Headers[AUTHORIZATION_HEADER];
+            var authorizationHeader = context.HttpContext.Request.Headers[HeaderNames.Authorization];
 
             if (string.IsNullOrEmpty(authorizationHeader))
             {
@@ -63,7 +64,7 @@ namespace Vidly.WebApi.Filters
             {
                 var userOfAuthorization = GetUserOfAuthorization(authorizationHeader, context);
 
-                context.HttpContext.Items[Items.UserLogged] = userOfAuthorization;
+                context.HttpContext.Items[Item.UserLogged] = userOfAuthorization;
             }
             catch (Exception)
             {
@@ -88,7 +89,9 @@ namespace Vidly.WebApi.Filters
             return false;
         }
 
-        private User GetUserOfAuthorization(string authorization, AuthorizationFilterContext context)
+        private User GetUserOfAuthorization(
+            string authorization,
+            AuthorizationFilterContext context)
         {
             var sessionService = context.HttpContext.RequestServices.GetRequiredService<ISessionService>();
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Vidly.WebApi.Controllers.Movies.Entities;
-using Vidly.WebApi.Controllers.Movies.Models;
 using Vidly.WebApi.Filters;
+using Vidly.WebApi.Services.Movies;
 
 namespace Vidly.WebApi.Controllers.Movies
 {
@@ -11,10 +10,6 @@ namespace Vidly.WebApi.Controllers.Movies
     public sealed class MovieController : VidlyControllerBase
     {
         private static readonly List<Movie> _movies = [];
-
-        public MovieController()
-        {
-        }
 
         [HttpPost]
         [AuthorizationFilter]
@@ -28,7 +23,7 @@ namespace Vidly.WebApi.Controllers.Movies
         {
             // rest of code
 
-            return new List<MovieBasicInfoResponse>();
+            return [];
         }
     }
 }

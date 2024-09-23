@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Vidly.WebApi.Services.Sessions.Entities;
+using Vidly.WebApi.Services.Users;
 
 namespace Vidly.WebApi.Controllers
 {
-    public class VidlyControllerBase : ControllerBase
+    public class VidlyControllerBase
+        : ControllerBase
     {
         protected User GetUserLogged()
         {
-            var userLogged = HttpContext.Items[Items.UserLogged];
+            var userLogged = HttpContext.Items[Item.UserLogged];
 
             var userLoggedMapped = (User)userLogged;
 

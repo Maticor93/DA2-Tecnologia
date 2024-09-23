@@ -1,4 +1,4 @@
-﻿namespace Vidly.WebApi.Controllers.Movies.Entities
+﻿namespace Vidly.WebApi.Services.Movies
 {
     public sealed record class Movie
     {

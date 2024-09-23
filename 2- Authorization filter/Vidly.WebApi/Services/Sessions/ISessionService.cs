@@ -1,4 +1,4 @@
-﻿using Vidly.WebApi.Services.Sessions.Entities;
+﻿using Vidly.WebApi.Services.Users;
 
 namespace Vidly.WebApi.Services.Sessions
 {
