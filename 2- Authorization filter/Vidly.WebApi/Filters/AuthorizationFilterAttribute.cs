@@ -5,21 +5,30 @@ using Vidly.WebApi.Services.Sessions.Entities;
 
 namespace Vidly.WebApi.Filters
 {
-    public sealed class AuthorizationFilterAttribute : AuthenticationFilterAttribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public sealed class AuthorizationFilterAttribute(string? permission = null) 
+    : Attribute,
+    IAuthorizationFilter
     {
-        private readonly string? _permission;
-
-        public AuthorizationFilterAttribute(string? permission = null)
-        {
-            _permission = permission;
-        }
-
         public override void OnAuthorization(AuthorizationFilterContext context)
         {
-            base.OnAuthorization(context);
+            if(context.Result != null)
+            {
+                return;
+            }
 
             var userLogged = context.HttpContext.Items[Items.UserLogged];
 
+            var userIsNotIdentified = userLogged == null;
+            if(userIsNotIdentified)
+            {
+                context.Result = new ObjectResult(new
+                {
+                    InnerCode = "UnAuthorized",
+                    Message = $"Not authenticated"
+                });
+                return;
+            }
             var userLoggedMapped = (User)userLogged;
 
             var permission = BuildPermission(context);
@@ -39,9 +48,9 @@ namespace Vidly.WebApi.Filters
             }
         }
 
-        private PermissionKey BuildPermission(AuthorizationFilterContext context)
+        private string BuildPermission(AuthorizationFilterContext context)
         {
-            return new PermissionKey(_permission ?? $"{context.RouteData.Values["action"].ToString().ToLower()}-{context.RouteData.Values["controller"].ToString().ToLower()}");
+            return permission ?? $"{context.RouteData.Values["action"].ToString().ToLower()}-{context.RouteData.Values["controller"].ToString().ToLower()}";
         }
     }
 }
