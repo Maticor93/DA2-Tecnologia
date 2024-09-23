@@ -154,25 +154,18 @@ Los filtros de tipo de servicio son registrados en `Program.cs`. Este atributo o
 El siguiente codigo muestra la definicion del filtro custom:
 
 ```C#
-public class CustomFilterService : IResultFilter
+public class CustomFilterService(IMyDependency dependency)
+ : IResultFilter
 {
-    private readonly IMyDependency _dependency;
-
-    public CustomFilterService(
-            IMyDependency dependency)
-    {
-      _dependency = dependency;
-    }
-
     public void OnResultExecuting(ResultExecutingContext context)
     {
       // some code
-      _dependency.Action();
+      dependency.Action();
     }
 
     public void OnResultExecuted(ResultExecutedContext context)
     {
-      _dependency.Action();
+      dependency.Action();
     }
 }
 ```
@@ -212,31 +205,21 @@ vida que no sea `Singleton`.
 El siguiente codigo muestra la definicion del filtro custom:
 
 ```C#
-public class CustomFilterService : IResultFilter
+public class CustomFilterService(
+  IMyDependency dependency,
+  string parameter1,
+  string parameter2)
+ : IResultFilter
 {
-    private readonly IMyDependency _dependency;
-    private readonly string _parameter1;
-    private readonly string _parameter2;
-
-    public CustomFilterService(
-            IMyDependency dependency,
-            string parameter1,
-            string parameter2)
-    {
-      _dependency = dependency;
-      _parameter1 = parameter1;
-      _parameter2 = parameter2;
-    }
-
     public void OnResultExecuting(ResultExecutingContext context)
     {
       // some code
-      _dependency.Action();
+      dependency.Action();
     }
 
     public void OnResultExecuted(ResultExecutedContext context)
     {
-      _dependency.Action();
+      dependency.Action();
     }
 }
 ```
@@ -262,7 +245,7 @@ Tienen la desventaja de que no se le puedan inyectar dependencias desde el conte
 El siguiente codigo muestra la definicion de un filtro como atributo:
 
 ```C#
-public sealed class CustomFilterAttribute : Attribute, // se debera indicar el tipo de filtro, Authorization, Resource, Action, etc
+public sealed class CustomFilterAttribute : Attribute, // y tambien se debera indicar el tipo de filtro, Authorization, Resource, Action, etc, implementando la interfaz correspondiente
 {
   // some code
 }
@@ -292,7 +275,7 @@ public sealed class CustomFilterAttribute : Attribute, //tipo de filtro
 {
   public void FilterFunction(FilterContext context)
   {
-    var dependency = context.HttpContext.RequestServices.GetRequiredService<IMyDependency>();
+    var dependency = context.HttpContext.RequestServices.GetRequiredService<IMyDependency>(); // en caso de que no exista un registro de dependencia para este servicio, una excepcion es lanzada
   }
 }
 ```
