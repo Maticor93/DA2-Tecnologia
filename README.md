@@ -126,19 +126,13 @@ Siguiendo el ejemplo de codigo, la aplicacion de DI dejaria el codigo de la sigu
 ```C#
 [ApiController]
 [Route("movies")]
-public sealed class MovieController : ControllerBase
+public sealed class MovieController(IMovieLogic movieLogic)
+ : ControllerBase
 {
-  private readonly IMovieLogic _movieLogic;
-
-  public MovieController(IMovieLogic movieLogic)
-  {
-    _movieLogic = movieLogic;
-  }
-
   [HttpGet]
   public List<Movie> GetAll()
   {
-    return _movieLogic.GetAll();
+    return movieLogic.GetAll();
   }
 
   // ... rest of the code
@@ -146,19 +140,10 @@ public sealed class MovieController : ControllerBase
 ```
 
 ```C#
-public sealed class MovieLogic
+public sealed class MovieLogic(
+IMovieRepository movieRepository,
+IUserRepository userRepository)
 {
-  private readonly IMovieRepository _movieRepository;
-  private readonly IUserRepository _userRepository;
-
-  public MovieLogic(
-    IMovieRepository movieRepository,
-    IUserRepository userRepository)
-    {
-      _movieRepository = movieRepository;
-      _userRepository_ = userRepository;
-    }
-
   // behaviour
 }
 ```
@@ -176,10 +161,6 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
@@ -247,10 +228,6 @@ services
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
