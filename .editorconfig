@@ -165,7 +165,7 @@ dotnet_diagnostic.SA1514.severity = Warning
 dotnet_diagnostic.SA1515.severity = error
 dotnet_diagnostic.SA1516.severity = Silent
 dotnet_diagnostic.SA1517.severity = Warning
-dotnet_diagnostic.SA1518.severity = Warning
+dotnet_diagnostic.SA1518.severity = Error
 dotnet_diagnostic.SA1519.severity = Warning
 dotnet_diagnostic.SA1520.severity = Warning
 
