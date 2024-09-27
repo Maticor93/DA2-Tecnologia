@@ -49,15 +49,15 @@ jobs:
       - name: Run Build
         run: dotnet build --configuration Release
 
-      - name: Generate Test Results
-        run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;LogFilePrefix=test-results" --results-directory ./coverage
+      - name: Generate Results Report
+        run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;LogFilePrefix=test-results" --results-directory ./test-results
 
-      - name: Uploaded Test Results
+      - name: Uploaded Results Report
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: Uploaded Test Results
-          path: coverage/test-results*
+          name: Uploaded Results Report
+          path: test-results/test-results*
           reporter: dotnet-trx
           path-replace-backslashes: false
           list-suites: all
@@ -67,20 +67,28 @@ jobs:
           fail-on-empty: true
           only-summary: false
 
-      - name: Generate Test Coverage
+      - name: Generate Coverage Report
         run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage --settings .runsettings
 
       - name: Join Coverage Reports
         uses: danielpalme/ReportGenerator-GitHub-Action@5.3.9
         with:
           reports: coverage/**/coverage.cobertura.xml
-          targetdir: coverage
-          reporttypes: 'Cobertura'
+          targetdir: coverage-report
+          reporttypes: 'Html;Cobertura'
+          verbosity: 'Verbose'
+          tag: '${{ github.run_number }}_${{ github.run_id }}'
 
-      - name: Code Coverage Report
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Coverage Report       
+          path: coverage-report
+
+      - name: Check Coverage
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: coverage/*.xml
+          filename: coverage-report/Cobertura.xml
           badge: true
           fail_below_min: true
           format: markdown
