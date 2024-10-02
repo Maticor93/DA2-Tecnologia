@@ -68,7 +68,7 @@ jobs:
           only-summary: false
 
       - name: Generate Coverage Report
-        run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage --settings .runsettings
+        run: dotnet test --configuration Release --no-build --verbosity normal --results-directory ./coverage --settings .runsettings
 
       - name: Join Coverage Reports
         uses: danielpalme/ReportGenerator-GitHub-Action@5.3.9
@@ -108,8 +108,15 @@ jobs:
       - name: Write to Job Summary
         if: always()
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
-
-      - name: Build Tag
+  
+  tag:
+    name: Tag
+    permissions: write-all
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Build
         if: github.event_name == 'push'
         run: |
           # find the highest-numbered version tag, bump the patch
@@ -122,11 +129,13 @@ jobs:
           #   3.2 yields 3.2.0
           #   <no tags> yields 0.0.1
           #   abc-1.2.9 yields abc-1.2.10
-
+          #
+          # if the push is to main only updates mayor version
+          
+          # Fetch the tags
           git fetch --tags origin
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git config --global user.name "${{ github.actor }}"
-
+          
+          # Find the latest tag
           GIT_TAGS=$(git tag | egrep '^[0-9]+\.[0-9]+(\.[0-9]+)?$' || true)
 
           if [ -z "$GIT_TAGS" ]; then
@@ -140,7 +149,10 @@ jobs:
             )
           fi
 
-           if echo $LATEST | egrep '^[0-9]+\.[0-9]+$'; then
+          if [ "${{ github.ref_name }}" == "main" ]; then
+            # Bump the major version for main branch
+            BUMPED=$(echo $LATEST | awk -F. '{ print ($1 + 1) ".0.0" }')
+          else if echo $LATEST | egrep '^[0-9]+\.[0-9]+$'; then
             BUMPED="${LATEST}.0"
           else
             BUMPED=$(echo $LATEST | awk -F. '{ print $1 "." $2 "." ($3 + 1) }')
