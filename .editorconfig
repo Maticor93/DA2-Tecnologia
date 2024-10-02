@@ -132,7 +132,7 @@ dotnet_diagnostic.SX1309S.severity = None
 #### Maintainability rules ####
 dotnet_diagnostic.SA1119.severity = Warning
 dotnet_diagnostic.SA1400.severity = error
-dotnet_diagnostic.SA1401.severity = Silent
+dotnet_diagnostic.SA1401.severity = error
 dotnet_diagnostic.SA1402.severity = Warning
 dotnet_diagnostic.SA1403.severity = error
 dotnet_diagnostic.SA1404.severity = error
