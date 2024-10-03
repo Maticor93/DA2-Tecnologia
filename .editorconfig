@@ -524,5 +524,4 @@ dotnet_diagnostic.CA1827.severity = error
 dotnet_diagnostic.CA1828.severity = error
 dotnet_diagnostic.CA1829.severity = error
 dotnet_diagnostic.CA1724.severity = error
-insert_final_newline = true
 dotnet_diagnostic.CA2249.severity = error
