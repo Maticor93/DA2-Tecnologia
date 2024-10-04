@@ -25,7 +25,7 @@ namespace Vidly.WebApi.Filters
                     Message = "You are not authenticated"
                 })
                 {
-                    StatusCode = (int)HttpStatusCode.Unauthorized
+                    StatusCode = StatusCodes.Status401Unauthorized
                 };
                 return;
             }
@@ -40,7 +40,7 @@ namespace Vidly.WebApi.Filters
                         Message = "The provided authorization header format is invalid"
                     })
                 {
-                    StatusCode = (int)HttpStatusCode.Unauthorized
+                    StatusCode = StatusCodes.Status401Unauthorized
                 };
                 return;
             }
@@ -55,7 +55,7 @@ namespace Vidly.WebApi.Filters
                         Message = "The provided authorization header is expired"
                     })
                 {
-                    StatusCode = (int)HttpStatusCode.Unauthorized
+                    StatusCode = StatusCodes.Status401Unauthorized
                 };
                 return;
             }
@@ -74,7 +74,7 @@ namespace Vidly.WebApi.Filters
                     Message = "An error ocurred while processing the request"
                 })
                 {
-                    StatusCode = (int)HttpStatusCode.InternalServerError
+                    StatusCode = StatusCodes.Status500InternalServerError
                 };
             }
         }
