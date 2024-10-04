@@ -26,7 +26,10 @@ namespace Vidly.WebApi.Filters
                 {
                     InnerCode = "UnAuthorized",
                     Message = $"Not authenticated"
-                });
+                })
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized
+                };
                 return;
             }
             var userLoggedMapped = (User)userLogged;
@@ -43,7 +46,7 @@ namespace Vidly.WebApi.Filters
                     Message = $"Missing permission {permission}"
                 })
                 {
-                    StatusCode = (int)HttpStatusCode.Forbidden
+                    StatusCode = StatusCodes.Status403Forbidden
                 };
             }
         }
