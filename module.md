@@ -55,3 +55,6 @@ Aca se puede observar como se importan los elementos exportados `NgModule` y `Us
 ## Lecturas recomendadas
 
 - [Modularidad](https://v17.angular.io/guide/ngmodules)
+
+## Video
+- [Modularidad](https://www.youtube.com/watch?v=AVkx9BZpOls&t=1s)
