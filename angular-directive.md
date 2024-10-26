@@ -51,7 +51,7 @@ export class AdminMenu { }
 Al especificar de forma explicita los inputs y outputs los consumidores del componente pueden pasar informacion a dichos properties de la siguiente manera:
 
 ```HTML
-<admin-menu menuId="top-menu" (menuClosed)="logMenuClosed()">
+<admin-menu menuId="top-menu" (menuClosed)="logMenuClosed">
 ```
 
 En caso de conflictos o de mantenibilidad, se pueden generar alias a dichos inputs y outputs para customizar la API del componente, teniendo como resultado:
@@ -71,7 +71,7 @@ export class AdminMenu { }
 ```
 
 ```HTML
-<admin-menu id="top-menu" (closed)="logMenuClosed()">
+<admin-menu id="top-menu" (closed)="logMenuClosed">
 ```
 
 ## Agregando una directiva a otra directiva
