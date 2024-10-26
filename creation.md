@@ -17,11 +17,12 @@ En esta seccion realizaremos la implementacion de los componentes generico `butt
 
 Dichos componentes los vamos a crear como standalone ya que queremos que sean autogestionados para la facil importacion de los mismos. Esta es una de las ventajas que esta funcionalidad nueva de Angular propone, el poder importar elementos unicamente necesarios. Si se crea un modulo para declarar todos los componentes en la carpeta `components` y otro modulo para declarar los componentes en la carpeta `business-components`, quien quiera usar al menos un elemento de alguno de estos modulos, terminara importando todos los componentes exportados por estos. Esto presenta una desventaja a la hora de performance ya que si solo quiere usar un componente se termina importando el modulo entero.
 
-Dado que creamos la aplicacion de Angular como `no-standalone` esta funcionalidad esta apagada para nuestra aplicacion, por lo que siempre que queramos crear un elemento nos va a requerir usar modulos. Para habilitar dicha funcionalidad nos dirijimos al archivo `angular.json` y modificamos la property `standalone` de `false` a `true` en la definicion del esquema de un componente. Tambien actualizaremos que se deban crear elementos separados para el template HTML. Teniendo como resultado lo siguiente:
+Como nuestra aplicacion fue creada usando la flag `minimal`, algunos elementos como el `template` del componente va a estar integrado en la logica, para eso vamos a tener que modificar el `schematics` de `angular.json` de la siguiente manera:
 
 <p align="center">
-<img src="./images/image-11.png">
+<img src="https://github.com/user-attachments/assets/b881156c-d117-4d46-b0f1-ab913a296138">
 </p>
+
 <p align="center">
 [angular.json actualizado]
 </p>
@@ -37,10 +38,10 @@ mkdir components
 
 ## Creacion del componente button
 
-Para la creacion de un componente se debe ejecutar el comando:
+Para la creacion de un componente standalone se debe ejecutar el comando:
 
 ```CMD
-ng generate component <<nombre del componente>>
+ng generate component <<nombre del componente>> --standalone
 ```
 
 Esto generara una carpeta con el nombre de la carpeta que agrupa los elementos necesarios para un componente.
