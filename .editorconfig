@@ -1,6 +1,9 @@
 # Remove the line below if you want to inherit .editorconfig settings from higher directories
 root = true
 
+[**/Migrations/*.cs]
+generated_code = true
+
 # C# files
 [*.cs]
 
@@ -13,7 +16,7 @@ tab_width = 4
 
 # New line preferences
 end_of_line = crlf
-insert_final_newline = true
+insert_final_newline = false
 
 #### .NET Coding Conventions ####
 
@@ -400,7 +403,7 @@ csharp_space_after_cast = false
 csharp_space_after_colon_in_inheritance_clause = true
 csharp_space_after_comma = true
 csharp_space_after_dot = false
-csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_after_keywords_in_control_flow_statements = false
 csharp_space_after_semicolon_in_for_statement = true
 csharp_space_around_binary_operators = before_and_after
 csharp_space_around_declaration_statements = false
@@ -524,4 +527,5 @@ dotnet_diagnostic.CA1827.severity = error
 dotnet_diagnostic.CA1828.severity = error
 dotnet_diagnostic.CA1829.severity = error
 dotnet_diagnostic.CA1724.severity = error
+insert_final_newline = true
 dotnet_diagnostic.CA2249.severity = error
