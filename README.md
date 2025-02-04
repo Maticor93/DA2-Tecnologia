@@ -6,21 +6,21 @@ A continuacion se pueden encontrar aquellos archivos que son requeridos en la so
 
 ## Archivos
 
-- **[.gitignore](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitignore)**: Este archivo es para ignorar aquellos archivos que no se quiere tener un control de version. Esto quiere decir, que ciertos archivos por mas que sean modificados, eliminados o agregados, no se vera ningun cambio efectuado en el historico de cambios de git al momento de crear un commit. Para que este archivo haga efecto, tiene que ser controlado primero por git antes de aquellos archivos que queremos ignorar. En caso de agregar este archivo posteriormente al repo y los archivos que queremos ignorar ya estan siendo trackeados por git, estos deberan de ser eliminados, commitear la eliminacion de los mismos y luego cuando vuelvan a ser agregados estos ya no se veran en el historico de cambios. La eliminacion de los archivos y el commit hacen que git deje de trackear los cambios en esos archivos para que pueda tener efecto el gitignore.
+- **[.gitignore](https://github.com/Maticor93/DA2-Tecnologia/blob/repo-configuration/.gitignore)**: Este archivo es para ignorar aquellos archivos que no se quiere tener un control de version. Esto quiere decir, que ciertos archivos por mas que sean modificados, eliminados o agregados, no se vera ningun cambio efectuado en el historico de cambios de git al momento de crear un commit. Para que este archivo haga efecto, tiene que ser controlado primero por git antes de aquellos archivos que queremos ignorar. En caso de agregar este archivo posteriormente al repo y los archivos que queremos ignorar ya estan siendo trackeados por git, estos deberan de ser eliminados, commitear la eliminacion de los mismos y luego cuando vuelvan a ser agregados estos ya no se veran en el historico de cambios. La eliminacion de los archivos y el commit hacen que git deje de trackear los cambios en esos archivos para que pueda tener efecto el gitignore.
 
-- **[.editorconfig](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.editorconfig)**: Configuracion de reglas de clean code para C#.
+- **[.editorconfig](https://github.com/Maticor93/DA2-Tecnologia/blob/repo-configuration/.editorconfig)**: Configuracion de reglas de clean code para C#.
 
-- **[Directory.Build.props](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/Directory.Build.props)**: Archivo donde se especifican aquellos paquetes junto con sus versiones que son usados por todos los proyectos locales de la solucion. Es una forma mas rapida de controlar sus versiones y que los paquetes locales se actualicen en simultaneo. Es muy util este archivo para tener centralizado aquellas dependencias transversales que impactan a todos los proyectos de la solucion.
+- **[Directory.Build.props](https://github.com/Maticor93/DA2-Tecnologia/blob/repo-configuration/Directory.Build.props)**: Archivo donde se especifican aquellos paquetes junto con sus versiones que son usados por todos los proyectos locales de la solucion. Es una forma mas rapida de controlar sus versiones y que los paquetes locales se actualicen en simultaneo. Es muy util este archivo para tener centralizado aquellas dependencias transversales que impactan a todos los proyectos de la solucion.
 
-- **[pull_request_template.md](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/pull_request_template.md)**: Es una guia sobre la informacion a incluir en los pull request que se creen. La misma se debera de modificar en las partes necesarias para agregar informacion sobre el PR del trabajo realizado.
+- **[pull_request_template.md](https://github.com/Maticor93/DA2-Tecnologia/blob/repo-configuration/pull_request_template.md)**: Es una guia sobre la informacion a incluir en los pull request que se creen. La misma se debera de modificar en las partes necesarias para agregar informacion sobre el PR del trabajo realizado.
 
-- **[.github/workflows/build-and-test.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-and-test.yml)**: Es una configuracion para ejecutar tareas al momento de realizar ciertas acciones en github. Esta configurado para que haga build y corra las pruebas junto con el chequeo de cobertura del codigo, cuando se crea un PR y cuando se mergea codigo a una rama.
+- **[.github/workflows/build-and-test.yml](https://github.com/Maticor93/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-and-test.yml)**: Es una configuracion para ejecutar tareas al momento de realizar ciertas acciones en github. Esta configurado para que haga build y corra las pruebas junto con el chequeo de cobertura del codigo, cuando se crea un PR y cuando se mergea codigo a una rama.
 
-- **[.github/workflows/code-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/code-analysis.yml)**: Es una configuracion que analiza el codigo en funcion a los parametros del archivo **.editorconfig**.
+- **[.github/workflows/code-analysis.yml](https://github.com/Maticor93/DA2-Tecnologia/blob/repo-configuration/.github/workflows/code-analysis.yml)**: Es una configuracion que analiza el codigo en funcion a los parametros del archivo **.editorconfig**.
 
   - Estos dos ultimos archivos para que tengan efecto, se tienen que encontrar dentro de la carpeta `workflows` y esta dentro de la carpeta `.github`.
 
-- **[.gitattributes](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitattributes)**: Este archivo de configuracion permite asignarle atributos a otros archivos y directorios en el proyecto, para poder indicarle a Git como debe tratarlos.
+- **[.gitattributes](https://github.com/Maticor93/DA2-Tecnologia/blob/repo-configuration/.gitattributes)**: Este archivo de configuracion permite asignarle atributos a otros archivos y directorios en el proyecto, para poder indicarle a Git como debe tratarlos.
 
 - **[.runsettings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.runsettings)**: Este archivo de configuracion permite configurar algunos elementos al generar la cobertura de codigo usando `dotnet cli`. Lo que configura particularmente es que se ignoren las `migraciones` generadas y cualquier clase con algun atributo `GeneratedCodeAttribute`. De esta manera estamos dejando por fuera clases autogeneradas de la cobertura.
 
@@ -33,11 +33,11 @@ A continuacion se pueden encontrar aquellos archivos que son requeridos en la so
 Las badges son elementos que nos permiten visualizar rapidamente el estado del repositorio. Estos nos van a servir para ver rapidamente si las pruebas estan pasando o fallando y si se esta respetando clean code sin la necesidad de inspeccionar en profundidad el repositorio y/o el codigo.
 
 ```md
-![Build and Test - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=develop&event=push)
+![Build and Test - Develop](https://github.com/Maticor93/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=develop&event=push)
 ```
 
 ```md
-![Build and Test - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main&event=push)
+![Build and Test - Main](https://github.com/Maticor93/style-analysis/actions/workflows/build-and-test.yml/badge.svg?branch=main&event=push)
 ```
 
 <p align="center">
@@ -46,17 +46,17 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 
 
 ```md
-![Clean Code - Develop](https://github.com/daniel18acevedo/style-analysis/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
+![Clean Code - Develop](https://github.com/Maticor93/style-analysis/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
 ```
 
 ```md
-![Clean Code - Main](https://github.com/daniel18acevedo/style-analysis/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
+![Clean Code - Main](https://github.com/Maticor93/style-analysis/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
 ```
 <p align="center">
   [Badge de clean code]
 </p>
 
-Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `https://github.com/daniel18acevedo/style-analysis` por el link del repositorio.
+Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `https://github.com/Maticor93/style-analysis` por el link del repositorio.
 
 # Configuracion de branches
 
