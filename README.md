@@ -76,4 +76,4 @@ Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** d
 
 ## Docentes
 
-- :space_invader: Daniel Acevedo (Maticor93@gmail.com)
+- :space_invader: Daniel Acevedo (daniel18acevedo@gmail.com)
