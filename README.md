@@ -2,7 +2,7 @@
 
 # Indice
 
-- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/ef-core.md)
+- [EF Core](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/ef-core.md)
 
 - [Prueba de conexion](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/3-%20Test%20db%20connection)
 
@@ -10,13 +10,13 @@
 
 - [Relacion N a N](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/5-%20Many%20to%20many%20map%20relation)
   
-- [Primeros pasos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/first-steps.md)
+- [Primeros pasos](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/first-steps.md)
   
-- [Patron repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/repository-pattern.md)
+- [Patron repositorio](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/repository-pattern.md)
 
-- [Patron UnitOfWork](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/unit-of-work-pattern.md)
+- [Patron UnitOfWork](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/unit-of-work-pattern.md)
 
-- [Conceptos extra de EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/extra-ef-core.md)
+- [Conceptos extra de EF Core](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/extra-ef-core.md)
 
 ## Referencias interesantes a la documentacion de Microsoft
 - [Thread en GitHub sobre agregar en una actualizacion](https://github.com/dotnet/efcore/issues/18044)

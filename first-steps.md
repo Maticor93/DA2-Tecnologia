@@ -2,9 +2,9 @@
 
 Para iniciar con EF Core en nuestra aplicacion, es necesario instalar el paquete `Microsoft.EntityFrameworkCore`.
 
-- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-visual-studio.md)
+- [Visual Studio](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/install-ef-core-visual-studio.md)
 
-- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-dotnet-cli.md)
+- [Por comandos](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/install-ef-core-dotnet-cli.md)
 
 ## Crear contexto concreto
 
@@ -112,8 +112,8 @@ Pueden encontrar mas sobre los diferentes proveedores de base de datos que sopor
 
 A continuacion se detallara como instalar el proveedor `Microsoft.EntityFrameworkCore.SqlServer`, para operar con dicho motor de base de datos con EF Core.
 
-- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-visual-studio.md)
-- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-dotnet-cli.md)
+- [Visual Studio](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/install-sql-server-visual-studio.md)
+- [Por comandos](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/install-sql-server-dotnet-cli.md)
 
 ```C#
 var builder = WebApplication.CreateBuilder(args);
@@ -187,9 +187,9 @@ Para realizar migracines es necesario instalar el paquete:
 
 Instalacion en:
 
-- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-migrations-visual-studio.md)
+- [Visual Studio](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/install-migrations-visual-studio.md)
 
-- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-migrations-dotnet-cli.md)
+- [Por comandos](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/install-migrations-dotnet-cli.md)
 
 La creacion de las migraciones y ejecucion de las mismas, ocurren por consola:
 
@@ -280,7 +280,7 @@ Comando extra:
 
 Se debio de crear una carpeta `Migrations` en el directorio donde se ejecuto el comando de migracion.
 
-Pueden encontrar mas informacion sobre las clases que se crearon [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/migration-result.md).
+Pueden encontrar mas informacion sobre las clases que se crearon [aca](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/migration-result.md).
 
 ### 7. Ejecutar migracion
 
@@ -322,7 +322,7 @@ Para MacOS:
   [Opcion 2]
 </p>
 
-Pueden seguir la siguiente [guia](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/sql-with-docker.md) para tener SQL Server con Docker. Esta forma de trabajar con SQL Server es un requerimiento para MacOS y opcional para Windows.
+Pueden seguir la siguiente [guia](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/sql-with-docker.md) para tener SQL Server con Docker. Esta forma de trabajar con SQL Server es un requerimiento para MacOS y opcional para Windows.
 
 Sustituir:
 
