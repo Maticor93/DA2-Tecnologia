@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-style)
 
 # Aplicando estilos a `login-form`
 
@@ -162,5 +162,5 @@ A continuacion modificaremos el estilado del componente `navbar` para que se vea
 
 ## Codigos
 
-- [MyFinalApp](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyFinalApp)
+- [MyFinalApp](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyFinalApp)
 

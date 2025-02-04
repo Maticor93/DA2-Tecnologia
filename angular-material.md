@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-style)
 
 # Angular Material
 
@@ -114,7 +114,7 @@ Esto trae una desventaja la cual propone un tiempo de aprendizaje y de investiga
 
 ## Codigos
 
-- [Componentes con `angular material`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyAngularMaterialApp)
+- [Componentes con `angular material`](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyAngularMaterialApp)
 
 ## Lecturas Recomendadas
 

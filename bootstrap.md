@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-style)
 
 # Bootstrap
 
@@ -144,7 +144,7 @@ Como es una libreria de clases css, el uso de esta herramienta es bastante senci
 
 ## Codigos
 
-- [Componentes con `bootstrap`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyBootstrapApp)
+- [Componentes con `bootstrap`](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-style/1-%20Angular%20application/MyBootstrapApp)
 
 ## Lecturas Recomendadas
 
