@@ -1,4 +1,4 @@
-[Atras - Arquitectura de Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-architecture.md)
+[Atras - Arquitectura de Angular](https://github.com/Maticor93/DA2-Tecnologia/blob/angular/angular-architecture.md)
 # Pipe
 
 Los pipes de Angular nos permiten declarar transformaciones de valores en el template HTML. Una clase con el decorador @Pipe define una funcion que transforma un input a un output para ser desplegado en la vista.
