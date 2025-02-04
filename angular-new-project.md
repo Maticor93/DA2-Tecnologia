@@ -1,8 +1,8 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-create-project)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-create-project)
 
 # Creacion de una aplicacion de Angular
 
-Previamente a la creacion de una aplicacion de Angular, necesitamos tener el ambiente seteado y listo. Para ello hay que descargar `Node` e instalar `Angular CLI`, se puede encontrar los pasos del preparado del ambiente [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-setup.md).
+Previamente a la creacion de una aplicacion de Angular, necesitamos tener el ambiente seteado y listo. Para ello hay que descargar `Node` e instalar `Angular CLI`, se puede encontrar los pasos del preparado del ambiente [aca](https://github.com/Maticor93/DA2-Tecnologia/blob/angular/angular-setup.md).
 
 Una vez que tengamos el ambiente listo procederemos a crear una aplicacion de angular. Para ello seguir los siguientes pasos:
 

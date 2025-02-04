@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-create-project)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-create-project)
 
 # Elementos de una aplicacion Angular
 
@@ -14,7 +14,7 @@ Si esta carpeta es eliminada, la misma se debera de generar nuevamente previamen
 
 ## 2. src
 
-En esta carpeta encontraremos todo el codigo fuente de la aplicacion, es donde trabajaremos en la creacion de nuevos componentes y el mantenimiento de los existentes. Se puede encontrar mas informacion sobre esta carpeta [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/src.md).
+En esta carpeta encontraremos todo el codigo fuente de la aplicacion, es donde trabajaremos en la creacion de nuevos componentes y el mantenimiento de los existentes. Se puede encontrar mas informacion sobre esta carpeta [aca](https://github.com/Maticor93/DA2-Tecnologia/blob/angular-create-project/src.md).
 
 ## 3. angular.json
 

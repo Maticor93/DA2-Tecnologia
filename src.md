@@ -6,7 +6,7 @@ En ella podemos encontrar:
 
 ## 1. app
 
-Una carpeta `app` que es la que guardara todo nuestro codigo relacionado a `modulos` y `componentes` de nuestro negocio. Podran encontrar mas informacion [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-create-project/app.md)
+Una carpeta `app` que es la que guardara todo nuestro codigo relacionado a `modulos` y `componentes` de nuestro negocio. Podran encontrar mas informacion [aca](https://github.com/Maticor93/DA2-Tecnologia/blob/angular-create-project/app.md)
 
 ## 2. index.html
 
