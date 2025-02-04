@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-service)
 
 # Creacion de servicio y repositorio
 
@@ -98,7 +98,7 @@ Teniendo `index.ts` de la siguiente manera:
 export default { vidlyApi: 'https://localhost:7087' };
 ```
 
-Por ultimo, el tipo de retorno del comportamiento tiene que ser el mismo que el de la funcion a utilizar de la clase `HttpClient`. El tipo de retorno es `Observable` el cual es un tipo declarado en la libreria `RxJS` que nos ayuda a implementar el patron `Observer`. Este patron nos permite suscribirnos a un evento y actualizar el estado de la clase cuando los datos esten disponibles. [Aca](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-service/rxjs.md) podran encontrar mas informacion sobre la libreria `RxJS`.
+Por ultimo, el tipo de retorno del comportamiento tiene que ser el mismo que el de la funcion a utilizar de la clase `HttpClient`. El tipo de retorno es `Observable` el cual es un tipo declarado en la libreria `RxJS` que nos ayuda a implementar el patron `Observer`. Este patron nos permite suscribirnos a un evento y actualizar el estado de la clase cuando los datos esten disponibles. [Aca](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-service/rxjs.md) podran encontrar mas informacion sobre la libreria `RxJS`.
 
 El paso siguiente es repetir el proceso de creacion de un servicio pero para la creacion del servicio `MovieTypeService` en la carpeta `services`. Para realizar dicha creacion ejectuar los siguientes comandos:
 
