@@ -37,6 +37,6 @@ Expected someObject to be <expectedObject>, but found <actualObject>.
 someObject.Should().Satisfy<MyClass>(obj => obj.CustomProperty == expectedValue);
 ```
 
-- [Visual studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/unit-testing/config-unit-test-project-visual-studio.md)
+- [Visual studio](https://github.com/Maticor93/DA2-Tecnologia/blob/unit-testing/config-unit-test-project-visual-studio.md)
 
-- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/unit-testing/config-unit-test-project-dotnet-cli.md)
+- [Por comandos](https://github.com/Maticor93/DA2-Tecnologia/blob/unit-testing/config-unit-test-project-dotnet-cli.md)
