@@ -18,28 +18,28 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 ## Tecnologia
 ### Configuracion
 
-- [Creacion del repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-creation)
-- [Configuracion de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
-- [Creacion PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
+- [Creacion del repositorio](https://github.com/Maticor93/DA2-Tecnologia/tree/repo-creation)
+- [Configuracion de repositorio](https://github.com/Maticor93/DA2-Tecnologia/tree/repo-configuration)
+- [Creacion PR](https://github.com/Maticor93/DA2-Tecnologia/tree/pr-creation)
 
 ### Ayuda
 
-- [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
-- [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
+- [Practicas Clean Code](https://github.com/Maticor93/DA2-Tecnologia/blob/main/clean-code.md)
+- [Cheat sheet](https://github.com/Maticor93/DA2-Tecnologia/blob/main/cheat-sheet.md)
 
 ### Primera parte: .NET Core WebApi
 
-- [Web API](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
-- [Pruebas unitarias y de integracion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
-- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
-- [Inyeccion de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
-- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
-- [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
-- [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/reflection)
+- [Web API](https://github.com/Maticor93/DA2-Tecnologia/tree/web-api)
+- [Pruebas unitarias y de integracion](https://github.com/Maticor93/DA2-Tecnologia/tree/unit-testing)
+- [Uso postman](https://github.com/Maticor93/DA2-Tecnologia/tree/postman)
+- [Inyeccion de dependencias](https://github.com/Maticor93/DA2-Tecnologia/tree/dependency-injection)
+- [EF Core](https://github.com/Maticor93/DA2-Tecnologia/tree/ef-core)
+- [Filters](https://github.com/Maticor93/DA2-Tecnologia/tree/filters)
+- [Reflection](https://github.com/Maticor93/DA2-Tecnologia/tree/reflection)
 
 ### Segunda parte: SPAs y Angular
 
-- [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular)
+- [Angular](https://github.com/Maticor93/DA2-Tecnologia/tree/angular)
 
 Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
 
@@ -83,4 +83,4 @@ Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** d
 
 ## Docentes
 
-- :space_invader: Daniel Acevedo (daniel18acevedo@gmail.com)
+- :space_invader: Daniel Acevedo (Maticor93@gmail.com)
