@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation)
 
 # Navegacion anidada
 
@@ -30,5 +30,5 @@ Esta forma de cargar los hijos o las rutas raices, implica la desventaja de que 
 
 ## Codigos
 
-- [Codigo de ejemplo de navegacion con hijos](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenExampleApp)
+- [Codigo de ejemplo de navegacion con hijos](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenExampleApp)
 

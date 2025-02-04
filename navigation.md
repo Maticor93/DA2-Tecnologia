@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation)
 
 # Ruteo y navegacion
 
@@ -65,7 +65,7 @@ En esta vista tenemos una parte estatica, la navegacion, y una parte dinamica, e
 
 ## Codigos
 
-- [Codigo de ejemplo basico de navegacion](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationExampleApp)
+- [Codigo de ejemplo basico de navegacion](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationExampleApp)
 
 ## Lecturas recomendadas
 

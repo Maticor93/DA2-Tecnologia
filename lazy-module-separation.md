@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation)
 
 # Lazy loading
 
@@ -179,5 +179,5 @@ export class ThirdRoutingModule {}
 
 ## Codigos
 
-- [Codigo de ejemplo de navegacion con `lazy`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenRefactorLazyExampleApp)
+- [Codigo de ejemplo de navegacion con `lazy`](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenRefactorLazyExampleApp)
 

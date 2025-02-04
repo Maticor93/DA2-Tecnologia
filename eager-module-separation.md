@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation)
 
 # Uso de modulos `eager`
 
@@ -69,5 +69,5 @@ La forma en que la importacion de modulos `eager` funciona es cargar todos los m
 
 ## Codigos
 
-- [Codigo de ejemplo de navegacion con `eager`](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenRefactorEagerExampleApp)
+- [Codigo de ejemplo de navegacion con `eager`](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithChildrenRefactorEagerExampleApp)
 

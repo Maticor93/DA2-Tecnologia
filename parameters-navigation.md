@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation)
 
 # Navegacion con parametros
 
@@ -42,5 +42,5 @@ Dado que hacemos uso de una suscripcion, para evitar problemas de performance co
 
 ## Codigos
 
-- [Codigo de ejemplo de navegacion con parametros](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithParamsExampleApp)
+- [Codigo de ejemplo de navegacion con parametros](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-navigation/1-%20Angular%20application/MyNavigationWithParamsExampleApp)
 
