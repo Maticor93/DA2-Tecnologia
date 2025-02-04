@@ -1,10 +1,3 @@
-# Repositorio de clase
-
-## Planillas
-
-- [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
-- [Grupo obligatorios](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/ERVYsgSzrElNvxnwj0L3ZbkBnKiIcVKgD-VTEBUVJ_pZVw?e=O0ItFW)
-
 ## Introducción
 
 Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
