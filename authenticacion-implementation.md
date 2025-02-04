@@ -1,4 +1,4 @@
-[Atras - Indice](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-component)
+[Atras - Indice](https://github.com/Maticor93/DA2-Tecnologia/tree/angular-component)
 
 # Implementacion de la autenticacion
 
@@ -95,7 +95,7 @@ export class LoginFormComponent {
 }
 ```
 
-Este formulario fue construido con el approach [reactive-forms](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular-component/forms.md).
+Este formulario fue construido con el approach [reactive-forms](https://github.com/Maticor93/DA2-Tecnologia/blob/angular-component/forms.md).
 
 El comportamiento de este formulario validara los valores de los inputs a medida que se actualicen y en caso de encontrar algun error desplegara el mensaje de error correspondiente. En caso de que el usuario haga click de `Login` sin pasar por los inputs, este los marcara a todos como tocados para desplegar los mensajes de error. Una vez arreglados los errores y al hacer click en `Login`, se imprimiran por consola los valores puestos en los inputs como modo de confirmacion de los inputs.
 
