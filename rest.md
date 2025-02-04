@@ -4,5 +4,5 @@ Representational State Transfer es un estilo arquitectonico para diseñar aplica
 
 Al ser un estilo arquitectonico, esto implica que no es un estandard estricto y permite flexibilidad. Gracias a esta flexibilidad es importante definir buenas practicas a respetar.
 
-- [Restricciones](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/rest-restrictions.md)
-- [Buenas practicas](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/rest-good-practices.md)
+- [Restricciones](https://github.com/Maticor93/DA2-Tecnologia/blob/web-api/rest-restrictions.md)
+- [Buenas practicas](https://github.com/Maticor93/DA2-Tecnologia/blob/web-api/rest-good-practices.md)
