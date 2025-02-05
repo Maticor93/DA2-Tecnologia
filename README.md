@@ -4,11 +4,11 @@
 
 - [EF Core](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/ef-core.md)
 
-- [Prueba de conexion](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/3-%20Test%20db%20connection)
+- [Prueba de conexion](https://github.com/Maticor93/DA2-Tecnologia/tree/ef-core/3-%20Test%20db%20connection)
 
-- [Relacion 1 a N](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/4-%20One%20to%20many%20map%20relation)
+- [Relacion 1 a N](https://github.com/Maticor93/DA2-Tecnologia/tree/ef-core/4-%20One%20to%20many%20map%20relation)
 
-- [Relacion N a N](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core/5-%20Many%20to%20many%20map%20relation)
+- [Relacion N a N](https://github.com/Maticor93/DA2-Tecnologia/tree/ef-core/5-%20Many%20to%20many%20map%20relation)
   
 - [Primeros pasos](https://github.com/Maticor93/DA2-Tecnologia/blob/ef-core/first-steps.md)
   
